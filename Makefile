@@ -1,4 +1,4 @@
-SOURCE_CODE = main.py
+SOURCE_CODE = phase1.py phase2.py phase3.py
 
 .RECIPEPREFIX = >
 .PHONY: format compress
