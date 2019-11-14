@@ -22,19 +22,19 @@ def process_terms(row, name, data):
 
 
 def process_emails(row, name, data):
-    if data is None or len(data) == 0:
-        return
-
-    data = data.lower()
-    emails_out.write(name + "-" + data + ":" + row + "\n")
+    if data is not None and len(data) > 0:
+        data = data.lower().strip()
+        emails_out.write(name + "-" + data + ":" + row + "\n")
 
 
 def process_dates(row, data):
-    pass
+    if data is not None and len(data) > 0:
+        dates_out.write(data.strip() + ":" + row + "\n")
 
 
 def process_recs(row, data):
-    pass
+    if data is not None and len(data) > 0:
+        pass
 
 
 def process_line(row):
@@ -65,6 +65,11 @@ def process_line(row):
         process_emails(data["row"], "cc", data["cc"])
     if "bcc" in data:
         process_emails(data["row"], "bcc", data["bcc"])
+
+    if "date" in data:
+        process_dates(data["row"], data["date"])
+
+    process_recs(data["row"], row)
 
 
 for line in sys.stdin:
