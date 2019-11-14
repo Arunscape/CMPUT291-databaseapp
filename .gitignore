@@ -1,3 +1,9 @@
+# Compressed packages
+/prj2.tgz
+
+# PyCharm
+.idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
