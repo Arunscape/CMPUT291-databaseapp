@@ -1,8 +1,14 @@
+# PyCharm
+.idea/
+
 # Compressed packages
 /prj2.tgz
 
-# PyCharm
-.idea/
+# Phase 1 Output
+/terms.txt
+/emails.txt
+/dates.txt
+/recs.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
