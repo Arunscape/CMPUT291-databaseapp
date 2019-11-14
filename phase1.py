@@ -22,9 +22,13 @@ def process_terms(row, name, data):
 
 
 def process_emails(row, name, data):
-    if data is not None and len(data) > 0:
-        data = data.lower().strip()
-        emails_out.write(name + "-" + data + ":" + row + "\n")
+    if data is None or len(data) == 0:
+        return
+
+    data = data.lower().strip()
+    for email in data.split(","):
+        email = email.strip()
+        emails_out.write(name + "-" + email + ":" + row + "\n")
 
 
 def process_dates(row, data):
@@ -34,7 +38,7 @@ def process_dates(row, data):
 
 def process_recs(row, data):
     if data is not None and len(data) > 0:
-        pass
+        recs_out.write(row + ":" + data.strip() + "\n")
 
 
 def process_line(row):
