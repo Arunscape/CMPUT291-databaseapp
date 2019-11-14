@@ -21,6 +21,22 @@ def process_terms(row, name, data):
             terms_out.write(name + "-" + word + ":" + row + "\n")
 
 
+def process_emails(row, name, data):
+    if data is None or len(data) == 0:
+        return
+
+    data = data.lower()
+    emails_out.write(name + "-" + data + ":" + row + "\n")
+
+
+def process_dates(row, data):
+    pass
+
+
+def process_recs(row, data):
+    pass
+
+
 def process_line(row):
     tree = ElementTree.fromstring(row)
     data = {}
@@ -40,6 +56,15 @@ def process_line(row):
         process_terms(data["row"], "s", data["subj"])
     if "body" in data:
         process_terms(data["row"], "b", data["body"])
+
+    if "from" in data:
+        process_emails(data["row"], "from", data["from"])
+    if "to" in data:
+        process_emails(data["row"], "to", data["to"])
+    if "cc" in data:
+        process_emails(data["row"], "cc", data["cc"])
+    if "bcc" in data:
+        process_emails(data["row"], "bcc", data["bcc"])
 
 
 for line in sys.stdin:
