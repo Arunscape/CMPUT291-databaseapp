@@ -1,4 +1,4 @@
-Database App
+Email Lookup App
 
 TODO: short description
 
@@ -11,4 +11,4 @@ Collaboration:
 TODO
 
 Usage:
-TODO
+TODO: Also put this in report
