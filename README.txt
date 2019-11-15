@@ -15,3 +15,5 @@ Usage:
 TODO: Also put this in report
 Phase 1:
 $ python3 phase1.py < file-to-process.txt
+Phase 2:
+$ ./phase2.sh
