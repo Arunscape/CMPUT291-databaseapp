@@ -10,6 +10,12 @@
 /dates.txt
 /recs.txt
 
+# Phase 2 Output
+/re.idx
+/te.idx
+/em.idx
+/da.idx
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

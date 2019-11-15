@@ -1,4 +1,4 @@
-SOURCE_CODE = phase1.py phase2.py phase3.py
+SOURCE_CODE = phase1.py phase2.sh break.pl phase3.py
 
 .RECIPEPREFIX = >
 .PHONY: format compress clean
@@ -10,4 +10,5 @@ compress:
 > tar -czf prj2.tgz $(SOURCE_CODE) README.txt Report.pdf
 
 clean:
-> rm terms.txt emails.txt dates.txt recs.txt *.idx
+> rm -f terms.txt emails.txt dates.txt recs.txt
+> rm -f re.idx te.idx em.idx da.idx
