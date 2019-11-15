@@ -10,4 +10,4 @@ compress:
 > tar -czf prj2.tgz $(SOURCE_CODE) README.txt Report.pdf
 
 clean:
-> rm terms.txt emails.txt dates.txt recs.txt *.idx
+> rm -f terms.txt emails.txt dates.txt recs.txt *.idx
