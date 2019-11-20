@@ -101,7 +101,8 @@ celerybeat-schedule
 
 # Environments
 .env
-.venv
+# ship this with the project
+#.venv
 env/
 venv/
 ENV/
