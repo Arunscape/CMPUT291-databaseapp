@@ -10,7 +10,7 @@ black = "*"
 bsddb3 = "*"
 
 [requires]
-python_version = "3.5"
+python_version = "3.8"
 
 [pipenv]
 allow_prereleases = true

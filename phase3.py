@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 from bsddb3 import db
+from dataclasses import dataclass
 
 '''
 alphanumeric    ::= [0-9a-zA-Z_-]
@@ -25,89 +26,74 @@ modeChange	::= 'output=full' | 'output=brief'
 command		::= query | modeChange
 '''
 
-def tokenize(s: str)
-    for c in s:
-        if c != ' ':
-            yield c
-    while True:
-        yield '\0'
+class Query:
+    pass
 
 @dataclass
-class Node:
-    left: Node
-    right: Node
-    name: Node
+class DateQuery(Query):
+    date_prefix: str
+    date: str
 
-    def debug(n: Node):
-        s: str = '['
-        if n.left != None:
-            s += debug(n.left)
-        
-        s += f" {n.name} "
-        
-        if n.right != None:
-            s += debug(n.right)
-        return f"{s} ]"
+class ModeChange:
+    pass
 
 class Parser:
 
     def __init__(self, s):
-        self.lexer = lexer(s)
-        self.curr = next(self.lexer)
+        self.index = 0
+        self.string = s
 
-    def alphanumeric(self) -> Node:
-        l = self.curr
-        self.curr = next(self.lexer)
+    def parse(self) -> Query:
+        #try:
+        #    return self.dateQuery()
+        #except DateParseException:
+        #    print("REEEEEEEEEEEEEEEEEE")
+        return self.dateQuery()
 
-        if l.isalnum():
-            print("Expected an alphanumeric sequence")
-            return None
+    def chomp_whitespace(self) -> None:
+        while self.string[self.index + 1] == " ":
+            self.string = self.string[:self.index] + self.string[self.index + 1:]
 
-        return Node(None, None, 1)
+    # dateQuery ::= datePrefix whitespace* date
+    def dateQuery(self) -> DateQuery:
+        pre: str = self.datePrefix()
+        self.chomp_whitespace()
+        d: str = self.date()
+        return DateQuery(pre, d)
+
+    # datePrefix ::= 'date' whitespace* (':' | '>' | '<' | '>=' | '<=')
+    def datePrefix(self) -> str:
+
+        if self.string[self.index:self.index+4] != "date":
+            raise DateParseException()
+        
+        self.index += 4
+        self.chomp_whitespace()
+        tok = self.string[self.index+1]
+        if tok in (':', '>', '<', '>=', '<='):
+            return self.string[:self.index]
+        
+        raise DateParseException()
     
-    def numeric(self) -> Node:
-        l = self.curr
-        self.curr = next(self.lexer)
+    def date(self) -> str:
+        date_regex = re.compile(r"\d{4}\/\d{2}\/\d{2}")
+        match = date_regex.match(self.string)
+        if (m.start() == self.index):
+            self.index = m.end()
+            return self.string[m.start():m.end()]
 
-        if l.isnumeric():
-            print("Expected a numeric sequence")
-            return None
-        return Node(None, None, 1)
+        raise DateParseException()
+ 
+class ParseException(Exception):
+    pass
+class DateParseException(ParseException):
+    pass
 
-    # date            ::= numeric numeric numeric numeric '/' numeric numeric '/' numeric numeric
-    def date(self) -> Node:
-        l = self.numeric()
-        self.curr = next(self.lexer)
 
-        if l == None:
-            return None
-        pass
+# test
+p = Parser(":     2000/11/11")
 
-    def datePrefix(self) -> Node:
-        pass
-    def dateQuery(self) -> Node:
-        pass
-    def emailterm(self) -> Node:
-        pass
-    def email(self) -> Node:
-        pass
-    def emailPrefix(self) -> Node:
-        pass
-    def emailQuery(self) -> Node:
-        pass
-    def term(self) -> Node:
-        pass
-    def termPrefix(self) -> Node:
-        pass
-    def termSuffix(self) -> Node:
-        pass
-    def termQuery(self) -> Node:
-        pass
-    def expression(self) -> Node:
-        pass
-    def query(self) -> Node:
-        pass
-    def modeChange(self) -> Node:
-        pass
-    def command(self) -> Node:
-        pass
+idk = p.parse()
+
+print(idk.date_prefix)
+print(idk.date)
