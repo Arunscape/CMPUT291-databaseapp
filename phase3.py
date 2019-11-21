@@ -116,9 +116,6 @@ class Parser:
 
     ############################################################################
 
-    # emailQuery
-    # emailterm	::= alphanumeric+ | alphanumeric+ '.' emailterm
-    # email		::= emailterm '@' emailterm
     # emailQuery	::= emailPrefix whitespace* email
     ############################################################################
     def emailQuery(self) -> EmailQuery:
@@ -148,6 +145,9 @@ class Parser:
 
         return self.string[: self.index]
 
+    # TODO it doesn't fully comply with this grammar yet
+    # emailterm	::= alphanumeric+ | alphanumeric+ '.' emailterm
+    # email ::= emailterm '@' emailterm
     def email_address(self) -> str:
         email_term_regex = re.compile(r"[0-9a-zA-Z_-]+@[0-9a-zA-Z_-]+\.[0-9a-zA-Z_-]+")
 
@@ -161,6 +161,9 @@ class Parser:
             return self.string[match.start() : match.end()]
 
     ############################################################################
+
+    def termQuery(self) -> TermQuery:
+        pass
 
 
 class ParseException(Exception):
@@ -181,7 +184,7 @@ class EmailParseException(ParseException):
 # print(idk.date_prefix)
 # print(idk.date)
 
-p = Parser("from : abc@x.yz")
-idk = p.parse()
-print(idk.email_prefix)
-print(idk.email_address)
+# p = Parser("from : abc@x.yz")
+# idk = p.parse()
+# print(idk.email_prefix)
+# print(idk.email_address)
