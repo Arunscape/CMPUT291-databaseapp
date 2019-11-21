@@ -44,11 +44,13 @@ class EmailQuery(Query):
     email_prefix: str
     email_address: str
 
+
 @dataclass
 class TermQuery(Query):
     term_prefix: str
     term: str
-    suffix: bool # True if wildcard '%' is present
+    suffix: bool  # True if wildcard '%' is present
+
 
 class ModeChange:
     pass
@@ -172,14 +174,14 @@ class Parser:
 
     ############################################################################
 
-    # termSuffix ::= '%' 
+    # termSuffix ::= '%'
     # termQuery ::= termPrefix? whitespace* term termSuffix?
     def termQuery(self) -> TermQuery:
         pre: str
         try:
             pre = self.termPrefix()
             self.chomp_whitespace()
-        except TermParseException: # optional
+        except TermParseException:  # optional
             pre = None
 
         term: str = self.term()
@@ -191,21 +193,21 @@ class Parser:
     # termPrefix ::= (subj | body) whitespace* ':'
     def termPrefix(self) -> str:
 
-        if self.string[:4] not in ('subj', 'body'):
+        if self.string[:4] not in ("subj", "body"):
             raise TermParseException()
-        
+
         self.index += 4
         self.chomp_whitespace()
-        self.chomp() # colon
+        self.chomp()  # colon
 
-        return self.string[:self.index]
+        return self.string[: self.index]
 
     # term ::= alphanumeric+
     def term(self) -> str:
         term_regex = re.compile(r"[0-9a-zA-Z_-]+")
-       
-        match = term_regex.search(self.string[self.index:])
-        print(self.string[match.start():match.end()])
+
+        match = term_regex.search(self.string[self.index :])
+        print(self.string[match.start() : match.end()])
         print(self.index)
         if match is not None and match.start() == 0:
             self.index += match.end() - match.start()
@@ -214,27 +216,28 @@ class Parser:
         raise TermParseException("Cannot parse term")
 
     def termSuffix(self) -> bool:
-       
+
         ret = False
-        if self.chomp() == '%':
+        if self.chomp() == "%":
             ret = True
-         
+
         if not self.index == len(self.string):
             raise TermParseException("Error: extra characters after term query")
-        
+
         return ret
-
-
 
 
 class ParseException(Exception):
     pass
 
+
 class DateParseException(ParseException):
     pass
 
+
 class EmailParseException(ParseException):
     pass
+
 
 class TermParseException(ParseException):
     pass
@@ -251,8 +254,8 @@ class TermParseException(ParseException):
 # print(idk.email_prefix)
 # print(idk.email_address)
 
-#p = Parser("subj :  abcd33dde%")
-#idk = p.parse()
-#print(idk.term_prefix)
-#print(idk.term)
-#print(idk.suffix)
+# p = Parser("subj :  abcd33dde%")
+# idk = p.parse()
+# print(idk.term_prefix)
+# print(idk.term)
+# print(idk.suffix)
