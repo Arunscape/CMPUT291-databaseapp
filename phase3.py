@@ -46,11 +46,10 @@ class Parser:
         self.string = s
 
     def parse(self) -> Query:
-        #try:
-        #    return self.dateQuery()
-        #except DateParseException:
-        #    print("REEEEEEEEEEEEEEEEEE")
-        return self.dateQuery()
+        try:
+            return self.dateQuery()
+        except DateParseException:
+            pass
 
     def chomp(self) -> str:
         self.index += 1
