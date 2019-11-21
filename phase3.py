@@ -38,6 +38,7 @@ class DateQuery(Query):
     date_prefix: str
     date: str
 
+
 @dataclass
 class EmailQuery(Query):
     email_prefix: str
@@ -59,7 +60,7 @@ class Parser:
         except DateParseException as e:
             print(e)
 
-        try: 
+        try:
             return self.emailQuery()
         except EmailParseException:
             pass
@@ -108,16 +109,17 @@ class Parser:
             # if there are extra characters
             if not self.index == len(self.string):
                 raise DateParseException("Error: extra characters after date")
-        
+
             return self.string[match.start() : match.end()]
 
         raise DateParseException("Could not parse date")
+
     ############################################################################
 
-    #emailQuery
-    #emailterm	::= alphanumeric+ | alphanumeric+ '.' emailterm
-    #email		::= emailterm '@' emailterm
-    #emailQuery	::= emailPrefix whitespace* email
+    # emailQuery
+    # emailterm	::= alphanumeric+ | alphanumeric+ '.' emailterm
+    # email		::= emailterm '@' emailterm
+    # emailQuery	::= emailPrefix whitespace* email
     ############################################################################
     def emailQuery(self) -> EmailQuery:
         pre: str = self.emailPrefix()
@@ -126,26 +128,25 @@ class Parser:
 
         return EmailQuery(pre, email)
 
-
-    #emailPrefix ::= (from | to | cc | bcc) whitespace* ':'
+    # emailPrefix ::= (from | to | cc | bcc) whitespace* ':'
     def emailPrefix(self) -> str:
         prefix: str
-        if self.string[:2] in ('cc', 'to'):
+        if self.string[:2] in ("cc", "to"):
             self.index += 2
             prefix = self.string[:2]
-        elif self.string[:3] == 'bcc':
+        elif self.string[:3] == "bcc":
             self.index += 3
-            prefix = 'bcc'
-        elif self.string[:4] == 'from':
+            prefix = "bcc"
+        elif self.string[:4] == "from":
             self.index += 4
-            prefix = 'from'
+            prefix = "from"
 
         self.chomp_whitespace()
 
-        if self.chomp() != ':':
+        if self.chomp() != ":":
             raise EmailParseException("no colon ':' in emailPrefix")
 
-        return self.string[:self.index]
+        return self.string[: self.index]
 
     def email_address(self) -> str:
         email_term_regex = re.compile(r"[0-9a-zA-Z_-]+@[0-9a-zA-Z_-]+\.[0-9a-zA-Z_-]+")
@@ -156,8 +157,10 @@ class Parser:
             # if there are extra characters
             if not self.index == len(self.string):
                 raise EmailParseException("Error: extra characters after email")
-        
+
             return self.string[match.start() : match.end()]
+
+    ############################################################################
 
 
 class ParseException(Exception):
@@ -167,15 +170,16 @@ class ParseException(Exception):
 class DateParseException(ParseException):
     pass
 
+
 class EmailParseException(ParseException):
     pass
 
 
 # test
-#p = Parser("date:     2000/11/11")
-#idk = p.parse()
-#print(idk.date_prefix)
-#print(idk.date)
+# p = Parser("date:     2000/11/11")
+# idk = p.parse()
+# print(idk.date_prefix)
+# print(idk.date)
 
 p = Parser("from : abc@x.yz")
 idk = p.parse()
