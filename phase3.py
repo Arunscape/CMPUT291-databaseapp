@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 import re
 
-'''
+"""
 alphanumeric    ::= [0-9a-zA-Z_-]
 numeric		::= [0-9]
 date            ::= numeric numeric numeric numeric '/' numeric numeric '/' numeric numeric
@@ -26,21 +26,24 @@ query           ::= expression (whitespace expression)*
 modeChange	::= 'output=full' | 'output=brief'
 
 command		::= query | modeChange
-'''
+"""
+
 
 class Query:
     pass
+
 
 @dataclass
 class DateQuery(Query):
     date_prefix: str
     date: str
 
+
 class ModeChange:
     pass
 
-class Parser:
 
+class Parser:
     def __init__(self, s):
         self.index = 0
         self.string = s
@@ -53,12 +56,14 @@ class Parser:
 
     def chomp(self) -> str:
         self.index += 1
-        return self.string[self.index-1]
+        return self.string[self.index - 1]
 
     def chomp_whitespace(self) -> None:
         while self.string[self.index] == " ":
             self.index += 1
 
+    ############################################################################
+    # dateQuery logic
     # dateQuery ::= datePrefix whitespace* date
     def dateQuery(self) -> DateQuery:
         pre: str = self.datePrefix()
@@ -70,32 +75,37 @@ class Parser:
     def datePrefix(self) -> str:
 
         # chomp 'date'
-        if self.string[self.index:self.index+4] != "date":
+        if self.string[self.index : self.index + 4] != "date":
             raise DateParseException("Could not parse datePrefix")
-        self.index += 4 
-        
+        self.index += 4
+
         self.chomp_whitespace()
         tok = self.chomp()
 
-        if tok in (':', '>', '<', '>=', '<='):
-            return self.string[:self.index]
-        
+        if tok in (":", ">", "<", ">=", "<="):
+            return self.string[: self.index]
+
         raise DateParseException("Could not parse datePrefix pt. 2")
-    
+
     def date(self) -> str:
 
         self.chomp_whitespace()
 
         date_regex = re.compile(r"\d{4}\/\d{2}\/\d{2}")
         match = date_regex.search(self.string)
-        if (match is not None and match.start() == self.index):
+        if match is not None and match.start() == self.index:
             self.index = match.end()
-            return self.string[match.start():match.end()]
+            return self.string[match.start() : match.end()]
 
         raise DateParseException("Could not parse date")
- 
+
+    ############################################################################
+
+
 class ParseException(Exception):
     pass
+
+
 class DateParseException(ParseException):
     pass
 
