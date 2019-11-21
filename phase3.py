@@ -3,6 +3,8 @@
 from bsddb3 import db
 from dataclasses import dataclass
 
+import re
+
 '''
 alphanumeric    ::= [0-9a-zA-Z_-]
 numeric		::= [0-9]
@@ -50,9 +52,13 @@ class Parser:
         #    print("REEEEEEEEEEEEEEEEEE")
         return self.dateQuery()
 
+    def chomp(self) -> str:
+        self.index += 1
+        return self.string[self.index-1]
+
     def chomp_whitespace(self) -> None:
-        while self.string[self.index + 1] == " ":
-            self.string = self.string[:self.index] + self.string[self.index + 1:]
+        while self.string[self.index] == " ":
+            self.index += 1
 
     # dateQuery ::= datePrefix whitespace* date
     def dateQuery(self) -> DateQuery:
@@ -64,25 +70,30 @@ class Parser:
     # datePrefix ::= 'date' whitespace* (':' | '>' | '<' | '>=' | '<=')
     def datePrefix(self) -> str:
 
+        # chomp 'date'
         if self.string[self.index:self.index+4] != "date":
-            raise DateParseException()
+            raise DateParseException("Could not parse datePrefix")
+        self.index += 4 
         
-        self.index += 4
         self.chomp_whitespace()
-        tok = self.string[self.index+1]
+        tok = self.chomp()
+
         if tok in (':', '>', '<', '>=', '<='):
             return self.string[:self.index]
         
-        raise DateParseException()
+        raise DateParseException("Could not parse datePrefix pt. 2")
     
     def date(self) -> str:
-        date_regex = re.compile(r"\d{4}\/\d{2}\/\d{2}")
-        match = date_regex.match(self.string)
-        if (m.start() == self.index):
-            self.index = m.end()
-            return self.string[m.start():m.end()]
 
-        raise DateParseException()
+        self.chomp_whitespace()
+
+        date_regex = re.compile(r"\d{4}\/\d{2}\/\d{2}")
+        match = date_regex.search(self.string)
+        if (match is not None and match.start() == self.index):
+            self.index = match.end()
+            return self.string[match.start():match.end()]
+
+        raise DateParseException("Could not parse date")
  
 class ParseException(Exception):
     pass
@@ -91,7 +102,7 @@ class DateParseException(ParseException):
 
 
 # test
-p = Parser(":     2000/11/11")
+p = Parser("date    :     2000/11/11")
 
 idk = p.parse()
 
