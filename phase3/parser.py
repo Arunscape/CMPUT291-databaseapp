@@ -211,7 +211,9 @@ class Parser:
 
         self.index += 4
         self.chomp_whitespace()
-        self.chomp()  # colon
+        
+        if self.chomp() != ':':
+            raise TermParseException("Colon not found at end of prefix")
 
         return self.string[: self.index]
 
