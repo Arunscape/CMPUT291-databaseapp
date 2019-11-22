@@ -24,8 +24,8 @@ def parse(line):
 
         match = termQuery.match(line)
         if match is not None:
-            print("TERM(field, term, end) = (", match.group(1), ", ", match.group(2), ",", match.group(3), ")")
-            line = line[len(match.string):]
+            print("TERM(field?, term, end?) = (", match.group(1), ", ", match.group(2), ",", match.group(3), ")")
+            line = line[match.end():]
             continue
 
         print("Syntax error")
@@ -41,4 +41,4 @@ if __name__ == '__main__':
     print()
     parse("subj test%")
     print()
-    parse("date  <= 1999/12/21 from     : joe.joe.joe.joe@localhost body hello")
+    parse("date  <= 1999/12/21 from     : joe.joe.joe.joe@localhost body hello date > 1888/01/01")
