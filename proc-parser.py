@@ -1,14 +1,14 @@
 import re
 
-dateQuery = re.compile(r'^date\s*(:|>|<|>=|<=)\s*([0-9]{4}/[0-9]{2}/[0-9]{2})(?: |$)')
+dateQuery = re.compile(r'^date\s*(:|>|<|>=|<=)\s*([0-9]{4}/[0-9]{2}/[0-9]{2})(?:\s|$)')
 emailQuery = re.compile(
-    r'^(from|to|cc|bcc)\s*:\s*([0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*@[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*)(?: |$)')
-termQuery = re.compile(r'^(subj|body|)\s*([0-9a-zA-Z_-]+)(%|)(?: |$)')
+    r'^(from|to|cc|bcc)\s*:\s*([0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*@[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*)(?:\s|$)')
+termQuery = re.compile(r'^(subj|body|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s|$)')
 
 
 def parse(line):
     while len(line) > 0:
-        print(line)
+        # print(line)
 
         match = dateQuery.match(line)
         if match is not None:
@@ -41,4 +41,4 @@ if __name__ == '__main__':
     print()
     parse("subj test%")
     print()
-    parse("date  <= 1999/12/21 from     : joe.joe.joe.joe@localhost body hello date > 1888/01/01")
+    parse("date  <= 1999/12/21 from     : joe.joe.joe.joe@localhost body hello date > 1888/01/01\tfrom   :joe@localhost.abc.org")
