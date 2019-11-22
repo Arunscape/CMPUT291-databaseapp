@@ -1,7 +1,6 @@
 #! /usr/bin/env python3
 
 from dataclasses import dataclass
-
 import re
 
 """
@@ -51,14 +50,6 @@ class TermQuery(Query):
     suffix: bool  # True if wildcard '%' is present
 
 
-def ModeChange(mode: bool):
-    # TODO
-    global MODE
-
-    # idk
-    pass
-
-
 class Parser:
     def __init__(self, s):
         self.index = 0
@@ -67,9 +58,9 @@ class Parser:
     def parse(self) -> Query:
 
         if self.str == "output=full":
-            mode_change(True)
+            return None  # TODO change mode
         elif self.str == "output=brief":
-            mode_change(False)
+            return None  # T ODO change mode
         else:
             try:
                 return self.dateQuery()
@@ -116,7 +107,7 @@ class Parser:
 
         if tok in (":", ">", "<"):
             # covers >=, <=
-            if self.string[self.index + 1] == '=':
+            if self.string[self.index + 1] == "=":
                 self.index += 1
 
             return self.string[: self.index]
@@ -141,7 +132,7 @@ class Parser:
 
     ############################################################################
 
-    # emailQuery	::= emailPrefix whitespace* email
+    # emailQuery ::= emailPrefix whitespace* email
     ############################################################################
     def emailQuery(self) -> EmailQuery:
         pre: str = self.emailPrefix()
@@ -211,8 +202,8 @@ class Parser:
 
         self.index += 4
         self.chomp_whitespace()
-        
-        if self.chomp() != ':':
+
+        if self.chomp() != ":":
             raise TermParseException("Colon not found at end of prefix")
 
         return self.string[: self.index]
