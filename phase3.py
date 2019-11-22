@@ -52,7 +52,11 @@ class TermQuery(Query):
     suffix: bool  # True if wildcard '%' is present
 
 
-class ModeChange:
+def ModeChange(mode: bool):
+    # TODO
+    global MODE
+
+    # idk
     pass
 
 
@@ -62,20 +66,26 @@ class Parser:
         self.string = s
 
     def parse(self) -> Query:
-        try:
-            return self.dateQuery()
-        except DateParseException:
-            pass
 
-        try:
-            return self.emailQuery()
-        except EmailParseException:
-            pass
+        if self.str == "output=full":
+            mode_change(True)
+        elif self.str == "output=brief":
+            mode_change(False)
+        else:
+            try:
+                return self.dateQuery()
+            except DateParseException:
+                pass
 
-        try:
-            return self.termQuery()
-        except TermParseException as e:
-            print(e)
+            try:
+                return self.emailQuery()
+            except EmailParseException:
+                pass
+
+            try:
+                return self.termQuery()
+            except TermParseException:
+                pass
 
     def chomp(self) -> str:
         self.index += 1
