@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 
 from dataclasses import dataclass
+from typing import List
+
 import re
 
 """
@@ -51,11 +53,12 @@ class TermQuery(Query):
 
 
 class Parser:
-    def __init__(self, s):
+    def __init__(self, s) -> None:
         self.index = 0
         self.string = s
+        self.queries: List[Query] = []
 
-    def parse(self) -> Query:
+    def parse(self) -> List[Query]:
 
         if self.string == "output=full":
             return None  # TODO change mode
@@ -63,19 +66,21 @@ class Parser:
             return None  # T ODO change mode
         else:
             try:
-                return self.dateQuery()
+                self.queries.append(self.dateQuery())
             except DateParseException:
                 pass
 
             try:
-                return self.emailQuery()
+                self.queries.append(self.emailQuery())
             except EmailParseException:
                 pass
 
             try:
-                return self.termQuery()
+                return self.queries.append(self.termQuery())
             except TermParseException:
                 pass
+
+            return self.queries
 
     def chomp(self) -> str:
         self.index += 1
@@ -122,10 +127,7 @@ class Parser:
         match = date_regex.search(self.string)
         if match is not None and match.start() == self.index:
             self.index = match.end()
-            # if there are extra characters
-            if not self.index == len(self.string):
-                raise DateParseException("Error: extra characters after date")
-
+            self.chomp_whitespace()
             return self.string[match.start() : match.end()]
 
         raise DateParseException("Could not parse date")
@@ -171,10 +173,7 @@ class Parser:
         match = email_term_regex.search(self.string)
         if match is not None and match.start() == self.index:
             self.index = match.end()
-            # if there are extra characters
-            if not self.index == len(self.string):
-                raise EmailParseException("Error: extra characters after email")
-
+            self.chomp_whitespace()
             return self.string[match.start() : match.end()]
 
     ############################################################################
@@ -228,8 +227,7 @@ class Parser:
         if self.chomp() == "%":
             ret = True
 
-        if not self.index == len(self.string):
-            raise TermParseException("Error: extra characters after term query")
+        self.chomp_whitespace()
 
         return ret
 
