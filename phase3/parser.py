@@ -67,18 +67,27 @@ class Parser:
         else:
             try:
                 self.queries.append(self.dateQuery())
+                self.string = self.string[self.index :]
             except DateParseException:
                 pass
+            finally:
+                self.index = 0
 
             try:
                 self.queries.append(self.emailQuery())
+                self.string = self.string[self.index :]
             except EmailParseException:
                 pass
+            finally:
+                self.index = 0
 
             try:
-                return self.queries.append(self.termQuery())
+                self.queries.append(self.termQuery())
+                self.string = self.string[self.index :]
             except TermParseException:
                 pass
+            finally:
+                self.index = 0
 
             return self.queries
 
@@ -87,8 +96,11 @@ class Parser:
         return self.string[self.index - 1]
 
     def chomp_whitespace(self) -> None:
-        while self.string[self.index] == " ":
-            self.index += 1
+        try:
+            while self.string[self.index] == " ":
+                self.index += 1
+        except IndexError:
+            pass
 
     ############################################################################
     # dateQuery logic
@@ -146,13 +158,13 @@ class Parser:
     # emailPrefix ::= (from | to | cc | bcc) whitespace* ':'
     def emailPrefix(self) -> str:
         prefix: str
-        if self.string[:2] in ("cc", "to"):
+        if self.string[self.index : self.index + 2] in ("cc", "to"):
             self.index += 2
-            prefix = self.string[:2]
-        elif self.string[:3] == "bcc":
+            prefix = self.string[self.index : self.index + 2]
+        elif self.string[self.index : self.index + 3] == "bcc":
             self.index += 3
             prefix = "bcc"
-        elif self.string[:4] == "from":
+        elif self.string[self.index : self.index + 4] == "from":
             self.index += 4
             prefix = "from"
 
@@ -168,7 +180,9 @@ class Parser:
     # email ::= emailterm '@' emailterm
     def email_address(self) -> str:
 
-        email_term_regex = re.compile(r"[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*@[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*")
+        email_term_regex = re.compile(
+            r"[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*@[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*"
+        )
 
         match = email_term_regex.search(self.string)
         if match is not None and match.start() == self.index:
@@ -197,7 +211,7 @@ class Parser:
     # termPrefix ::= (subj | body) whitespace* ':'
     def termPrefix(self) -> str:
 
-        if self.string[:4] not in ("subj", "body"):
+        if self.string[self.index : self.index + 4] not in ("subj", "body"):
             raise TermParseException()
 
         self.index += 4
@@ -213,11 +227,14 @@ class Parser:
         term_regex = re.compile(r"[0-9a-zA-Z_-]+")
 
         match = term_regex.search(self.string[self.index :])
-        print(self.string[match.start() : match.end()])
+        print("REEEEE")
+        print(self.string[match.start() + self.index : match.end() + self.index])
         print(self.index)
+        print("REEEE")
         if match is not None and match.start() == 0:
+            offset = self.index
             self.index += match.end() - match.start()
-            return self.string[match.start() : match.end()]
+            return self.string[match.start() + offset : match.end() + offset]
 
         raise TermParseException("Cannot parse term")
 
@@ -248,19 +265,27 @@ class TermParseException(ParseException):
     pass
 
 
-# test
-# p = Parser("date:     2000/11/11")
-# idk = p.parse()
-# print(idk.date_prefix)
-# print(idk.date)
+if __name__ == "__main__":
+    # test
+    # p = Parser("date:     2000/11/11")
+    # idk = p.parse()
+    # print(idk.date_prefix)
+    # print(idk.date)
 
-p = Parser("from : abc@x.yz")
-idk = p.parse()
-print(idk.email_prefix)
-print(idk.email_address)
+    # p = Parser("from : abc@x.yz")
+    # idk = p.parse()
+    # print(idk.email_prefix)
+    # print(idk.email_address)
 
-# p = Parser("subj :  abcd33dde%")
-# idk = p.parse()
-# print(idk.term_prefix)
-# print(idk.term)
-# print(idk.suffix)
+    # p = Parser("subj :  abcd33dde%")
+    # idk = p.parse()
+    # print(idk.term_prefix)
+    # print(idk.term)
+    # print(idk.suffix)
+
+    # p = Parser("date:     2000/11/11  subj :  abcd33dde%")
+    # idk = p.parse()
+    # print(p.queries)
+    # for x in idk:
+    #     print(x)
+    pass
