@@ -57,9 +57,9 @@ class Parser:
 
     def parse(self) -> Query:
 
-        if self.str == "output=full":
+        if self.string == "output=full":
             return None  # TODO change mode
-        elif self.str == "output=brief":
+        elif self.string == "output=brief":
             return None  # T ODO change mode
         else:
             try:
@@ -165,7 +165,8 @@ class Parser:
     # emailterm	::= alphanumeric+ | alphanumeric+ '.' emailterm
     # email ::= emailterm '@' emailterm
     def email_address(self) -> str:
-        email_term_regex = re.compile(r"[0-9a-zA-Z_-]+@[0-9a-zA-Z_-]+\.[0-9a-zA-Z_-]+")
+
+        email_term_regex = re.compile(r"[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*@[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*")
 
         match = email_term_regex.search(self.string)
         if match is not None and match.start() == self.index:
@@ -255,10 +256,10 @@ class TermParseException(ParseException):
 # print(idk.date_prefix)
 # print(idk.date)
 
-# p = Parser("from : abc@x.yz")
-# idk = p.parse()
-# print(idk.email_prefix)
-# print(idk.email_address)
+p = Parser("from : abc@x.yz")
+idk = p.parse()
+print(idk.email_prefix)
+print(idk.email_address)
 
 # p = Parser("subj :  abcd33dde%")
 # idk = p.parse()
