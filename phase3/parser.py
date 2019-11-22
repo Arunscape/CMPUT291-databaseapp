@@ -1,6 +1,5 @@
 #! /usr/bin/env python3
 
-from bsddb3 import db
 from dataclasses import dataclass
 
 import re
@@ -115,7 +114,11 @@ class Parser:
         self.chomp_whitespace()
         tok: str = self.chomp()
 
-        if tok in (":", ">", "<", ">=", "<="):
+        if tok in (":", ">", "<"):
+            # covers >=, <=
+            if self.string[self.index + 1] == '=':
+                self.index += 1
+
             return self.string[: self.index]
 
         raise DateParseException("Could not parse datePrefix pt. 2")
