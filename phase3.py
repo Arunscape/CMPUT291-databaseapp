@@ -25,6 +25,8 @@ re_email_query = re.compile(
 )
 re_term_query = re.compile(r"^(subj|body|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|$)")
 
+re_extract_title = re.compile(r"<subj>(.*?)</subj>")
+
 
 def intersect(a, b):
     return [elem for elem in a if elem in b]
@@ -47,7 +49,7 @@ def filter_email(field, email):
     new_rows = []
 
     curs = emails_db.cursor()
-    entry = curs.set(lookup_string.encode("utf8"))
+    entry = curs.set(lookup_string.encode("utf-8"))
     while entry is not None:
         new_rows.append(entry[1])
         entry = curs.next_dup()
@@ -66,13 +68,14 @@ def filter_field(field, term, is_prefix):
 
 
 def show_records():
-    if output_full:
-        for row in current_rows:
-            print(recs_db.get(row))
-    else:
-        # TODO
-        print("Not implemented")
-    pass
+    for row in current_rows:
+        record = str(recs_db.get(row).decode("utf-8"))
+        if output_full:
+            print(record)
+        else:
+            match = re_extract_title.search(record)
+            title = "" if match is None else match.group(1)
+            print(row.decode("utf-8") + " - " + title)
 
 
 def parse(line):
@@ -122,11 +125,17 @@ def parse(line):
 
 def main():
     print("Email Lookup App")
+    print("Press Ctrl+C to exit")
     print()
 
-    while True:
-        command = input("> ")
-        parse(command)
+    try:
+        while True:
+            command = input("> ")
+            parse(command)
+    except KeyboardInterrupt:
+        print()
+        print()
+        print("See you next time!")
 
 
 main()
