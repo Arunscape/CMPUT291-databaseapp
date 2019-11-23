@@ -82,8 +82,8 @@ def filter_field(field, term, is_prefix):
     curs = terms_db.cursor()
 
     if is_prefix:
-        entry = curs.set_range(is_prefix.encode("utf-8"))
-        while entry is not None and str(entry[0].decode("utf-8")).startswith(term):
+        entry = curs.set_range(lookup_string.encode("utf-8"))
+        while entry is not None and str(entry[0].decode("utf-8")).startswith(lookup_string):
             new_rows.append(entry[1])
             entry = curs.next()
     else:
