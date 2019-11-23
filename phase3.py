@@ -47,15 +47,17 @@ def filter_email(field, email):
     new_rows = []
 
     curs = emails_db.cursor()
-    entry = curs.get(lookup_string)
+    entry = curs.set(lookup_string.encode("utf8"))
     while entry is not None:
-        new_rows.append(entry)
+        new_rows.append(entry[1])
         entry = curs.next_dup()
 
     if current_rows is None:
-        current_rows = entry
+        current_rows = new_rows
     else:
         current_rows = intersect(current_rows, new_rows)
+
+    curs.close()
 
 
 def filter_field(field, term, is_prefix):
@@ -64,8 +66,12 @@ def filter_field(field, term, is_prefix):
 
 
 def show_records():
-    # TODO: Print emails according to current_rows
-    print(current_rows)
+    if output_full:
+        for row in current_rows:
+            print(recs_db.get(row))
+    else:
+        # TODO
+        print("Not implemented")
     pass
 
 
@@ -123,5 +129,8 @@ def main():
         parse(command)
 
 
-if __name__ == "__main__":
-    main()
+main()
+recs_db.close()
+terms_db.close()
+emails_db.close()
+dates_db.close()
