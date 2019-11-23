@@ -47,6 +47,10 @@ def parse(line):
     global output_full, current_rows
 
     line = line.strip()
+    if len(line) == 0:
+        return
+
+    # Special commands
     if line == "output=full":
         output_full = True
         return
@@ -54,6 +58,7 @@ def parse(line):
         output_full = False
         return
 
+    # Queries
     while len(line) > 0:
         match = re_date_query.match(line)
         if match is not None:
@@ -73,11 +78,14 @@ def parse(line):
             line = line[match.end() :]
             continue
 
+        # Something went wrong, reset
         print("Syntax Error")
         current_rows = None
         return
 
+    # Show results and reset
     show_records()
+    current_rows = None
 
 
 def main():
