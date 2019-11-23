@@ -60,12 +60,12 @@ def filter_date_larger_than(date, allow_equal):
     entry = dates_curs.last()
     while entry is not None and str(entry[0].decode("utf-8")) > date:
         new_rows.append(entry[1])
-        entry = dates_curs.next()
+        entry = dates_curs.prev()
 
     if allow_equal:
         while entry is not None and str(entry[0].decode("utf-8")) == date:
             new_rows.append(entry[1])
-            entry = dates_curs.next()
+            entry = dates_curs.prev()
 
     return new_rows
 
