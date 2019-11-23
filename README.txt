@@ -14,7 +14,7 @@ TODO
 Usage:
 TODO: Also put this in report
 Phase 1:
-$ python3 phase1.py < file-to-process.txt
+$ python3 phase1.py < file-to-process.xml
 Phase 2:
 $ bash phase2.sh
 Phase 3:
