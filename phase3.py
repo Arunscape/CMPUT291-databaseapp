@@ -26,12 +26,35 @@ re_email_query = re.compile(
 re_term_query = re.compile(r"^(subj|body|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|$)")
 
 
+def intersect(a, b):
+    return [elem for elem in a if elem in b]
+
+
 def filter_date(operator, date):
     pass
 
 
 def filter_email(field, email):
-    pass
+    global current_rows
+
+    # Fast path
+    if current_rows is not None and len(current_rows) == 0:
+        return
+
+    # Normal path
+    lookup_string = field + "-" + email
+    new_rows = []
+
+    curs = emails_db.cursor()
+    entry = curs.get(lookup_string)
+    while entry is not None:
+        new_rows.append(entry)
+        entry = curs.next_dup()
+
+    if current_rows is None:
+        current_rows = entry
+    else:
+        current_rows = intersect(current_rows, new_rows)
 
 
 def filter_field(field, term, is_prefix):
