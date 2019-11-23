@@ -31,6 +31,7 @@ def intersect(a, b):
 
 
 def filter_date(operator, date):
+    # TODO
     pass
 
 
@@ -58,11 +59,13 @@ def filter_email(field, email):
 
 
 def filter_field(field, term, is_prefix):
+    # TODO
     pass
 
 
 def show_records():
-    # Print emails according to current_rows
+    # TODO: Print emails according to current_rows
+    print(current_rows)
     pass
 
 
