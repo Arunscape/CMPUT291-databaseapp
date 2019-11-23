@@ -49,6 +49,7 @@ def filter_email(field, email):
     new_rows = []
 
     curs = emails_db.cursor()
+
     entry = curs.set(lookup_string.encode("utf-8"))
     while entry is not None:
         new_rows.append(entry[1])
@@ -63,8 +64,40 @@ def filter_email(field, email):
 
 
 def filter_field(field, term, is_prefix):
-    # TODO
-    pass
+    global current_rows
+
+    if field == "":
+        filter_field("subj", term, is_prefix)
+        filter_field("body", term, is_prefix)
+        return
+
+    # Fast path
+    if current_rows is not None and len(current_rows) == 0:
+        return
+
+    # Normal path
+    lookup_string = ("b" if field == "body" else "s") + "-" + term
+    new_rows = []
+
+    curs = terms_db.cursor()
+
+    if is_prefix:
+        entry = curs.set_range(is_prefix.encode("utf-8"))
+        while entry is not None and str(entry[0].decode("utf-8")).startswith(term):
+            new_rows.append(entry[1])
+            entry = curs.next()
+    else:
+        entry = curs.set(lookup_string.encode("utf-8"))
+        while entry is not None:
+            new_rows.append(entry[1])
+            entry = curs.next_dup()
+
+    if current_rows is None:
+        current_rows = new_rows
+    else:
+        current_rows = intersect(current_rows, new_rows)
+
+    curs.close()
 
 
 def show_records():
