@@ -38,9 +38,72 @@ def intersect(a, b):
     return [elem for elem in a if elem in b]
 
 
+def filter_date_less_than(date, allow_equal):
+    new_rows = []
+
+    entry = dates_curs.first()
+    while entry is not None and str(entry[0].decode("utf-8")) < date:
+        new_rows.append(entry[1])
+        entry = dates_curs.next()
+
+    if allow_equal:
+        while entry is not None and str(entry[0].decode("utf-8")) == date:
+            new_rows.append(entry[1])
+            entry = dates_curs.next()
+
+    return new_rows
+
+
+def filter_date_larger_than(date, allow_equal):
+    new_rows = []
+
+    entry = dates_curs.last()
+    while entry is not None and str(entry[0].decode("utf-8")) > date:
+        new_rows.append(entry[1])
+        entry = dates_curs.next()
+
+    if allow_equal:
+        while entry is not None and str(entry[0].decode("utf-8")) == date:
+            new_rows.append(entry[1])
+            entry = dates_curs.next()
+
+    return new_rows
+
+
+def filter_date_equal_only(date):
+    new_rows = []
+
+    entry = dates_curs.set(date.encode("utf-8"))
+    while entry is not None and str(entry[0].decode("utf-8")) == date:
+        new_rows.append(entry[1])
+        entry = dates_curs.next()
+
+    return new_rows
+
+
 def filter_date(operator, date):
-    # TODO
-    pass
+    global current_rows
+
+    # Fast path
+    if current_rows is not None and len(current_rows) == 0:
+        return
+
+    # Normal path
+    if operator == "<":
+        new_rows = filter_date_less_than(date, False)
+    elif operator == "<=":
+        new_rows = filter_date_less_than(date, True)
+    elif operator == ">":
+        new_rows = filter_date_larger_than(date, False)
+    elif operator == ">=":
+        new_rows = filter_date_larger_than(date, True)
+    else:
+        new_rows = filter_date_equal_only(date)
+
+    if current_rows is None:
+        current_rows = new_rows
+    else:
+        current_rows = intersect(current_rows, new_rows)
 
 
 def filter_email(field, email):
@@ -107,6 +170,8 @@ def filter_field(field, term, is_prefix):
 
 
 def show_records():
+    global current_rows
+
     for row in current_rows:
         record = str(recs_db.get(row).decode("utf-8"))
         if output_full:
