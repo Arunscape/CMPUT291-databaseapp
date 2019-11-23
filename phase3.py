@@ -3,6 +3,7 @@ import re
 from bsddb3 import db
 
 output_full = False
+current_rows = None
 
 
 def open_db(file, mode):
@@ -25,8 +26,25 @@ re_email_query = re.compile(
 re_term_query = re.compile(r"^(subj|body|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|$)")
 
 
+def filter_date(operator, date):
+    pass
+
+
+def filter_email(field, email):
+    pass
+
+
+def filter_field(field, term, is_prefix):
+    pass
+
+
+def show_records():
+    # Print emails according to current_rows
+    pass
+
+
 def parse(line):
-    global output_full
+    global output_full, current_rows
 
     line = line.strip()
     if line == "output=full":
@@ -39,34 +57,27 @@ def parse(line):
     while len(line) > 0:
         match = re_date_query.match(line)
         if match is not None:
-            print("DATE(operator, date) = (", match.group(1), ", ", match.group(2), ")")
+            filter_date(match.group(1), match.group(2))
             line = line[match.end() :]
             continue
 
         match = re_email_query.match(line)
         if match is not None:
-            print("EMAIL(field, email) = (", match.group(1), ", ", match.group(2), ")")
+            filter_email(match.group(1), match.group(2))
             line = line[match.end() :]
             continue
 
         match = re_term_query.match(line)
         if match is not None:
-            print(
-                "TERM(field?, term, end?) = (",
-                match.group(1),
-                ", ",
-                match.group(2),
-                ",",
-                match.group(3),
-                ")",
-            )
+            filter_field(match.group(1), match.group(2), match.group(3) == "%")
             line = line[match.end() :]
             continue
 
-        print("Syntax error")
+        print("Syntax Error")
+        current_rows = None
         return
 
-    print("No syntax error, parsing complete")
+    show_records()
 
 
 def main():
