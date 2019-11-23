@@ -17,3 +17,5 @@ Phase 1:
 $ python3 phase1.py < file-to-process.txt
 Phase 2:
 $ bash phase2.sh
+Phase 3:
+$ python3 phase3.py
