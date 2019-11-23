@@ -65,19 +65,7 @@ def filter_email(field, email):
         current_rows = intersect(current_rows, new_rows)
 
 
-def filter_field(field, term, is_prefix):
-    global current_rows
-
-    if field == "":
-        filter_field("subj", term, is_prefix)
-        filter_field("body", term, is_prefix)
-        return
-
-    # Fast path
-    if current_rows is not None and len(current_rows) == 0:
-        return
-
-    # Normal path
+def filter_field_one(field, term, is_prefix):
     lookup_string = ("b" if field == "body" else "s") + "-" + term
     new_rows = []
 
@@ -93,6 +81,24 @@ def filter_field(field, term, is_prefix):
         while entry is not None:
             new_rows.append(entry[1])
             entry = terms_curs.next_dup()
+
+    return new_rows
+
+
+def filter_field(field, term, is_prefix):
+    global current_rows
+
+    # Fast path
+    if current_rows is not None and len(current_rows) == 0:
+        return
+
+    # Normal path
+    if field == "":
+        new_rows = filter_field_one("subj", term, is_prefix) + filter_field_one(
+            "body", term, is_prefix
+        )
+    else:
+        new_rows = filter_field_one(field, term, is_prefix)
 
     if current_rows is None:
         current_rows = new_rows
