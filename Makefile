@@ -1,7 +1,7 @@
 SOURCE_CODE = phase1.py phase2.sh break.pl phase3.py
 
 .RECIPEPREFIX = >
-.PHONY: format compress clean
+.PHONY: format compress clean hugo-upload
 
 format:
 > black .
@@ -12,3 +12,6 @@ compress:
 clean:
 > rm -f terms.txt emails.txt dates.txt recs.txt
 > rm -f re.idx te.idx em.idx da.idx
+
+hugo-upload:
+> rsync -vrzP $(SOURCE_CODE) haiyang3@ug11.cs.ualberta.ca:~/database-app
