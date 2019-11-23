@@ -6,14 +6,14 @@ from constants import CONSTANTS
 
 class Query:
     def __init__(self):
-        self.date_db = self.get_db(CONSTANTS["DATE_INDEX"])
-        self.email_db = self.get_db(CONSTANTS["EMAIL_INDEX"])
-        self.term_db = self.get_db(CONSTANTS["TERM_INDEX"])
-        self.rec_db = self.get_db(CONSTANTS["REC_INDEX"])
+        self.date_db = self.get_db(CONSTANTS["DATE_INDEX"], db.DB_BTREE)
+        self.email_db = self.get_db(CONSTANTS["EMAIL_INDEX"], db.DB_BTREE)
+        self.term_db = self.get_db(CONSTANTS["TERM_INDEX"], db.DB_BTREE)
+        self.rec_db = self.get_db(CONSTANTS["REC_INDEX"], db.DB_HASH)
 
-    def get_db(self, index_file):
+    def get_db(self, index_file, db_type):
         database = db.DB()
-        database.open(index_file, None, db.DB_BTREE)
+        database.open(index_file, None, db_type)
         return database
 
     def close_db(self):
