@@ -2,6 +2,8 @@
 import re
 from bsddb3 import db
 
+output_full = False
+
 
 def open_db(file, mode):
     database = db.DB()
@@ -24,6 +26,16 @@ re_term_query = re.compile(r"^(subj|body|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|$)")
 
 
 def parse(line):
+    global output_full
+
+    line = line.strip()
+    if line == "output=full":
+        output_full = True
+        return
+    if line == "output=brief":
+        output_full = False
+        return
+
     while len(line) > 0:
         match = re_date_query.match(line)
         if match is not None:

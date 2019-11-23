@@ -14,4 +14,4 @@ clean:
 > rm -f re.idx te.idx em.idx da.idx
 
 hugo-upload:
-> rsync -vrzP $(SOURCE_CODE) haiyang3@ug11.cs.ualberta.ca:~/database-app
+> rsync -vrzP $(SOURCE_CODE) data10 data1k haiyang3@ug11.cs.ualberta.ca:~/database-app
