@@ -172,11 +172,11 @@ def show_records():
     for row in current_rows:
         record = str(recs_db.get(row).decode("utf-8"))
         if output_full:
-            print(record)
+            print(row.decode("utf-8") + ":" + record)
         else:
             match = re_extract_title.search(record)
             title = "" if match is None else match.group(1)
-            print(row.decode("utf-8") + " - " + title)
+            print(row.decode("utf-8") + ":" + title)
 
 
 def parse(line):
