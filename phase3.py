@@ -235,7 +235,7 @@ def main():
     try:
         while True:
             command = input("> ")
-            parse(command)
+            parse(command.lower())
     except KeyboardInterrupt:
         pass
 
