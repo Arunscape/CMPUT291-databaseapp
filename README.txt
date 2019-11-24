@@ -12,7 +12,6 @@ break.pl was taken from assignment spec.
 TODO
 
 Usage:
-TODO: Also put this in report
 Phase 1:
 $ python3 phase1.py < file-to-process.xml
 Phase 2:
