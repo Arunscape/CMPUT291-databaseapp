@@ -34,8 +34,13 @@ re_term_query = re.compile(r"^(subj|body|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|$)")
 re_extract_title = re.compile(r"<subj>(.*?)</subj>")
 
 
-def intersect(a, b):
-    return [elem for elem in a if elem in b]
+def update_current_rows(new_rows):
+    global current_rows
+
+    if current_rows is None:
+        current_rows = new_rows
+    else:
+        current_rows = [elem for elem in new_rows if elem in current_rows]
 
 
 def filter_date_less_than(date, allow_equal):
@@ -100,10 +105,7 @@ def filter_date(operator, date):
     else:
         new_rows = filter_date_equal_only(date)
 
-    if current_rows is None:
-        current_rows = new_rows
-    else:
-        current_rows = intersect(current_rows, new_rows)
+    update_current_rows(new_rows)
 
 
 def filter_email(field, email):
@@ -122,10 +124,7 @@ def filter_email(field, email):
         new_rows.append(entry[1])
         entry = emails_curs.next_dup()
 
-    if current_rows is None:
-        current_rows = new_rows
-    else:
-        current_rows = intersect(current_rows, new_rows)
+    update_current_rows(new_rows)
 
 
 def filter_field_one(field, term, is_prefix):
@@ -163,10 +162,7 @@ def filter_field(field, term, is_prefix):
     else:
         new_rows = filter_field_one(field, term, is_prefix)
 
-    if current_rows is None:
-        current_rows = new_rows
-    else:
-        current_rows = intersect(current_rows, new_rows)
+    update_current_rows(new_rows)
 
 
 def show_records():
