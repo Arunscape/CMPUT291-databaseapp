@@ -1,7 +1,5 @@
 Email Lookup App
 
-TODO: short description
-
 Team members:
 Arun Woosaree  (awoosare)
 Hai Yang Xu    (haiyang3)
@@ -9,7 +7,7 @@ Tamara Bojovic (tbojovic)
 
 Collaboration:
 break.pl was taken from assignment spec.
-TODO
+We did not collaborate with other people.
 
 Usage:
 Phase 1:
