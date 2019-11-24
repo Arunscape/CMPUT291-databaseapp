@@ -43,6 +43,13 @@ def update_current_rows(new_rows):
         current_rows = [elem for elem in new_rows if elem in current_rows]
 
 
+def filter_date_equal_helper(date, new_rows):
+    entry = dates_curs.current()
+    while entry is not None and str(entry[0].decode("utf-8")) == date:
+        new_rows.append(entry[1])
+        entry = dates_curs.next()
+
+
 def filter_date_less_than(date, allow_equal):
     new_rows = []
 
@@ -52,9 +59,7 @@ def filter_date_less_than(date, allow_equal):
         entry = dates_curs.next()
 
     if allow_equal:
-        while entry is not None and str(entry[0].decode("utf-8")) == date:
-            new_rows.append(entry[1])
-            entry = dates_curs.next()
+        filter_date_equal_helper(date, new_rows)
 
     return new_rows
 
@@ -68,9 +73,7 @@ def filter_date_larger_than(date, allow_equal):
         entry = dates_curs.prev()
 
     if allow_equal:
-        while entry is not None and str(entry[0].decode("utf-8")) == date:
-            new_rows.append(entry[1])
-            entry = dates_curs.prev()
+        filter_date_equal_helper(date, new_rows)
 
     return new_rows
 
@@ -78,10 +81,8 @@ def filter_date_larger_than(date, allow_equal):
 def filter_date_equal_only(date):
     new_rows = []
 
-    entry = dates_curs.set(date.encode("utf-8"))
-    while entry is not None and str(entry[0].decode("utf-8")) == date:
-        new_rows.append(entry[1])
-        entry = dates_curs.next()
+    dates_curs.set(date.encode("utf-8"))
+    filter_date_equal_helper(date, new_rows)
 
     return new_rows
 
