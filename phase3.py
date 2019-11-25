@@ -58,7 +58,7 @@ def filter_date_less_than(date, allow_equal):
         new_rows.append(entry[1])
         entry = dates_curs.next()
 
-    if allow_equal:
+    if allow_equal and entry is not None:
         filter_date_equal_helper(date, new_rows)
 
     return new_rows
@@ -72,7 +72,7 @@ def filter_date_larger_than(date, allow_equal):
         new_rows.append(entry[1])
         entry = dates_curs.prev()
 
-    if allow_equal:
+    if allow_equal and entry is not None:
         filter_date_equal_helper(date, new_rows)
 
     return new_rows
@@ -81,8 +81,9 @@ def filter_date_larger_than(date, allow_equal):
 def filter_date_equal_only(date):
     new_rows = []
 
-    dates_curs.set(date.encode("utf-8"))
-    filter_date_equal_helper(date, new_rows)
+    entry = dates_curs.set(date.encode("utf-8"))
+    if entry is not None:
+        filter_date_equal_helper(date, new_rows)
 
     return new_rows
 
