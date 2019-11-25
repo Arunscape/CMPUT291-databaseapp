@@ -71,13 +71,11 @@ def filter_date_less_than(date, allow_equal):
 def filter_date_larger_than(date, allow_equal):
     new_rows = []
 
-    entry = dates_curs.last()
-    while entry is not None and str(entry[0].decode("utf-8")) > date:
+    entry = dates_curs.set_range(date.encode("utf-8"))
+    filter_date_equal_helper(date, new_rows if allow_equal else [])
+    while entry is not None:
         new_rows.append(entry[1])
-        entry = dates_curs.prev()
-
-    if allow_equal and entry is not None:
-        filter_date_equal_helper(date, new_rows)
+        entry = dates_curs.next()
 
     return new_rows
 
