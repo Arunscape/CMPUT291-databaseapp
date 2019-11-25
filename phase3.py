@@ -34,12 +34,8 @@ re_term_query = re.compile(r"^(subj\s*:|body\s*:|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|
 re_extract_title = re.compile(r"<subj>(.*?)</subj>")
 
 
-def unique(arr):
-    result = []
-    for elem in arr:
-        if elem not in result:
-            result.append(elem)
-    return result
+def union(a, b):
+    return set(a).union(b)
 
 
 def update_current_rows(new_rows):
@@ -48,7 +44,7 @@ def update_current_rows(new_rows):
     if current_rows is None:
         current_rows = new_rows
     else:
-        current_rows = [elem for elem in new_rows if elem in current_rows]
+        current_rows = set(current_rows).intersection(new_rows)
 
 
 def filter_date_equal_helper(date, new_rows):
@@ -166,9 +162,9 @@ def filter_field(field, term, is_prefix):
 
     # Normal path
     if field == "":
-        new_rows = unique(
-            filter_field_one("subj", term, is_prefix)
-            + filter_field_one("body", term, is_prefix)
+        new_rows = union(
+            filter_field_one("subj", term, is_prefix),
+            filter_field_one("body", term, is_prefix),
         )
     else:
         new_rows = filter_field_one(
