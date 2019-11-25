@@ -34,6 +34,14 @@ re_term_query = re.compile(r"^(subj\s*:|body\s*:|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|
 re_extract_title = re.compile(r"<subj>(.*?)</subj>")
 
 
+def unique(arr):
+    result = []
+    for elem in arr:
+        if elem not in result:
+            result.append(elem)
+    return result
+
+
 def update_current_rows(new_rows):
     global current_rows
 
@@ -158,8 +166,9 @@ def filter_field(field, term, is_prefix):
 
     # Normal path
     if field == "":
-        new_rows = filter_field_one("subj", term, is_prefix) + filter_field_one(
-            "body", term, is_prefix
+        new_rows = unique(
+            filter_field_one("subj", term, is_prefix)
+            + filter_field_one("body", term, is_prefix)
         )
     else:
         new_rows = filter_field_one(
