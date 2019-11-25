@@ -29,7 +29,7 @@ re_date_query = re.compile(
 re_email_query = re.compile(
     r"^(from|to|cc|bcc)\s*:\s*([0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*@[0-9a-zA-Z_-]+(?:\.[0-9a-zA-Z_-]+)*)(?:\s+|$)"
 )
-re_term_query = re.compile(r"^(subj|body|)\s*:\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|$)")
+re_term_query = re.compile(r"^(subj\s*:|body\s*:|)\s*([0-9a-zA-Z_-]+)(%|)(?:\s+|$)")
 
 re_extract_title = re.compile(r"<subj>(.*?)</subj>")
 
@@ -162,7 +162,9 @@ def filter_field(field, term, is_prefix):
             "body", term, is_prefix
         )
     else:
-        new_rows = filter_field_one(field, term, is_prefix)
+        new_rows = filter_field_one(
+            "subj" if field.startswith("subj") else "body", term, is_prefix
+        )
 
     update_current_rows(new_rows)
 
