@@ -2,6 +2,7 @@
 import re
 from bsddb3 import db
 
+# Global states
 output_full = False
 current_rows = None
 
@@ -12,6 +13,7 @@ def open_db(file, mode):
     return database
 
 
+# Opened databases
 recs_db = open_db("re.idx", db.DB_HASH)
 
 terms_db = open_db("te.idx", db.DB_BTREE)
@@ -23,6 +25,7 @@ emails_curs = emails_db.cursor()
 dates_db = open_db("da.idx", db.DB_BTREE)
 dates_curs = dates_db.cursor()
 
+# Query parsers
 re_date_query = re.compile(
     r"^date\s*(:|>|<|>=|<=)\s*([0-9]{4}/[0-9]{2}/[0-9]{2})(?:\s+|$)"
 )
@@ -48,6 +51,12 @@ def update_current_rows(new_rows):
 
 
 def filter_date_equal_helper(date, new_rows):
+    """
+    Starting from current pointer, append row numbers for keys that equal to the given key
+    :param date:     The date key
+    :param new_rows: The row numbers array
+    :return:         The first key in the database that do not equal to the given key, can be None
+    """
     entry = dates_curs.current()
     while entry is not None and str(entry[0].decode("utf-8")) == date:
         new_rows.append(entry[1])
