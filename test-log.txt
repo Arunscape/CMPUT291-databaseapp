@@ -1,0 +1,2898 @@
+haiyang3@ui11:~/prj2>ls
+README.txt  Report.pdf	break.pl  phase1.py  phase2.sh	phase3.py  prj2.tgz
+haiyang3@ui11:~/prj2>time python3 phase1.py < ~drafiei/291/pub/100k/100k.xml 
+
+real	0m27.481s
+user	0m19.288s
+sys	0m0.260s
+haiyang3@ui11:~/prj2>time bash phase2.sh 
+
+real	0m16.501s
+user	0m39.069s
+sys	0m2.652s
+haiyang3@ui11:~/prj2>grep marketbuzz terms.txt
+b-marketbuzz:1
+b-marketbuzz:1
+b-marketbuzz:72038
+b-marketbuzz:72038
+b-marketbuzz:72155
+b-marketbuzz:72155
+b-marketbuzz:72155
+b-marketbuzz:72155
+b-marketbuzz:72197
+b-marketbuzz:72197
+b-marketbuzz:72197
+b-marketbuzz:72197
+haiyang3@ui11:~/prj2>grep -c 2000/08/09 dates.txt
+190
+haiyang3@ui11:~/prj2>grep bryan.williams@enron.com emails.txt
+cc-bryan.williams@enron.com:722
+bcc-bryan.williams@enron.com:722
+to-bryan.williams@enron.com:7717
+to-bryan.williams@enron.com:57456
+to-bryan.williams@enron.com:67577
+to-bryan.williams@enron.com:67578
+to-bryan.williams@enron.com:67579
+to-bryan.williams@enron.com:83666
+to-bryan.williams@enron.com:83667
+to-bryan.williams@enron.com:83668
+to-bryan.williams@enron.com:84382
+to-bryan.williams@enron.com:95451
+haiyang3@ui11:~/prj2>grep 19987 recs.txt
+19987:<mail><row>19987</row><date>2000/12/13</date><from>rcavanagh@nrdc.org</from><to>jeff.dasovich@enron.com</to><subj>Re:Portfolio file for distribution</subj><cc></cc><bcc></bcc><body>Jeff, I&apos;d be grateful if you could retransmit this in more accessible code.</body></mail>
+haiyang3@ui11:~/prj2>db_dump -p re.idx | grep 19987
+ 19987
+ <mail><row>19987</row><date>2000/12/13</date><from>rcavanagh@nrdc.org</from><to>jeff.dasovich@enron.com</to><subj>Re:Portfolio file for distribution</subj><cc></cc><bcc></bcc><body>Jeff, I&apos;d be grateful if you could retransmit this in more accessible code.</body></mail>
+haiyang3@ui11:~/prj2>db_dump -p te.idx | grep marketbuzz
+ b-marketbuzz
+ b-marketbuzz
+ b-marketbuzz
+ b-marketbuzz
+haiyang3@ui11:~/prj2>db_dump -p da.idx | grep -c 2000/08/09
+190
+haiyang3@ui11:~/prj2>db_dump -p em.idx | grep bryan.williams@enron.com
+ bcc-bryan.williams@enron.com
+ cc-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+ to-bryan.williams@enron.com
+haiyang3@ui11:~/prj2>python3 phase3.py 
+Email Lookup App
+Press Ctrl+C to exit
+
+> subj: intel
+10832:News from Intel(R)
+11559:Re: Intel &amp; Tamco High Plains Ethanol done deal
+94366:FoolWatch: Duel Over Intel
+94615:Breakfast With The Fool: IBM, Intel Announce Chip Advances
+> subj : intel
+10832:News from Intel(R)
+11559:Re: Intel &amp; Tamco High Plains Ethanol done deal
+94366:FoolWatch: Duel Over Intel
+94615:Breakfast With The Fool: IBM, Intel Announce Chip Advances
+> subj        : 	intel
+10832:News from Intel(R)
+11559:Re: Intel &amp; Tamco High Plains Ethanol done deal
+94366:FoolWatch: Duel Over Intel
+94615:Breakfast With The Fool: IBM, Intel Announce Chip Advances
+> subj:inTEL
+10832:News from Intel(R)
+11559:Re: Intel &amp; Tamco High Plains Ethanol done deal
+94366:FoolWatch: Duel Over Intel
+94615:Breakfast With The Fool: IBM, Intel Announce Chip Advances
+> body:energy-reduction
+19350:Re: Governor&apos;s Response to FERC
+19352:Governor&apos;s Proposals Go Public
+64045:Re: Governor&apos;s Response to FERC
+65154:Energy Issues
+> to:charla.reese@enron.com  
+10153:Re: International Information - GIS
+10284:Re: Charla Reese - New Position!
+40766:CPS BEAR Volunteers
+82830:Re: Executive Committee Invitation to 104 KRBE / Enron Earth Day Festival
+> from:wxm@cpuc.ca.gov  
+18565:FW: Edison bill on the role of the UDC
+20756:FW: Strategic Planning Director
+> cc  : ccstaff@haas.berkeley.edu  
+15579:This survey is only for students enrolled in courses using Infopier
+16006:Training Workshops for Students
+20433:Izio Infopier E-mail Messages and Accounts
+21803:Who To See For Izio Infopier Support
+> bcc : eric.merten@enron.com    
+1511:BMC Update
+60631:Correction: Risk and Purchasing Meeting -- August 8th
+> bcc   : eric.merten@enron.com
+1511:BMC Update
+60631:Correction: Risk and Purchasing Meeting -- August 8th
+> subj: diversity body: there
+5710:Re: ENA Diversity Focus Groups
+6591:Re: Mark Your Calendars: March 30 is Diversity/OLER Open House
+96403:Nuclear diversity swap with Select Energy
+> date: 2000/01/06 to:gretel.smith@enron.com  
+6386:Brenda Herod&apos;s new pager #
+6383:Houston Analyst North America Presentation
+6388:Re: Alumni List
+> Toronto-based from: ann.schmidt@enron.com   
+64163:Enron Mentions
+17545:Enron Mentions - 07/19/01
+66876:Enron Mentions - 07/19/01
+63707:Enron Mentions
+> cc: ray.alvarez@enron.com bcc:vince.kaminski@enron.com  
+16694:California Update 6/25/01
+17711:California Update 7/24/01
+16376:California 6/13
+66910:California Update 7/16/01
+> worldb% 
+62436:Re: PRESENTATION ON CURRENT OIL AND GAS MARKETS
+11896:Re: Hotel California ISO
+16082:VentureWire, Tuesday, October 24, 2000
+35437:FW: It&apos;s a tough game
+11835:Hotel California ISO
+35438:FW: It&apos;s a tough game
+> subj:photograph%
+44164:Re: Annual Report Photograph
+780:Re: Photograph for eCompany Now
+10235:Re: Question re: photographs on MV/VP Biographic Profiles
+69061:Denis Reggie Wedding Photography
+> date: 1999/06/11
+87242:Nacogdoches PSA
+9082:Topock diesel pigging strategy
+9093:Cleaning Postponement of the pipeline between TW PG&amp;E M/S and the Topock C/S
+99015:Re: EOTT v. Eunice Patricia Wales, et al.
+> date > 2002/07/12
+> date> 2001/07/31 date <=2001/08/01 
+9269:Re: EOTT Crude Oil Tanks-Rev 1
+9270:EOTT PL Tks 8-01.xls
+9271:Phone Conversation with TNC
+> subj:shortage body: excess% to: alan.comnes@enron.com
+65535:CA Leg Analyst Forecasts Significant Power Shortage in CA
+13945:Power shortage shifts attitudes --Davis Plummets in Polls
+22751:CA Leg Analyst Forecasts Significant Power Shortage in CA
+> to: jdasovic@enron.com date > 2000/11/08 ecompan%
+18548:VentureWire, Tuesday, November 14, 2000
+19257:VentureWire, Thursday, November 30, 2000
+18510:VentureWire, Monday, November 13, 2000
+19338:VentureWire, Friday, December 1, 2000
+> body: 12647 cc: jeff.dasovich@enron.com bcc: dirk.vanulden@enron.com
+18135:Re: CSU Fresno, PG&amp;E leter
+20010:Re: Minutes from call with City of Fresno, Attorney
+> date<= 2000/01/10 from: george.robinson@enron.com to: larry.campbell@enron.com
+9493:Re: NNG Eunice Station
+8751:AFUDC on Remediation Projects
+9711:Re: Environmental Costs for PG&amp;E and KN
+> output=full
+> date:2001/10/27
+9384:<mail><row>9384</row><date>2001/10/27</date><from>andrew.gieser.enronxgate@enron.com</from><to>john.shafer.enronxgate@enron.com,ralph.edwards.enronxgate@enron.com,mike.riedel@enron.com,rick.loveless@enron.com,larry.campbell@enron.com,william.kendrick.enronxgate@enron.com,andrew.gieser.enronxgate@enron.com,dee.hanson@enron.com,brian.oeffner@enron.com,danny.quint.enronxgate@enron.com</to><subj>Draft, Flagstaff Spring meeting</subj><cc></cc><bcc></bcc><body>Hi all,&#10;Attached is a rough draft of the spring Flagstaff Safety and Environmental&#10;meeting. Please feel free to comment, the second page are notes from our&#10;meeting with assignments.&#10;&#10; (See attached file: Flagstaff agenda.doc)&#10;&#10;andy&#10;402 398 7183 office&#10;402 616 3438 cell&#10; - Flagstaff agenda.doc</body></mail>
+> bcc: margaret.huson@enron.com
+14058:<mail><row>14058</row><date>2001/05/22</date><from>christi.nicolay@enron.com</from><to>linda.noske@enron.com</to><subj>Re: Government Affairs Support for ENA</subj><cc>alan.comnes@enron.com,aleck.dadson@enron.com,allison.navin@enron.com,amr.ibrahim@enron.com,barbara.hueter@enron.com,bernadette.hawkins@enron.com,bevin.hunter@enron.com,bill.moore@enron.com,carin.nersesian@enron.com,carmen.perez@enron.com,carolyn.cooney@enron.com,charles.yeung@enron.com,chauncey.hood@enron.com,chris.long@enron.com,dan.staines@enron.com,daniel.allegretti@enron.com,dave.mangskau@enron.com,dave.perrino@enron.com,donald.lassere@enron.com,donna.fulton@enron.com,elizabeth.linnell@enron.com,eric.benson@enron.com,frank.rishe@enron.com,geriann.warner@enron.com,germain.palmer@enron.com,ginger.dernehl@enron.com,gloria.ogenyi@enron.com,harry.kingerski@enron.com,howard.fromer@enron.com,james.steffes@enron.com,janel.guerrero@enron.com,janine.migden@enron.com,jean.dressler@enron.com,jean.ryall@enron.com,jeff.dasovich@enron.com,joe.allen@enron.com,joe.connor@enron.com,joe.hartsoe@enron.com,john.shelk@enron.com,joseph.alamo@enron.com,kathleen.sullivan@enron.com,kathy.mongeon@enron.com,kerry.stroup@enron.com,kirsten.bellas@enron.com,lara.leibman@enron.com,larry.decker@enron.com,laurie.knight@enron.com,leslie.lawner@enron.com,linda.noske@enron.com,linda.robertson@enron.com,lindsay.meade@enron.com,lisa.yoho@enron.com,lora.sullivan@enron.com,lysa.akin@enron.com,marchris.robinson@enron.com,margaret.huson@enron.com,maria.arefieva@enron.com,maureen.mcvicker@enron.com,melinda.pharms@enron.com,mike.roan@enron.com,mona.petrochko@enron.com,nancy.hetrick@enron.com,pat.shortridge@enron.com,patrick.keene@enron.com,paul.kaufman@enron.com,rebecca.cantrell@enron.com,richard.ingersoll@enron.com,richard.shapiro@enron.com,robert.frank@enron.com,robert.hemstock@enron.com,robert.neustaedter@enron.com,ron.mcnamara@enron.com,roy.boston@enron.com,rubena.buerger@enron.com,sandra.mccubbin@enron.com,sarah.novosel@enron.com,scott.bolton@enron.com,stella.chan@enron.com,stephen.burns@enron.com,steve.montovano@enron.com,steve.walton@enron.com,steven.kean@enron.com,sue.nord@enron.com,susan.mara@enron.com,susan.landwehr@enron.com,susan.scott@enron.com,terri.miller@enron.com,thane.twiggs@enron.com,tom.briggs@enron.com,tom.chapman@enron.com,tom.hoatson@enron.com,vinio.floris@enron.com</cc><bcc>alan.comnes@enron.com,aleck.dadson@enron.com,allison.navin@enron.com,amr.ibrahim@enron.com,barbara.hueter@enron.com,bernadette.hawkins@enron.com,bevin.hunter@enron.com,bill.moore@enron.com,carin.nersesian@enron.com,carmen.perez@enron.com,carolyn.cooney@enron.com,charles.yeung@enron.com,chauncey.hood@enron.com,chris.long@enron.com,dan.staines@enron.com,daniel.allegretti@enron.com,dave.mangskau@enron.com,dave.perrino@enron.com,donald.lassere@enron.com,donna.fulton@enron.com,elizabeth.linnell@enron.com,eric.benson@enron.com,frank.rishe@enron.com,geriann.warner@enron.com,germain.palmer@enron.com,ginger.dernehl@enron.com,gloria.ogenyi@enron.com,harry.kingerski@enron.com,howard.fromer@enron.com,james.steffes@enron.com,janel.guerrero@enron.com,janine.migden@enron.com,jean.dressler@enron.com,jean.ryall@enron.com,jeff.dasovich@enron.com,joe.allen@enron.com,joe.connor@enron.com,joe.hartsoe@enron.com,john.shelk@enron.com,joseph.alamo@enron.com,kathleen.sullivan@enron.com,kathy.mongeon@enron.com,kerry.stroup@enron.com,kirsten.bellas@enron.com,lara.leibman@enron.com,larry.decker@enron.com,laurie.knight@enron.com,leslie.lawner@enron.com,linda.noske@enron.com,linda.robertson@enron.com,lindsay.meade@enron.com,lisa.yoho@enron.com,lora.sullivan@enron.com,lysa.akin@enron.com,marchris.robinson@enron.com,margaret.huson@enron.com,maria.arefieva@enron.com,maureen.mcvicker@enron.com,melinda.pharms@enron.com,mike.roan@enron.com,mona.petrochko@enron.com,nancy.hetrick@enron.com,pat.shortridge@enron.com,patrick.keene@enron.com,paul.kaufman@enron.com,rebecca.cantrell@enron.com,richard.ingersoll@enron.com,richard.shapiro@enron.com,robert.frank@enron.com,robert.hemstock@enron.com,robert.neustaedter@enron.com,ron.mcnamara@enron.com,roy.boston@enron.com,rubena.buerger@enron.com,sandra.mccubbin@enron.com,sarah.novosel@enron.com,scott.bolton@enron.com,stella.chan@enron.com,stephen.burns@enron.com,steve.montovano@enron.com,steve.walton@enron.com,steven.kean@enron.com,sue.nord@enron.com,susan.mara@enron.com,susan.landwehr@enron.com,susan.scott@enron.com,terri.miller@enron.com,thane.twiggs@enron.com,tom.briggs@enron.com,tom.chapman@enron.com,tom.hoatson@enron.com,vinio.floris@enron.com</bcc><body>Please note that Susan Scott is on her honeymoon until June 5. Therefore, &#10;continue to send emails to Christi if you need assistance on East power desk &#10;issues. In addition, there are 2 Susan Scotts at Enron. Please use &#10;sscott3@enron.com. Thanks. &#10;</body></mail>
+41417:<mail><row>41417</row><date>2001/04/27</date><from>janel.guerrero@enron.com</from><to>ginger.dernehl@enron.com</to><subj>DO NOT DISTRIBUTE!!! White Paper on Why Price Caps are Bad</subj><cc>alan.comnes@enron.com,aleck.dadson@enron.com,allison.navin@enron.com,amy.fabian@enron.com,barbara.hueter@enron.com,bernadette.hawkins@enron.com,bevin.hunter@enron.com,bill.moore@enron.com,carolyn.cooney@enron.com,charles.yeung@enron.com,chauncey.hood@enron.com,chris.long@enron.com,christi.nicolay@enron.com,dan.staines@enron.com,daniel.allegretti@enron.com,dave.mangskau@enron.com,donald.lassere@enron.com,elizabeth.linnell@enron.com,eric.benson@enron.com,frank.rishe@enron.com,geriann.warner@enron.com,germain.palmer@enron.com,ginger.dernehl@enron.com,gloria.ogenyi@enron.com,harry.kingerski@enron.com,howard.fromer@enron.com,james.steffes@enron.com,janine.migden@enron.com,jean.dressler@enron.com,jean.ryall@enron.com,jeff.brown@enron.com,jeff.dasovich@enron.com,joe.allen@enron.com,joe.connor@enron.com,joe.hartsoe@enron.com,joseph.alamo@enron.com,kathleen.sullivan@enron.com,kathy.mongeon@enron.com,kerry.stroup@enron.com,kirsten.bellas@enron.com,lara.leibman@enron.com,laurie.knight@enron.com,leslie.lawner@enron.com,linda.noske@enron.com,linda.robertson@enron.com,lindsay.meade@enron.com,lisa.yoho@enron.com,lora.sullivan@enron.com,lysa.akin@enron.com,marchris.robinson@enron.com,marcia.linton@enron.com,mary.hain@enron.com,maureen.mcvicker@enron.com,melinda.pharms@enron.com,michelle.belzak@enron.com,mike.roan@enron.com,mona.petrochko@enron.com,nancy.hetrick@enron.com,patrick.keene@enron.com,paul.kaufman@enron.com,rebecca.cantrell@enron.com,richard.ingersoll@enron.com,richard.shapiro@enron.com,robert.frank@enron.com,robert.hemstock@enron.com,robert.neustaedter@enron.com,robin.kittel@enron.com,ron.mcnamara@enron.com,roy.boston@enron.com,rubena.buerger@enron.com,sandra.mccubbin@enron.com,sarah.novosel@enron.com,scott.bolton@enron.com,stella.chan@enron.com,stephen.burns@enron.com,steve.montovano@enron.com,steve.walton@enron.com,steven.kean@enron.com,sue.nord@enron.com,susan.mara@enron.com,susan.landwehr@enron.com,terri.miller@enron.com,thane.twiggs@enron.com,tom.briggs@enron.com,tom.chapman@enron.com,tom.hoatson@enron.com,tracy.cooper@enron.com,vinio.floris@enron.com,xi.xi@enron.com,jeffrey.keeler@enron.com,stacey.bolton@enron.com,mary.schoen@enron.com,lisa.jacobson@enron.com,miyung.buster@enron.com,lynnette.barnes@enron.com,linda.lawrence@enron.com,earlene.oconnell@enron.com,margo.reyna@enron.com,gus.perez@enron.com,angela.wilson@enron.com,sharonda.stephens@enron.com,john.shelk@enron.com,larry.decker@enron.com,margaret.huson@enron.com</cc><bcc>alan.comnes@enron.com,aleck.dadson@enron.com,allison.navin@enron.com,amy.fabian@enron.com,barbara.hueter@enron.com,bernadette.hawkins@enron.com,bevin.hunter@enron.com,bill.moore@enron.com,carolyn.cooney@enron.com,charles.yeung@enron.com,chauncey.hood@enron.com,chris.long@enron.com,christi.nicolay@enron.com,dan.staines@enron.com,daniel.allegretti@enron.com,dave.mangskau@enron.com,donald.lassere@enron.com,elizabeth.linnell@enron.com,eric.benson@enron.com,frank.rishe@enron.com,geriann.warner@enron.com,germain.palmer@enron.com,ginger.dernehl@enron.com,gloria.ogenyi@enron.com,harry.kingerski@enron.com,howard.fromer@enron.com,james.steffes@enron.com,janine.migden@enron.com,jean.dressler@enron.com,jean.ryall@enron.com,jeff.brown@enron.com,jeff.dasovich@enron.com,joe.allen@enron.com,joe.connor@enron.com,joe.hartsoe@enron.com,joseph.alamo@enron.com,kathleen.sullivan@enron.com,kathy.mongeon@enron.com,kerry.stroup@enron.com,kirsten.bellas@enron.com,lara.leibman@enron.com,laurie.knight@enron.com,leslie.lawner@enron.com,linda.noske@enron.com,linda.robertson@enron.com,lindsay.meade@enron.com,lisa.yoho@enron.com,lora.sullivan@enron.com,lysa.akin@enron.com,marchris.robinson@enron.com,marcia.linton@enron.com,mary.hain@enron.com,maureen.mcvicker@enron.com,melinda.pharms@enron.com,michelle.belzak@enron.com,mike.roan@enron.com,mona.petrochko@enron.com,nancy.hetrick@enron.com,patrick.keene@enron.com,paul.kaufman@enron.com,rebecca.cantrell@enron.com,richard.ingersoll@enron.com,richard.shapiro@enron.com,robert.frank@enron.com,robert.hemstock@enron.com,robert.neustaedter@enron.com,robin.kittel@enron.com,ron.mcnamara@enron.com,roy.boston@enron.com,rubena.buerger@enron.com,sandra.mccubbin@enron.com,sarah.novosel@enron.com,scott.bolton@enron.com,stella.chan@enron.com,stephen.burns@enron.com,steve.montovano@enron.com,steve.walton@enron.com,steven.kean@enron.com,sue.nord@enron.com,susan.mara@enron.com,susan.landwehr@enron.com,terri.miller@enron.com,thane.twiggs@enron.com,tom.briggs@enron.com,tom.chapman@enron.com,tom.hoatson@enron.com,tracy.cooper@enron.com,vinio.floris@enron.com,xi.xi@enron.com,jeffrey.keeler@enron.com,stacey.bolton@enron.com,mary.schoen@enron.com,lisa.jacobson@enron.com,miyung.buster@enron.com,lynnette.barnes@enron.com,linda.lawrence@enron.com,earlene.oconnell@enron.com,margo.reyna@enron.com,gus.perez@enron.com,angela.wilson@enron.com,sharonda.stephens@enron.com,john.shelk@enron.com,larry.decker@enron.com,margaret.huson@enron.com</bcc><body>The attached paper by Dr. Moore of the Reason Institute was sent to me as a &#10;final draft -- when in fact it still has edit marks. Please do not use this &#10;version. I will have the appropriate individuals send me the true FINAL &#10;version and will resend it to you asap. sorry for the inconvenience!!&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;Ginger Dernehl&#10;04/27/2001 08:45 AM&#10;To: Alan Comnes/PDX/ECT@ECT, Aleck Dadson/TOR/ECT@ECT, Allison &#10;Navin/Corp/Enron@ENRON, Amy Fabian/Corp/Enron@ENRON, Barbara A &#10;Hueter/NA/Enron@Enron, Bernadette Hawkins/Corp/Enron@ENRON, &#10;Bevin.hunter@enron.com, Bill Moore/NA/Enron@Enron, Carolyn &#10;Cooney/Corp/Enron@ENRON, Charles Yeung/HOU/ECT@ECT, Chauncey &#10;Hood/NA/Enron@ENRON, Chris Long/Corp/Enron@ENRON, Christi L &#10;Nicolay/HOU/ECT@ECT, Dan Staines/HOU/ECT@ECT, Daniel &#10;Allegretti/NA/Enron@Enron, Dave Mangskau/Corp/Enron@ENRON, Donald &#10;Lassere/NA/Enron@Enron, Elizabeth Linnell/NA/Enron@Enron, Eric &#10;Benson/NA/Enron@ENRON, Frank Rishe/NA/Enron@Enron, Geriann &#10;Warner/NA/Enron@Enron, Germain Palmer/Corp/Enron@ENRON, Ginger &#10;Dernehl/NA/Enron@Enron, Gloria Ogenyi/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, &#10;Harry Kingerski/NA/Enron@Enron, Howard Fromer/NA/Enron@Enron, James D &#10;Steffes/NA/Enron@Enron, Janel Guerrero/Corp/Enron@Enron, Janine &#10;Migden/NA/Enron@Enron, Jean R Dressler/NA/Enron@Enron, Jean &#10;Ryall/NA/Enron@ENRON, Jeff Brown/NA/Enron@Enron, Jeff &#10;Dasovich/NA/Enron@Enron, Joe Allen/NA/Enron@Enron, Joe Connor/NA/Enron@Enron, &#10;Joe Hartsoe/Corp/Enron@ENRON, Joseph Alamo/NA/Enron@Enron, Kathleen &#10;Sullivan/NA/Enron@ENRON, Kathy Mongeon/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, &#10;Kerry Stroup/NA/Enron@Enron, Kirsten Bellas/NA/Enron@Enron, Lara &#10;Leibman/NA/Enron@Enron, Laurie Knight/NA/Enron@Enron, Leslie &#10;Lawner/NA/Enron@Enron, Linda J Noske/HOU/ECT@ECT, Linda &#10;Robertson/NA/Enron@ENRON, Lindsay Meade/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, &#10;Lisa Yoho/NA/Enron@Enron, Lora Sullivan/Corp/Enron@ENRON, Lysa &#10;Akin/PDX/ECT@ECT, Marchris Robinson/NA/Enron@Enron, Marcia A &#10;Linton/NA/Enron@Enron, Mary Hain/HOU/ECT@ECT, Maureen &#10;McVicker/NA/Enron@Enron, Melinda Pharms/HOU/ECT@ECT, Michelle &#10;Belzak/TOR/ECT@ECT, Mike Roan/ENRON@enronXgate, Mona L &#10;Petrochko/NA/Enron@Enron, Nancy Hetrick/NA/Enron@Enron, Patrick &#10;Keene/NA/Enron@Enron, Paul Kaufman/PDX/ECT@ECT, Rebecca W &#10;Cantrell/HOU/ECT@ECT, Richard Ingersoll/HOU/ECT@ECT, Richard &#10;Shapiro/NA/Enron@Enron, Robert Frank/NA/Enron@Enron, Robert &#10;Hemstock/CAL/ECT@ECT, Robert Neustaedter/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, &#10;Robin Kittel/NA/Enron@Enron, Ron McNamara/NA/Enron@Enron, Roy &#10;Boston/HOU/EES@EES, Rubena Buerger/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, &#10;Sandra McCubbin/NA/Enron@Enron, Sarah Novosel/Corp/Enron@ENRON, Scott &#10;Bolton/Enron Communications@Enron Communications, Stella &#10;Chan/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, Stephen D Burns/Corp/Enron@ENRON, &#10;Steve Montovano/NA/Enron@Enron, Steve Walton/HOU/ECT@ECT, Steven J &#10;Kean/NA/Enron@Enron, Sue Nord/NA/Enron@Enron, Susan J Mara/NA/Enron@ENRON, &#10;Susan M Landwehr/NA/Enron@Enron, Terri Miller/NA/Enron@Enron, Thane &#10;Twiggs/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, Tom Briggs/NA/Enron@Enron, Tom &#10;Chapman/HOU/ECT@ECT, Tom Hoatson/NA/Enron@Enron, Tracy Cooper/Enron &#10;Communications@Enron Communications, Vinio Floris/Corp/Enron@Enron, Xi &#10;Xi/Enron Communications@Enron Communications, Jeffrey &#10;Keeler/Corp/Enron@ENRON, Stacey Bolton/NA/Enron@Enron, Mary &#10;Schoen/NA/Enron@Enron, Lisa Jacobson/ENRON@enronXgate, Miyung &#10;Buster/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, Elizabeth Linnell/NA/Enron@Enron, &#10;Lynnette Barnes/NA/Enron@Enron, Linda L Lawrence/NA/Enron@Enron, Earlene &#10;O&apos;Connell/Enron@EnronXGate, Margo Reyna/NA/Enron@Enron, Gus &#10;Perez/Corp/Enron@Enron, Angela Wilson/NA/Enron@Enron, Sharonda &#10;Stephens/Corp/Enron, Eric Benson/NA/Enron@ENRON, John Shelk/NA/Enron@Enron, &#10;Larry Decker/NA/Enron@Enron, Margaret Huson/ENRON@enronXgate&#10;cc: &#10;&#10;Subject: White Paper on Why Price Caps are Bad&#10;&#10;&#10;&#10;gngr&#10;713-853-7751&#10;----- Forwarded by Ginger Dernehl/NA/Enron on 04/27/2001 08:43 AM -----&#10;&#10; Janel Guerrero&#10; 04/26/2001 05:31 PM&#10; &#10; To: Ginger Dernehl/NA/Enron@Enron&#10; cc: &#10; Subject: White Paper on Why Price Caps are Bad&#10;&#10;Ginger:&apos;&#10;&#10;&#10;please email this to everyone in the Govt Affairs Group. Thanks!&#10;&#10;&#10;&#10;&#10;</body></mail>
+> output=brief
+> oil%
+30214:Re: Potential Conflict
+97760:Duke arbitrators
+87517:EnTouch Newsletter
+16760:Energy Issues
+40534:Re: FW: ISDA Subscriber Membership
+58954:FW: Research Allocations to EGM
+24760:Re: National Oil &amp; Gas Coop
+1264:RE: Extra credit
+13428:Enron Mentions
+38824:Re: Participation by Enron Canada in Private Placement of Impact Energy
+9080:Emission Reduction Credits (ERC&apos;s)
+91579:Matrix
+62673:Presentation at UT
+13281:Enron Mentions
+21725:op ed
+1073:relationship with Continental Airlines
+55932:Re: Risk Magazine -Enron sponsored issue on Energy Derivatives
+9146:Re: Crude Oil Tank Complinace Spreadsheet in Midland Region
+69757:MENA E-News 15/11/00
+44008:California Truck Wreck on 2/28 Involving Cummings and an Ex-EOTT Driver; CONFIDENTIAL AND PRIVILEGED ATTORNEY/CLIENT COMMUNICATION AND ATTORNEY&apos;S WORK PRODUCT
+82423:PIRA&apos;s World Oil Market Forecast 04/30/01
+52466:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+63205:Dereg Articles
+63596:USTR Press Release on China WTO
+85217:Yahoo! Finance Story - Yahoo - RESEARCH ALERT-Goldman raises most energy estimates
+46446:(01-92) Amendments to Delivery Rules
+10543:Re: Opportunities at ENA
+88738:Enron Pipeline Proposal - Indicative Comments
+46425:PLEASE RESPOND: US Residual Fuel Oil 1% Fin Spd / US Residual Fuel Oil 3% Fin Spd
+31513:OPIC/KFW Next Steps
+41663:AES Completes Acquisition of IPALCO
+1392:RE: ng views + wager
+44464:Dain Rauscher note on EOTT
+69079:Message for Ken Lay
+1772:Enron Air Consultants
+14600:talking points-
+4244:Updated info
+25891:August 2000 Activity
+54011:Re: NDA-PVM Oil Associates Limited
+45804:Marathon, Formosa &amp; Valero Sales Contracts
+1272:RE: Extra credit
+74475:Power Development in California
+14110:Senate Switch Affects Energy Bill Outlook
+39664:State Bar of Michigan e-Journal - 12/14/00
+45289:Re: my new location
+68184:
+65070:Re: Draft Organizational Announcement about Japan
+11753:IEP news 4/9
+73815:Devon-Santa Fe Snyder Merger Complete
+14606:RE: FW: Enron Demo Recap
+88915:Citation Oil &amp; Gas Spot Enfolio
+59797:
+54431:Power Financial Trading Limitations
+39575:$50 million water saving program in NSW
+41668:Energy Issues
+13926:Morning Market View for May 21, 2001
+14379:Energy Issues
+35116:Credit Report - 1/30/01
+62058:Re: Book review
+66627:GRS ElectricGasOil Alert [06/21/00]- Agenda
+9272:Eott Crude oil tanks in hamlin&amp;haskell
+17488:Enron Mentions
+50351:WIN A HOUSE FROM AUTOBYTEL.COM!
+40173:SA Government looks to cushion price hike
+45095:FW: Ok, here is my diet &amp; nutrition philosophy :)
+63242:FWD: News Article
+66845:Re: Arbitration with Reliance and ONGC
+11288:Re: Ca demand vs Texas
+13840:Morning Market View for May 18, 2001
+44264:API Weekly Comment 07/18/00
+14071:Burton Presentation and Press Conference
+15219:FERC COMMISSIONERS PLEDGE TO ADDRESS CALIFORNIA&apos;S POWER MARKET PROBLEMS
+74716:Re: Catching up and asking a favor
+66080:Progress Report
+9292:Common Parts request
+65243:Energy Issues
+39793:July 14 -- BNA, Inc. Energy Executive Daily
+82238:Enron In Action 02.05.01
+45089:FW: Ok, here is my diet &amp; nutrition philosophy :)
+82475:Re: Largest Gathering of Energy &amp; Chemical Marketplace Experts
+11412:Enron Mentions
+51700:(00-323) Margin Change for Crude Oil, Unleaded Gasoline, and Heating Oil
+51226:Lawyer Resume
+28298:Revisions - March Wellhead Estimate
+43452:The empty chair
+38820:Re: Participation by Enron Canada in Private Placement of Impact Energy
+60953:RE: Pre-meeting Weathereffects site cruise
+64196:US and Canada: US Administration Faces Crisis Over Energy Policy - Financial Times
+8917:The 2001 Energy Crisis Is Here 7710
+6232:Re: Metals
+26266:Spot Deals
+39422:Membership Applications
+74372:More info on higher gas prices
+79551:RE: MDEA question
+46346:URGENT REQUEST: PLEASE REVIEW AND APPROVE NEW PRODUCT TYPE (ENRONONLINE)
+72013:Your News Alert for TXN
+45755:Re: FW: Enron OnLine DRAFT compliance Document
+21619:Enron Mentions - 02/07/2001
+44204:draft statement of the problems with S.2438
+52795:Re: EOL Credit Responses 10/24/00
+50929:Re: Force Energy
+74180:Upcoming Conferences
+52635:Unocal Master Agreement
+90591:Cutter Oil
+6465:PIRA Global Oil and Natural Outlooks- Save these dates.
+44052:MTBE Ban, Pro-ethanol legislation introduced
+52507:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+11388:Enron Mentions
+44578:Re: Follow-up on SIAM Workshop
+52794:Re: EOL Credit Responses 10/24/00
+73225:Energy Central Conference Watch - 07-15-00
+92538:Re: Helloooooo!!!
+49551:Counterparty Approval List for 5/8/00
+9628:Diamond Newsletter
+24406:Re: coal plants
+47000:Product Type Aprroval - US Plastic RGC3 Phy Fwd)
+54103:Re: NEW ENRONONLINE PRODUCT - PLEASE APPROVE
+11397:Enron Mentions
+63423:Online Niche Players Capitalize on Natural-Gas Shortage, Bypass Utilities
+45812:Re: Vineyard Oil &amp; Gas: Q56432
+52486:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+90276:Merit Gas &amp; Oil, Inc.
+63294:Sen. Hagel&apos;s ESI speech
+52487:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+13328:Enron Mentions
+64976:Re: Visit by METI Director
+41823:Energy Issues
+14572:Enron Mentions
+53142:Ameriflash Newsletter
+63503:Gas Distribution News
+52468:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+16258:Energy Issues
+44296:Re: TOP TEN LIST
+56197:RE: Risk report on &quot;Guide to Electricxity Hedging&quot; and Request fo r Gu est Access to Enrononline
+59509:Seismic Data via satellite
+63520:Fuel Cells Get Financial Boost from U.S. Government
+66809:Sen. Smith introduces MTBE legislation
+25982:Re: New Production-Sitara Deals Needed
+52569:(00-354) Margin Rate Change for CL, HU, and HO
+30992:As Presidential Election Hangs in Balance, So Do Key Energy Issues
+65563:The Financial Services Information Sharing and Analysis Center
+28101:Seac/HPL - Freeport Meter # 98-0435
+28069:Revisions - March Wellhead Estimate
+21477:WPTF Friday More on That Later Burrito
+63221:Enron Mentions
+45681:Re: HPLC TO ENA DEALS
+63307:Dow Jones: Enron, Bush&apos;s Biggest Contributor
+82235:EnTouch Newsletter
+93666:Homestead, FL 6 x 1 LM6000 PC O&amp;M Estimate
+48916:(01-191) EXCHANGE TO SUBSTITUTE POSITION ACCOUNTABILITY REQUIREMENTS FOR POSITION LIMIT RULES
+74323:Midmonth Report: Early Warning - CERA Alert
+43421:A Man&apos;s Perspective
+27382:Re: Lindholm Oil , Inc.
+42025:Return of the GRS Alert (now FERCwatch)
+59624:Seismic Data on Oil &amp; Gas field Development via Satellite
+24759:National Oil &amp; Gas Coop
+30587:FW: Latest Press Release
+63422:Online Niche Players Capitalize on Natural-Gas Shortage, Bypass Utilities
+47001:Re: Product Type Aprroval - US Plastic RGC3 Phy Fwd)
+63463:EGEP Sale Announcement
+65395:SIGNIFICANT DEVELOPMENTS; Davis Staff Admit that DWR Costs for Purchases Is Staggering and Rates Must Increase Dramatically; PG&amp;E says it will sue over QF payment plan; Mike Kahn Takes Pot Shots in Editorial Defending Davis/Lynch
+67697:Sivy on Stocks: Fix your mix
+88415:Re: Counterparties
+60999:RE: Pre-meeting Weathereffects site cruise
+69387:CSIS Watch October 6, 2000 Number 235
+14248:Lockyer comes out swinging at oilman - Davis has plenty of compan y in depths of
+60523:CERA Monthly Summary--July 2000 - CERA Monthly Summary
+64107:
+63346:Transredes Oil Spills: Possible PR Cases for your Wednesday Meeting
+90444:Re: Revised Cutter Oil contract
+30593:FW: It Could Happen
+63293:novak column
+49969:Re: EOL / Credit / GCP Responses 6/14/00
+87487:Lumberton, Elizabethtown Phase II
+9707:Re: Don&apos;s Birthday Party Invitation
+91964:Re: Jay Bee Oil &amp; Gas
+63286:Re: Dereg Articles
+17474:Enron Mentions
+73586:FW: Energy Central Conference Watch - 02-09-01
+16665:Enron Mentions - 06/23/01 - 06/24/01
+67142:California&apos;s dim bulbs
+89:Re: enron close to 85
+21584:Bloomberg - 02-06-2001
+66653:FYI - California Conference Call, 800-749-9927, ask for Maureen Palmer
+49704:New ISDA - Cross Oil Refining &amp; Marketing
+28189:UPDATED FOR MARCH
+28870:Re: FIRST DELIVERY - CUMMINGS &amp; WALKER AND EXXON
+1231:Enron Mentions
+56828:More CERAWeek 2001 multimedia highlights now available online!
+63471:Enron Mentions
+64693:
+36300:Organization Announcement
+49594:Re: Hallwood Energy Corporation
+83364:Re: JORDAN
+69482:EGEP Sale Announcement
+99580:Joe Naylor
+64020:Enron Mentions
+6674:Organizational Announcement
+94209:ENRON HOSTS ANNUAL ANALYST CONFERENCE PROVIDES BUSINESS OVERVIEW AND GOALS FOR 2000
+35736:Re: Cabot Oil &amp; Gas Marketing Corporation
+46458:PLEASE RESPOND: US Residual Fuel Oil 1% Fin Spd / US Residual Fuel Oil 3% Fin Spd
+10846:Re: [Fwd: gassy cos.]
+17720:Enron Mentions
+33700:TMR earnings
+61889:Thanks again
+63518:Fuel Cells Get Financial Boost from U.S. Government
+14647:Enron Mentions
+60916:Re: Request for suggestions : Vince&apos;s visit to sydney in July
+46797:(01-101) ARGIN RATE CHANGE FOR CRUDE OIL, HEATING OIL, AND UNLEADED GASOLINE FUTURES CONTRACTS
+81488:EnronOnline Real-Time Quotes Service on Reuters
+8827:EGM Organization Update &amp; Announcement
+23203:Re: Mary Kay Makeup
+55011:(01-53) REVISION Gasoline-Crack and Heating Oil-Crack Options Expiration Operational Procedures
+26555:Revised Nomination - June, 2000
+59215:Forward oil prices
+65283:FW: Proposed Windfall Profit Tax
+13053:Enron Mentions - 05/02/01
+63501:Re: Fwd:Ford chairman calls climate change world&apos;s #1 issue
+48017:(01-156) NYMEX Post-Close Trading Session Rules
+25991:Re: Coastal Oil &amp; Gas Corporation
+25536:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily-Power and Gas Prices &amp; Info
+26412:Great Gofl Offer
+40104:GRS&apos; FERCwatch - 4/4/01
+73603:Southern Trails Receives Final Approval
+89294:EGM Organization Update &amp; Announcement
+25553:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Fw: Click and go to http://www.enerfax.com if can not view properly.htm
+82755:Re: Introduction to Eric Gonzales
+10265:Re: Opportunities at ENA
+65603:Energy Issues
+14204:Energy Issues -thurs
+20277:More CA information
+72167:Tuesday NAS -83.23 DOW +42.47 USD +0.02 S&amp;P -9.02 CRB -2.45
+85382:wall st. journal article
+13063:Enron Mentions - 05/03/01
+85443:Re: Cabot Oil &amp; Gas Marketing Corporation
+16392:Energy Issues
+17057:POWER POINTS:Nevada Suffers FERC Unintended Consequences
+31672:EPE Dispatch
+51042:8/8 EOL CP List
+27087:New Turn-ons
+64448:Re: Transredes Q&amp;As - March 6
+29547:Re: Antwort: Availability Definitions
+53957:(00-417) Exchange Board Approves Initial Product Slate for enymex
+1378:RE: ng views + wager
+49673:
+62329:
+74404:EIA Releases Energy Outlook 2001
+49434:Re: EOL / Credit / GCP Responses 5/10/00
+35728:St. Mary&apos;s Production LLC VPP
+55626:URGENT REQUEST: PLEASE REVIEW AND APPROVE NEW PRODUCT TYPE (ENRONONLINE)
+62031:Re: Exmar Purchase Decision
+12126:Enron Mentions - 04/15/01
+94003:TECO sensitivities
+47559:Product Type approval for 2 product types (US Residual Fuel Oil 1% and 3% Crack Spreads)
+1475:Re: SCS Daily Volatility Report as of 3/19/01
+39470:Cypress Exploration Program - Operator/Cash Call Issue
+67658:(01-137) Rule Changes to Implement enymex(sm)
+62046:Re: Ming Sit
+11663:Enron Mentions
+31140:Re: Price Gouging
+38988:Re: Conflict question
+7663:Corrected Organization Announcement
+47801:Calgary Winter Club
+1515:FW: 2001 Natural Gas Production and Price Outlook Conference Call
+40538:4th Quarter Crunch
+48182:(01-160) Gasoline-Crack and Heating Oil-Crack Options Expiration Operational Procedures
+29613:Re: FW: GEWE reporting and follow-up
+28306:Jan. 01 Sale to Texas General Land Office
+14089:Enron Mentions
+30591:Re: FW: It Could Happen
+14277:Enron Mentions - 05/28/01 - 05/29/01
+17368:IEP News 7/16
+11349:Enron Mentions - 03/24/01 - 03/25/01
+57952:Weather Person for London EGM
+7884:EGM Organization Update &amp; Announcement
+15716:BusinessWeek column on the Phillips curve
+36220:(01-162) Reminder and Clarification on NYMEX Division Post-Close Trading Sessions
+56212:cost sharing of subscription to Poten&apos;s Fuel Oil Report
+48247:EGM Organization Update &amp; Announcement
+40132:GRS&apos; FERCwatch - 4/16/01
+54507:NDA - PVM Oil Associates Limited
+69054:Re: Invitation to deliver 2001 IAEE conference keynote
+66822:Arbitration with Reliance and ONGC
+87387:Wind and Powder River Purchase Contracts
+58706:Research allocations to EGM
+17956:Enron Mentions
+72148:Your News Alert for YHOO
+12324:Enron Mentions
+35740:Re: Cabot Oil &amp; Gas Marketing Corporation
+16978:Enron Mentions - 07/06/01
+40077:Constellation Energy Pursues &quot;Pure Play&quot; Strategy
+51263:Re: EOL Credit Responses 08/16/00
+15212:The Wall Street Journal: Politics &amp; Policy
+16354:Energy Issues
+55754:Restricted List
+23952:Assets and Trading
+54333:EOL-San Diego Gas &amp; Electric
+63609:TBG-Enersil transaction
+66401:DOE Rich Richard Recommendations
+40415:EnronOnline Real-Time Quotes Service on Reuters
+21898:Enron Mentions - 02/15/2001
+22412:UC Pioneers Conservation
+48400:(01-172) Members&apos; Forum on Brent Crude Oil Futures
+42032:Energy Issues
+44041:Safety and Environmental compliance
+50863:Leagl and Regulatory Review of Market Descriptions for EnronOnline
+52643:Re: Unocal Master Agreement
+93656:cipco
+69164:Project Janus
+23712:Re: CV - Ex-pat realocation
+46801:(01-101) ARGIN RATE CHANGE FOR CRUDE OIL, HEATING OIL, AND UNLEADED GASOLINE FUTURES CONTRACTS
+9144:Environmental findings, Koch South Texas Records Review
+29612:Re: FW: GEWE reporting and follow-up
+54298:Cross Timbers Energy Services, Inc.
+93683:TECO-Answer to Chris Smith questions
+24860:The Oxford Princeton Programme Newsletter
+13714:Enron Mentions
+16924:Lt. Gov. Bustamante introduces two new &quot;whistleblowers&quot;
+24595:Enron, Powerex Investigated for Alberta Price Fixing
+64237:Capacity Release Info for Enron&apos;s Gas Cap Response
+31544:Re: Meetings in washington
+44061:European position on MTBE
+15187:IE 2000 - here at Haas this year!
+63694:Fwd: Y2K article
+81081:Re: FW: Open items for MDEA
+54436:Power Financial Trading Limitations
+58667:From The Enron India Newsdesk - May 5-7 newsclips
+67639:Please forward this to your groups.
+56210:Re: cost sharing of subscription to Poten&apos;s Fuel Oil Report
+63061:Upcoming Advisory Council Meeting
+14285:Energy Issues
+25180:from my red neck uncle...
+94055:TECO model
+95506:Demand-side management garnering more attention. Deregulation spa rks IT revolution. Surf&apos;s Up!
+51046:Re: Imperial Oil ETA
+6033:Mariner
+55728:this and that
+83049:Oxy meeting
+11539:strategy for natural gas issues
+17318:Enron Mentions
+72149:Your News Alert for YHOO
+61393:Our telephone discussion
+35129:Fw: If Texans didn&apos;t think this way... this would be funny!!!!
+766:Burning Fat
+82637:FW: Speaking Invitation
+95431:A Texas Solution to the election
+85341:Ag group references.
+46026:Physical contract diagram
+31501:Re: Telecom with S&amp;W
+39389:Big Price Impacts From Last Week&apos;s Power Strike
+66614:EHS Weekly Report
+21922:Enron Mentions - 02/16/2001
+53288:(00-373) Options Expiration Operation Procedures for Crude Oil
+45407:RE: Bonepile: EOW/BancFirst Mtge Subordination
+12903:IEP News 4/30
+29677:Meeting with Gary
+44435:Capacity Release Info for Enron&apos;s Gas Cap Response
+8876:FW: Environmental findings, Koch South Texas Records Review
+16833:Enron Mentions - 06/30/01 - 07/02/01
+32291:
+55153:EnTouch Newsletter
+88440:Re: Kern River Capacity
+69078:Re: Governors Conference
+17594:Energy Issues
+66921:Enron Mentions
+69480:USIBC Daily News Update, October 13, 2000
+69784:20th Annual CERAWeek - &quot;Shooting the Rapids: Strategies and Risks for the Energy Future&quot;
+72164:The SmartMoney.com Daily News
+72145:Your News Alert for YHOO
+8343:Trade Press on PG&amp;E Issue
+15600:Utilities, Electric: Deregulation: GEORGE W. BUSH CRITICIZES CLINTON-GORE&apos;S ENERGY POLICY ...
+47259:(01-127) Amendments to NYMEX Rule 6.05(A) (&quot;Transactions, Bids and Offers on the Trading Floor&quot;)
+60277:Russian Investment Climate: Multimedia Playback - CERA Multimedia
+63054:Industry News: Charges of Gouging as Power Costs Skyrocket
+36652:Trader, Friday CRB -0.98 DOW -89.13 NAS -21.43 S&amp;P -9.51 USD +0.51
+14289:IEP News 5/29
+16733:Article
+25785:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Go to www.enerfax.com if can not view properly.htm
+46296:Seller&apos;s Representative language
+64230:Additional Arguments for Enron&apos;s Gas Cap Response
+52829:(00-362) Revised Crude Oil Options Expiration Date
+56035:Alliance Info Alert
+39801:Interviews of Enron Employees
+63188:
+66026:Re: California Offices
+55029:(01-60) Unleaded Gasoline, Heating Oil, and Natural Gas Options Expiration Operational Procedures for March 2001
+58097:Recommendations
+66624:GRS ElectricGasOil Alert [06/21/00]
+13831:VentureWire, Friday, May 18, 2001
+62998:More CA information
+17858:Energy Issues
+46756:rush approvals - EOL
+17816:CMTA Legislative Weekly - 07/26/01
+74457:Sierra Pacific Resources Announces Sale of Las Vegas Power Plant
+82609:Crude and products business plan
+86527:RE: Training courses available...
+8642:PG&amp;E UPDATE
+58396:FW: This one is good!
+31345:Siemens negotiations
+66301:Comparison of PA vs CA
+84237:EnTouch Newsletter
+24054:Dow Jones Gas vs. Coal feature
+30874:Upcoming Conferences
+46672:(01-98) NYMEX Holdings, Inc. Chairman of the Board &amp; Board of Directors Results
+59906:RE: Petrochem Desk
+59898:Re: Simulated Trading
+63238:Re: Letter to President on Energy Efficiency - Immediate Review Reque sted
+18801:Thought you&apos;d like to read this...
+83112:Re: Jose LNG - Crude Pricing
+13985:Enron Mentions
+45394:True Oil purchase contract
+64465:Internet Report on Andre LeGallo Departure
+52626:Forcenergy News
+41972:Commission Actions to Remove Obstacles in Western US- Key Points for EPSA Comments, Due MARCH 30TH
+83064:Dabhol Workout
+88067:PSA for Harley Dome O&amp;G Acquisition
+13452:IEP News 5/11
+76857:FCE
+26243:July, 2000 Nominations
+19775:interesting articles
+16555:Re: Meeting with CERA next week
+49552:Hallwood Energy Corporation
+51:Wow
+280:Texas puts reliability rules through paces
+46596:
+62765:INVESTMENTS
+91966:Re: Tug Fork Development
+85663:
+36289:Trader, Monday DOW +56.02 CRB +0.92 USD +0.33 NAS -25.51 S&amp;P +3.25
+57214:EnTouch Newsletter
+24930:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily Gas and Power Prices &amp; Info
+59713:Re: Hi:
+64351:Re: Department of Energy Pre-departure Briefing w/ Asst. Secy. Goldwyn
+52850:Re: (00-362) Revised Crude Oil Options Expiration Date
+28834:Potential List for November
+53178:(00-377) Margin Rate Change for Crude Oil, Unleaded Gasoline, and Heating Oil
+12700:Important - Save Money/Energy
+55810:UPDATED - Restricted List
+16539:IEP News 6/20
+44684:Re: Spill in Louisiana
+73864:EIA&apos;s Latest Forecast of Pricing and Supply for the Winter
+63460:EGEP Sale Announcement
+25528:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Fw: Click and go to http://www.enerfax.com if can not view properly.htm
+48132:(01-157) Exchange Early Contract Closing Schedule for May 25, 2001
+56383:Re: Risk report on &quot;Guide to Electricxity Hedging&quot; and Request for Gu est Access to Enrononline
+14259:Enron Mentions
+51716:Re: (00-323) Margin Change for Crude Oil, Unleaded Gasoline, and Heating Oil
+61211:Iraq and Crude Output
+14877:A reading on inflation
+22238:ENRON BROADBAND SERVICES LAUNCHES ONLINE BANDWIDTH TRADING IN EUROPE
+17265:Enron Mentions
+27960:Pathing question
+45823:Bammel Unit Agreement
+14612:Energy Issues
+2740:Re: Cabot Oil &amp; Gas Marketing Corp. - 9/99 production - price
+52232:Restricted List
+17290:Enron Mentions
+55270:(01-70) Margin Credit for Spread Positions with the Goldman Sachs Commodity Index
+36586:Today&apos;s Headlines from NYTimes.com
+20273:WSJ Article on Pres. Clinton&apos;s Press Conference
+99860:Kansas - Recent Postings
+17768:Enron Mentions
+54102:NEW ENRONONLINE PRODUCT - PLEASE APPROVE
+29256:CES Deal Clean-up
+64043:weekly report EHS
+88437:Kern River Capacity
+32953:Eastern States Oil &amp; Gas
+46058:Possible Gas contract
+47513:(01-137) Rule Changes to Implement enymex(sm)
+94175:
+59987:Clean Fuels - GPG business segment
+64602:Enron Mentions
+18798:VentureWire, Monday, November 20, 2000
+82953:Organizational Announcement
+91037:
+11844:State-by-state forecast for summer
+39935:Re: Singapore Office LNG Support Activities
+69429:October 2000 e-FFICIENCY NEWS - New Issue!
+79858:RE:
+64115:
+27974:Marathon Oil Company - 4/01
+14690:The world this week: Business 2nd - 8th June 2001
+9585:Ameriflash Newsletter
+5160:Enron Japan Commercial Support Model
+23624:Re: Hot List Items
+25403:She&apos;s Back!!!
+24672:B &amp; J Gas and Oil
+9248:EOTT Crude Oil Tanks
+47381:Re: (01-134) Cost Incentive Program for Brent Trading
+54110:US MTBE Fin Swap
+48081:
+59758:Re: Stinson Gibner &amp; Hector Campos
+98961:RE: Eastern District of Texas Gas Royalty Cases
+47478:(01-131) Unleaded Gasoline, Heating Oil and Natural Gas Options Expiration Operational Procedures
+14652:Energy Issues
+18678:WSJ California Gas Article
+52766:Re: Idemitsu Kosan Co Ltd
+82993:spanish update
+64348:Regulatory/Commercial Advice Needed by PGN/Indonesia
+76324:
+83371:EGYPT LNG/Pipeline
+9082:Topock diesel pigging strategy
+27207:fwd: FW: Fwd: Picture worth a thousand words
+47913:(01-150) Amendments to NYMEX End of Week Post-Close Trading Session Rule
+32838:Re: Beldon &amp; Blake
+16671:Energy Issues
+56329:Re: Alberto JImenez (Analyst Program)
+87393:Re: Wind and Powder River Purchase Contracts
+23953:Power Developers
+84255:Boxster
+69069:September 6 Roundtable
+65085:Energy Issues
+60809:Re: Request for suggestions : Vince&apos;s visit to sydney in July
+63506:Enron Mentions
+83731:Please distribute - booking to ECC
+60746:Re: corrections to Chap. 3 from Grant Masson
+31199:Article on Skilling&apos;s Speech at the AA Energy Conference
+49045:Re: Singapore
+93774:Another Adventure
+56143:Summer Internship Position
+1462:Re: distillates
+62957:Enron Facilities in the Houston Area
+19074:California energy prices
+30988:Organizational Announcement
+14088:NEWS: Burton Presentation and Press Conference
+59580:21st Annual Energy Symposium - November 28-29, 2000, Houston, Texas
+46598:Re:
+65744:Constellation to Build Major Plant in California, First in Over a Decade
+737:re:spreads
+62047:Exmar Purchase Decision
+17113:Energy Issues
+88914:Citation Oil &amp; Gas Spot Enfolio
+89420:Kennedy Oil&apos;s Confirm Letter
+97497:DJ Enron, Powerex Investigated For Alberta Price Fixing
+7626:Organization Announcement
+40323:GRS&apos; FERCwatch - 5/16/01
+57898:Extending EU Gas Guidelines to Central and Eastern Europe - CERA Insight
+43685:Re: Valentines Special
+59778:Stinson Gibner &amp; Hector Campos
+3956:Albert&apos;s Lies
+54546:Re: EOL Credit Responses 12/21/00
+60851:Re: Pre-submitted question on eSpeak
+63261:US Oil consumption
+30446:OCS Final Rule, Order 639
+65467:EHS Weekly Report - week ending 3/16/01
+39507:Cypress Exploration Program--Operator/Cash Call Issue
+35747:Re: Cabot Oil &amp; Gas Marketing Corporation
+60996:RE: Pre-meeting Weathereffects site cruise
+63578:GERMANY: European power trading set to grow further - Enron
+57292:EES-Utility Risk Management Issues- Location:19C2
+28423:North Central Oil Corp. - 2/01
+24168:Oil Release Incident
+95459:Re: Blackouts
+84052:(00-412) Early Exchange Closing for 12/22 and 12/29/2000
+92981:NGP&amp;L Variance
+13338:Enron Mentions
+23795:
+58241:Alliance Info Alert
+53175:(00-377) Margin Rate Change for Crude Oil, Unleaded Gasoline, and Heating Oil
+59213:Ameriflash Newsletter
+51722:Re: (00-323) Margin Change for Crude Oil, Unleaded Gasoline, and Heating Oil
+22544:Emergency Diesel Generators in California
+56189:RE: Risk report on &quot;Guide to Electricxity Hedging&quot; and Request fo r Gu est Access to Enrononline
+35542:FW: Does your school qualify?
+73675:CERA Monthly Summary--July 2000 - CERA Monthly Summary
+58816:URGENT- Election Update 11/17b
+52828:(00-362) Revised Crude Oil Options Expiration Date
+39610:Re: Opportunities at ENA
+46079:Master Natural Gas Purchase and Sale Agreement
+59340:In Confidence/Project Status
+82414:PIRA&apos;s Current News &amp; Analysis
+16885:Enron Mentions - 7/05/01
+58190:Follow-up on SIAM Workshop
+8941:Re: NNG Gomez Water Disposal
+14581:Enron Mentions
+64573:Enron Mentions
+64419:Commission Meeting - February 23, 2000
+9007:EPA Rules; Glycol Dehys
+24240:Re: Cuiaba Review
+39896:GOING TWICE: Sharpening the Pencils
+53854:(00-412) Early Exchange Closing for 12/22 and 12/29/2000
+16630:Energy Issues
+9138:OCD-P2BMP Manual and Training
+71051:Re: Hey Matt!
+11080:Commission Actions to Remove Obstacles in Western US- Key Points for EPSA Comments, Due MARCH 30TH
+49583:Hallwood Energy Corporation
+11742:NEWSMAKER PROFILE--Dennis Montali: Bankruptcy Judge Faces Challenge of His Career
+53785:EnronOnline-Singapore Counterparties
+24392:Mariner
+58976:3-D Seismic Data and Oil Trading
+58448:EOL Crude Oil Data
+63119:Re: The Governors&apos; Natural Gas Summit: Responding to the Challenge
+35762:St. Mary&apos;s Production LLC VPP
+25024:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Go to www.enerfax.com if can not view properly.htm
+12209:RE: Friday
+14545:Energy Issues
+4082:
+43887:Re: Oil &amp; Gas Confirms - Andex
+26906:
+64699:Burton Presentation and Press Conference
+5571:Looking for some LNG Contracts
+43428:A Man&apos;s Perspective
+58876:MarketPoint License Agreement
+91028:
+97573:Russia-Experienced Energy Attorney
+69246:Message from Gavyn Davies re: The Global Oil Price Shock
+58656:RE: MarketPoint License Agreement
+25254:FW: Press Release
+27902:King Ranch
+55765:Re: Energy Derivative Courses
+56294:AIESEC
+16801:Energy Issues
+55927:Re: Risk Magazine -Enron sponsored issue on Energy Derivatives
+61787:Phone call today
+93658:cipco
+34610:Re: Phillips Production PNG gas
+66018:Iraqui - Oil for food
+88987:Enfolil contract information
+52474:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+12035:Enron Mentions
+26059:Re: Cornhusker
+15890:Recession Risk is Rising, According to Research by Professor Kenneth Rosen
+58696:Backwardation hedge strategy
+31407:Re: Questions re: Siemens Negotiations
+61017:RE: Next visit to Houston
+58346:Welcome to the NEW CERA.com!
+37530:Fwd: California Power Plants Get Jolt As Natural-Gas Supplies AreCut
+83057:Your Meeting with Oxy
+38387:Fwd: Don&apos;t purchase gasoline from EXXON and MOBIL!
+72208:Monday USD +0.25 CRB +1.76 S&amp;P +10.34 DOW +12.89 NAS +97.28
+73344:El Paso Asked to Expand?
+15660:New Executive Director of the Management of Technology Program Brings His Valley Connections to Haas
+81202:VEPCO Information Request
+9086:Rogas activity
+46374:Re: bp Oil Supply registration status
+83787:EnTouch Newsletter
+14728:Power Online Newsletter
+64350:Re: Department of Energy Pre-departure Briefing w/ Asst. Secy. Goldwyn
+24596:2001 Annual Meeting, Rogers Award and 52nd Oil &amp; Gas Institute in San Antonio
+56220:Re: AIESEC
+59759:Stinson Gibner &amp; Hector Campos
+31121:Delayed Sticker Shock: Managing the Surge in Residential Natural Gas Costs This Winter - CERA Decision Brief
+17796:Enron Mentions
+74358:Update on Alliance and Vector In Service
+84136:EnTouch Newsletter
+16719:IEP News 6/26/2001
+50408:Re: United Oil &amp; Minerals
+47251:(01-128) INTRODUCTION OF BRENT CRUDE OIL FUTURES CONTRACT
+60954:RE: Pre-meeting Weathereffects site cruise
+46666:Re: New Product Type: US Crude Fin Opt Call and Put
+30514:Re: More on El Paso Protest of ENA Purchased Capacity
+1464:Here is the Article---no picture though...
+65448:More Likely that QFs will Get Paid Going Forward If Sign Deals with State
+46999:Re: Product Type Aprroval Needed! (US PlasticRGC3 Phy Fwd)
+22689:Re: Emergency Diesel Generators in California
+40292:DASH Regarding Sale of ECC&apos;s Interest in Invasion Energy
+44118:Re: CUTTY CUNNINGHAM
+28222:Re: March &quot;Spot&quot; Purchases
+90314:Re: Cutter Oil Contract
+14538:Enron Mentions - 06/02/01 - 06/03/01
+50459:EnronOnline Market Descriptions
+53911:Re: Hot Off the Presses
+54101:NEW ENRONONLINE PRODUCT - PLEASE APPROVE
+1359:Re: PIRA Global Oil and Natural Outlooks- Save these dates.
+55479:Re: EOL Credit Responses 3/9
+60779:Request for visit and meeting
+7885:Corrected Organization Announcement
+14341:Bush/Davis Meeting in the news
+9612:Re: PCB Decontamination of Turbine
+36334:Trader, Monday S&amp;P -3.10 CRB -1.31 NAS -17.98 USD +0.39 DOW -21.80
+30865:Temporary Slack - CERA Alert
+56658:Re: Model Development Review
+38939:Re: New Canadian Lawyer
+99183:MT Pacific Valour - Closure of Port of Daesan
+94773:
+50665:Online Market Descriptions
+59499:Re: Japanese Crude Cocktail &amp; Prompt Brent
+8694:Re: Winter Capacity
+36268:Re: Cabot Oil &amp; Gas Marketing Corporation
+13520:NEWS: montana
+9240:Re: field visit of EOTT tanks
+24442:Keyspan
+14105:Energy Issues-Wed
+46597:Re:
+86525:RE: Training courses available...
+88445:Medusa Proposal Final Draft - 3/15 8:10 PM
+12395:Enron Mentions - 04/23/01
+14892:VentureWire, Monday, September 18, 2000
+91961:Jay Bee Oil &amp; Gas
+14074:Burton Presentation and Press Conference
+54113:US PurEth OPIS vs LLDPE CMAI
+82509:Peter Weidler recommendation
+84021:Ameriflash Newsletter
+53950:NDA-PVM Oil Associates Limited
+16329:Energy Issues
+61376:Atlantic Basin Markets Precariously Balanced for Winter - CERA Watch
+47263:(01-129) END OF MIDDLE EAST SOUR CRUDE OIL FUTURES CONTRACT
+52482:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+55589:(MS-15) NOTICE OF INTENTION TO TRANSFER
+53993:Re: NDA-PVM Oil Associates Limited
+69519:USIBC Daily News Update for October 17, 2000
+51313:Re: EOL Credit Responses 08/22/00
+12557:Enron Mentions
+54108:US PurEth OPIS vs LLDPE CMAI
+17772:Energy Issues
+82412:PIRA Special Report: US Government Oil Demand Revisions
+65102:Re: Greenpeace letters to Enron Europe concerning our position on Kyoto
+28673:FIRST DELIVERIES - RANGER OIL, ASPECT RESOURCES, LLC, AND CAMDEN RESOURCES
+17883:Power-Market Bear Mauls Plans For New Generators In West
+53237:New EOL Product - Crude Oil Financial
+17830:Business Week story on Ken not going to LA
+62590:Fwd: this and that
+15344:Utilities, Electric: Deregulation: Consumer Outrage in California
+45648:Fuel Supply Agreement Consent
+45805:Re: Marathon, Formosa &amp; Valero Sales Contracts
+99620:
+14234:VentureWire, Friday, May 25, 2001
+45290:Re: my new location
+40237:The Nuclear Future -- A Closer Look at Safety
+58829:20th Annual CERAWeek - &quot;Shooting the Rapids: Strategies and Risks for the Energy Future&quot;
+9756:Re: Mact Workshop
+64182:Powergen and LG&amp;E Complete Merger
+31049:SmartEnergy Rounds Up $15 million in Financing; Is an IPO in the Works?
+17200:IEP News 7/11
+12675:Enron Mentions
+49528:Re: EOL / Credit / GCP Responses 5/15/00
+15751:VentureWire, Thursday, October 12, 2000
+72035:Are the markets ready for a rally?
+74355:Edison Mission Energy
+9276:Due Diligence Northwest Natural Gas Company-Summary
+24920:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Fw: Click and go to http://www.enerfax.com if can not view properly.htm
+21406:Enron Mentions - 01/30/2001
+82837:GRM Marketing &amp; Origination
+73512:FW: High Natural Gas Prices Affect US Oil Demand and Supply - CERA Alert
+89023:Enfolio Contract comments
+49433:Counterparty Approval Lists for 05/05/00. 05/08/00 and 05/09/00
+92256:EGM Organization Update &amp; Announcement
+72209:Monday USD +0.25 CRB +1.76 S&amp;P +10.34 DOW +12.89 NAS +97.28
+83033:Oxy meeting
+51058:Restricted List
+73410:El Paso Responds to FERC on Expansion Potential
+69451:MENA E-News 12/10/00
+74014:Invitation to CERA Web-Based Conference Call on Oil Pricing
+94511:FoolWatch: Halloween Message From Our CEO
+99155:MT Pacific Valour
+26840:Re: Coastal Oil &amp; Gas USA, L.P. Gas Gathering Agreement
+1224:The WTI Bullet swap contracts
+24594:Enron, Powerex Investigated for Alberta Price Fixing
+13911:Enron Mentions - 05/21/01
+92030:Checked Out Contracts
+92534:Re: PS
+4971:An Evening with Enron Invitation
+66243:Enron Mentions - 01/23/01
+84145:Please distribute - booking to ECC
+44057:Re: Messages in wake of USA Today
+41935:Energy Issues
+46348:Re: URGENT REQUEST: PLEASE REVIEW AND APPROVE NEW PRODUCT TYPE (ENRONONLINE)
+9171:Environmental Notices
+9230:Fwd: EOTT PL Tanks (compliance) database
+86497:Re: Oil &amp; Gas Lease
+13091:Enron Mentions - 05/03/01
+47624:FW: Product Type approval for 2 product types (US Residual Fuel Oil 1% and 3% Crack Spreads)
+26088:Cornhusker - Gas Management
+17595:IEP News 7/20
+69257:Letter to President on Energy Efficiency - Immediate Review Reque sted
+12208:RE: Friday
+42980:The Empty Chair
+59704:Restricted List
+31132:Endesa Receives Green Light to Move into France
+46414:Product Type Approval for 2 product types!! (US Residual Fuel Oil 1% Fin Spd / US Residual Fuel Oil 3% Fin Spd)
+44103:News clip
+1461:Re: distillates
+45186:Re: Upstream Energy Services Co, L.L.C.
+52835:(00-362) Revised Crude Oil Options Expiration Date
+54071:Re: EOL Credit Responses 12/15
+96686:RESUME
+61024:RE: Next visit to Houston
+40449:Cypress Exploration Program--Operator/Cash Call Issue
+69863:Mariner
+97737:Status Report
+17106:Energy Issues
+81147:RE: Open items for MDEA
+85944:Restricted List
+81064:FW: Open items for MDEA
+40331:Presidents Bush (Former and Current) Speak on Energy Issues
+85150:Coal
+45475:Re: National Oil &amp; Gas Coop
+8643:TRC Spill Cleanup Guidelines/GLO Oil Spill Penalties
+242:Demand-side management garnering more attention. Deregulation spa rks IT revolution. Surf&apos;s Up!
+21190:(BN ) Bush Says California Must Resolve Power Crisis, Sen.
+79553:RE: MDEA question
+25491:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Go to www.enerfax.com if can not view properly.htm
+11430:Enron Mentions
+47285:(01-126) Options Expiration Operational Procedures for Gasoline-Crack and Heating Oil-Crack
+18590:Re:
+58757:20th Annual CERAWeek - &quot;Shooting the Rapids: Strategies and Risks for the Energy Future&quot;
+98900:Eastern District of Texas Gas Royalty Cases
+45791:Re: Nom Question
+21253:1BN ) Enron Reiterates Plan to Cut Stake in India&apos;s Dabhol
+9260:Re: EOTT Crude Oil Tanks
+73681:InterGen Buys Part of Coral Energy
+45440:Re: Shell Oil
+11916:Enron Mentions
+49390:Re: Recipe &amp; Directions
+66603:Energy Legislation in the 107th Congress
+57722:From the Enron India Newsdesk- Jan 18th newsclips
+13793:Enron Mentions
+62254:Can Supply Grow Fast Enough to Meet Increased Demand?
+8739:Organization Announcement
+23538:Fw: True Orange, May 15, 2000, Part 2
+60971:RE: Pre-meeting Weathereffects site cruise
+69007:Fw: Situation in China
+1335:Re:
+86570:Revised Unocal Energy Trading Guaranty
+51622:(00-312) REMINDER! Change of Trading Hours for Energy Contracts
+62052:Re: Ming Sit
+97876:Re: PACIFIC VIRGO
+59623:Re: exploration data as the root of the energy (oil) supply chain and consulting
+1494:Re: utilites?
+11739:Enron Mentions - 04/07/01 - 04/08/01
+14012:IEP News 5/22
+39033:EGM Organization Update &amp; Announcement
+21185:Western Governors update
+34992:Credit Report 3/19/01
+32859:GELP, additional information
+44542:RE:Briefings of Cabinet Aides
+22501:GAO Investigation
+61012:RE: Next visit to Houston
+46080:Re: Master Natural Gas Purchase and Sale Agreement
+61023:RE: Next visit to Houston
+65313:Energy Issues
+78971:VEPCO &quot;to do&quot; list
+27402:Lindholm Oil , Inc.
+25875:Restricted List
+85461:API and API Crude, Distillate &amp; Unleaded Stocks Graphs
+94706:Ameriflash Newsletter
+52974:Re: Idemitsu Kosan Co Ltd
+61058:Re: Backwardation hedge strategy
+74925:new job
+51553:Re: Lawyer Resume
+64163:Enron Mentions
+49913:United Oil &amp; Minerals, Inc.
+44299:Sen. Smith introduces MTBE legislation
+12127:Enron Mentions - 04/16/01
+59343:Ameriflash Newsletter
+68858:Fwd: BCCA Fundraising Update 12-12-00
+82652:Article: Firms Line Up to Swim With Dolphin in Abu Dhabi.
+8416:May Conference Call
+9050:Endangered Species Habitat Compensation Acreage
+64391:Re: Mexico-Secretary Richardson Is Leaving For A Mexico Meeting With Minister Tellez Today-Need Talking Points ASAP
+32139:Package ID - Exclude
+52678:(00-359) Margin Rate Change for Crude Oil, Unleaded Gasoline, and Heating Oil
+29385:Spot or Firm Tickets
+63529:Enron Mentions
+84020:Ameriflash Newsletter
+85463:EGM Organization Update &amp; Announcement
+51007:Description for NGL, Crude &amp; Plastics
+53938:Broker full names
+55820:Energy Derivative Courses
+61004:RE: Pre-meeting Weathereffects site cruise
+15302:ECI - India
+21091:(BN ) Enron Broadband&apos;s Indian CEO Sanjay Bhatnagar Resigns
+31695:Re: EPE Dispatch
+73686:Notes for TW
+14786:Fwd: [Tech] Enron {01}
+24966:Offshore Activity
+31566:Re: OPIC/KFW Next Steps
+45618:FW: You might be a........
+52973:Re: Idemitsu Kosan Co Ltd
+31215:Rumors of Eni / Enron Merger Abound, Despite Denials from Eni
+65227:NEWSMAKER PROFILE--Dennis Montali: Bankruptcy Judge Faces Challenge of His Career
+58611:Re: Software
+82370:PIRA
+95655:June meeting of Contract Standardization Group
+16644:Enron Mentions
+56872:@Jones: News and Information from the Jones School
+8826:Re: August 29, 2000 Report on Midland Tour
+29884:Re: OH Reference on February Monthly Report
+69120:The Governors&apos; Natural Gas Summit: Responding to the Challenge
+52103:United Oil &amp; Minerals -Amended Credit W/S
+52395:Response to your email
+74388:Iraq&apos;s Antisanctions Campaign: Prospects and Implications - CERA Decision Brief
+50355:Re: United Oil &amp; Minerals
+63644:Jan - June, 2000 Accomplishments: Mike Dahlke
+46062:Crude Oil Agreement
+63241:Sen. Hagel&apos;s ESI speech
+13177:NEWS: Davis meetings with Sec. Abraham, Ken Lay, others
+68912:REMOVE FROM E-MAIL LIST. Re: March e-FFICIENCY NEWS
+64967:Enron Mentions - 05/03/01
+98205:Summary of FERC Recommendation on California Market Monitoring &amp; EPSA Comment Outline
+29966:Powergen and LG&amp;E Complete Merger
+88439:Kern River Capacity
+57914:Re: Follow-up on SIAM Workshop
+55472:ETA Amendment - BP Oil Supply Company
+69476:UN Wire Alert -- 13 October 2000
+41685:Energy Issues
+33177:Eastern States Oil &amp; Gas
+25986:Re: New Production-Sitara Deals Needed
+94143:Re: Request for 7FA estimate
+4177:howdy bro, miss ya
+42598:Reschedule - Sunniland Pipeline buyers (company President coming) (3 Feb 11:00 AM CST)
+12306:Enron Mentions
+47621:Re: FW: Product Type approval for 3 product types (Heating Oil Fin Options)
+40367:Enron Locked in Contentious Battle over Indian Project
+10849:Re: [Fwd: gassy cos.]
+15161:Dean Tyson Responds to Business Week Ranking of Haas School
+35741:St. Mary&apos;s Production LLC VPP
+17493:Re: Fw: Money in Politics Alert -- July 17, 2001
+51355:Re: EOL Credit Responses 08/23/00
+18881:Enron, Powerex Investigated for Alberta Price Fixing
+69123:Re: meeting
+59990:Clean Fuels - GPG business segment
+99774:Re: Status of bankrupt companies
+31012:Latin American Oil &amp; Gas Event
+14239:Reuters -- FERC told Calif natgas to reach limit this summer
+40431:Valero Positions to Become Challenger to ExxonMobil; Shakeup in Oil Industry Includes Power Firms
+1674:Re: ngas and economy
+73479:FW: Western Energy Markets Stuggle Along - CERA Monthly Briefing
+64580:Enron Mentions
+67390:Sivy on Stocks: Electroshock in California
+50374:Statoil
+88684:Enron Pipeline Proposal
+75105:Credit Report -4/18/01
+56385:Risk report on &quot;Guide to Electricxity Hedging&quot; and Request for Gu est Access to Enrononline
+55881:CERA Conference Call -- scheduled for Wednesday, March 8, 2000 - CERA Conference Call
+46457:PLEASE READ - Product Type Approval for 2 product types!! (US Residual Fuel Oil 1% Fin Spd / US Residual Fuel Oil 3% Fin Spd)
+52841:Re: (00-362) Revised Crude Oil Options Expiration Date
+48246:Corrected Organization Announcement
+55251:Product Type Approval (US Residual Fuel Oil Swap)
+66873:Energy Issues
+765:Burning Fat
+73458:January Report/February Forecast - CERA Private Report
+36055:Re: Cabot Oil &amp; Gas Marketing Corporation
+27950:Re: April 2001 Spot Purchases
+82745:FW: New GFU oil volumes
+47625:Re: FW: Product Type approval for 2 product types (US Residual Fuel Oil 1% and 3% Crack Spreads)
+64612:Enron Mentions
+93189:FW: Enron News Release
+37341:DJ Locals Seen &apos;Yelling&apos; At Nymex Board Members Touring Pits
+13185:Energy Issues
+11505:Enron Mentions
+63546:Economics Study on Proposed Houston SIP--Preliminary Results
+66658:weekly report
+59933:Fwd: The Quantum Bridge Question: How Far Can Optical Mania Go?
+83173:Re: EBS business development in the Middle East
+3826:Ameriflash Newsletter
+1516:Re: eia power demand
+82961:Re: fritzbrinkman resume
+48914:(01-191) EXCHANGE TO SUBSTITUTE POSITION ACCOUNTABILITY REQUIREMENTS FOR POSITION LIMIT RULES
+99457:
+3092:Re: Fwd: EMAZING Recipe of the Day - Linguine Puttanesca
+23209:Re: Mary Kay Makeup
+81066:FW: Open items for MDEA
+23151:Re: Mary Kay Makeup
+27922:FIRST DELIVERIES - COMSTOCK OIL &amp; GAS AND UNITED OIL &amp; MINERAL
+38812:Re: Singapore Office LNG Support Activities
+81523:RE: Midway Toll term sheet &amp; LOI - comments
+40822:California Articles
+66151:Organizational Announcement
+11801:Enron Mentions
+15526:Chairman Hoecker&apos;s Congressional Testimony asking for retroactive refund authority
+13727:Energy Issues
+34704:RE: Enron Press Release
+50736:Re: EOL Credit Responses 07/25/00
+61008:Re: Pre-meeting Weathereffects site cruise
+28716:REVISION - Forest Oil&apos;s JANUARY 2001 Gas Volumes
+5588:Looking for some LNG Contracts
+29082:Re: Mtr 6063 - Mokeen Lateral
+83146:Re: Juiced - ComputerWorld
+35769:Re: Cabot Oil &amp; Gas Marketing Corporation
+12964:Enron Mentions - 05/01/01
+13802:Energy Issues
+72137:Another big name warns
+83742:Organizational Announcement
+24972:Global Oil Market Meeting
+86540:Huntlaw Corporate Services Limited - COMPLIANCE PROCEDURES FOR CAYMAN ISLANDS COMPANIES
+66891:Enron Mentions
+46055:Brazos VPP - Open issues
+90503:Cross Timbers Oil
+42774:Organization Announcement
+60804:Re: Backwardation hedge strategy
+73855:Gas CERA Conference Call -Scheduled for Friday, September 8, 2000 - 10:00 a.m.
+77159:Coral Energy LLC
+76686:Opportunities at ENA
+51703:(00-323) Margin Change for Crude Oil, Unleaded Gasoline, and Heating Oil
+42464:20th Annual CERAWeek - &quot;Shooting the Rapids: Strategies and Risks for the Energy Future&quot;
+14279:Enron Mentions - 05/26/01 - 05/27/01
+12770:Enron Mentions - 4/27/01
+51681:(00-311) Options Expiration Operational Procedures for Crude Oil
+82761:Re: PIRA Global Oil and Natural Outlooks- Save these dates.
+25575:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily
+36146:Re: Cabot Oil &amp; Gas Marketing Corporation
+16448:Energy Issues
+25525:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily
+31523:OPIC/KFW Next Steps
+11456:Filings in Support of Kern River and El Paso Emergency Expansion Proposals
+14382:IEP News 5/30
+50964:Re: IBJ ISDA Documentation
+94734:Additional data requests on Wheatland
+14810:Business This Week September 9th - September 15th 2000
+26792:May wellheads
+31663:Re: Cuiaba Lender Package
+57712:From the Enron India Newsdesk- Jan 18th newsclips
+25021:Fwd: VR 375
+24088:Dow Jones Gas vs. Coal feature
+54091:(00-416) Options Expiration Operational Procedures for Gasoline-Crack and Heating Oil Crack
+14929:The Price Institute Gives a Boost to Lester Center Entrepreneurship Programs
+93803:TECO-Answer to Chris Smith questions
+12160:Enron Mentions
+31094:WSJ article on Cal gas prices
+35133:Fw: If Texans didn&apos;t think this way... this would be funny!!!!
+74042:EIA&apos;s Updated Heating Costs Forecast
+14019:Midday Market View for May 22, 2001
+55933:Risk Magazine -Enron sponsored issue on Energy Derivatives
+18845:VentureWire, Tuesday, November 21, 2000
+21049:Western Governors update
+47382:(01-134) Cost Incentive Program for Brent Trading
+1246:Enron Mentions - 05/12/01 - 05/13/01
+41352:Corrected Organization Announcement
+21790:Fwd: APX Has New CEO -- Former CalPX CEO John Yurkanin
+17322:Energy Issues
+51228:EOL Responses
+91971:Re: Jay Bee Oil &amp; Gas
+29094:October Deals
+66012:e-mails to be forwarded to Steve Kean
+65225:Energy Issues
+16024:Ireland/Ghana
+82610:Crude and products business plan
+10514:Personal - Dominic Carolan
+24905:Ameriflash Newsletter
+46986:Product Type Aprroval Needed! (US PlasticRGC3 Phy Fwd)
+59459:Re: Seismic Data via satellite
+29532:Capabilities Memo
+1885:Power Plant Development Update/New Economic Life for Shut-in Well s
+67141:California&apos;s dim bulbs
+7374:EOL Average Deal Count as of 12-6-00
+675:Plants Shut Down and Sell the Energy
+13882:Enron Mentions
+64635:Enron Mentions
+49614:Mega Natural Gas Company, L.L.C. / Cross Timbers Oil Company
+59625:Re: Seismic Data on Oil &amp; Gas field Development via Satellite
+32499:Re: L&amp;B Oil &amp; Gas - Feb00 - Update
+25797:The Oxford Princeton Programme Newsletter
+64571:talking points-
+16886:Energy Issues
+44235:EOTT Energy Partners, L.P.: Downgrading to 2-Outperform
+69934:From Dr R.K Pachauri
+79415:Information Transfer
+30590:FW: Latest Press Release
+74495:Please distribute - booking to ECC
+89895:Texas-Ohio FERC Case
+28332:Meter # 0071
+89939:Outline for proposed agreement
+98680:Energy Issues -thurs
+17056:POWER POINTS:Nevada Suffers FERC Unintended Consequences
+62623:NE Gov. Johanns mtg
+22081:Market Response Conference Call Schedule for Today 2/22
+24244:Re: Excess Credit Exposure
+28359:Meter # 9859
+13929:IEP News 5/21
+82759:Re: Draft Organizational Announcement about Japan
+83174:Re: EBS business development in the Middle East
+30642:Frank LaLumia Fine Art - Home
+49772:New ISDA - Synergy Oil &amp; Gas, Inc.
+74434:TW EBB Re-Posting
+52959:(00-367) Revised - Crude Oil Futures Expiration Date
+97882:William J. Friedman and Rebecca Friedman d/b/a Friedman Associates v. Enron Southern Africa Development Ltd and Enron Oil and Gas Mozambique, Ltd.
+36306:Trader, Tuesday NAS +25.20 USD +0.69 CRB -0.02 DOW -51.66 S&amp;P -2.33
+9207:EOTT tank database
+17365:Enron Mentions - 07/14/01 - 07/16/01
+9181:Re: FW: Mewborne - Quercho Bone Springs Unit - Sec 23-18S-32E
+17485:Fw: Money in Politics Alert -- July 17, 2001
+24845:Re: B &amp; J Gas &amp; Oil
+9065:Re: Rogas Line -- USFW Approval
+52475:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+14536:Enron Mentions - 06/04/01
+84146:Please distribute - booking to ECC
+52489:(00-354) Margin Rate Change for CL, HU, and HO
+21589:Re: PG&amp;E Securitization Agreement Statement
+59195:Re: Forward oil prices
+25039:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Go to www.enerfax.com if can not view properly.htm
+52931:AmeriFlash
+56723:CERA CERA Monthly Summary--November 1999 - Monthly Summary
+76902:Opportunities at ENA
+64647:Enron Mentions
+61055:Dale Nesbitt
+53910:Re: Hot Off the Presses
+13832:Enron Mentions
+66598:EGEP/EOGIL Customs Duty Inquiry on Offshore Production
+85475:Corrected Organization Announcement
+49163:Counterparty Approval Lists for 4/24/00 and 4/25/00
+52490:Huntlaw Corporate Services Limited - COMPLIANCE PROCEDURES FOR CAYMAN ISLANDS COMPANIES
+39204:
+15560:Utilities, Electric: Deregulation: Fuel for thought
+29885:Re: OH Reference on February Monthly Report
+94760:FoolWatch: Cisco, Apple and Probability
+31189:Iraq&apos;s Antisanctions Campaign: Prospects and Implications - CERA Decision Brief
+36230:Re: Cabot Oil &amp; Gas Marketing Corporation
+32553:Re: CNR Producers not in Global.
+53382:(00-389) New York Mercantile Exchange to Base Certain enymex Contracts on Platts Benchmarks
+55692:NE Gov. Johanns mtg
+46371:Re: bp Oil Supply registration status
+46759:rush approvals - EOL
+56341:ENRON HOSTS ANNUAL ANALYST CONFERENCE PROVIDES BUSINESS OVERVIEW AND GOALS FOR 2000
+31316:Re: Period after commissioning on oil - PPA availability penalties vs. diesel cost exposure
+14235:Enron Mentions
+17737:Enron Mentions
+53621:(00-370) Implementation of Electricity EFS Program
+17751:FW: Enron&apos;s Skilling Vows to Meet or Beat Profit Projections
+82750:Introduction to Eric Gonzales
+24623:FW: Rumors of Eni / Enron Merger Abound, Despite Denials from Eni
+65363:TVA Press Release on Generation Plans
+27315:Re: Potential Volume list for March, 2000
+16766:Oil &amp; Gas Journal Online 6/8/2001: Suppliers lobby California law makers for direct access for consumers
+40302:Re: Conflict question
+61971:Fwd: Book and EPRM articles
+85700:LNG: FRANCE: PDVSA sees Enron LNG deal soon, seeks gas funds.
+56207:REVISED: Restricted List
+88491:Executed letter agreements
+44236:Organization
+90523:Cutter Oil Company
+57485:Re: Remaining work
+65369:California Power Crisis Update (No. 10)
+63277:House Accepts Commerce Commitee language!
+35923:Preston Exploration, LLC
+24861:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Go to www.enerfax.com if can not view properly.htm
+52596:Re: EOL Credit Responses 10/17/00
+66883:Enron Mentions
+21301:Re: FINAL VERSION (Revised)
+44255:Re: Newspaper Article - Koch
+52104:Re: United Oil &amp; Minerals -Amended Credit W/S
+47013:Re: Product Type Aprroval - US Plastic RGC3 Phy Fwd)
+13343:Energy Issues
+25907:Re: United Oil &amp; Minerals, Inc., Chapman Unit #1
+12332:IEP News 4/20
+69750:Orion Refinery
+41656:Re: AES Completes Acquisition of IPALCO
+54785:RE: BP Oil Supply Company
+22696:Summary of FERC Recommendation on California Market Monitoring &amp; EPSA Comment Outline
+27806:United Oil &amp; Minerals, Inc.
+82896:RE: rice/ou
+99137:Re: Killam Oil Dehydration in the Juanita Lobo Field, Webb County, Texas
+74603:Please distribute - booking to ECC
+92072:EES Matters
+16800:Enron Mentions
+74460:The Storm Arrives - CERA Alert
+60786:OPEC: Arguing over Output - CERA Alert
+24925:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily html-Gas Down
+58204:CERA Monthly Oil Briefing - CERA Alert - December 20, 2000
+69368:News from Tony Garza
+59948:Update on UT - Enron Activities: My Conversation with Rick Causey
+63664:Enron Mentions
+66561:Exelon Completes Acquisition of 49.9 Percent of Sithe
+44201:Work flow and procedure - TNM Pipeline System
+82955:Organizational Announcement
+35062:Re: Petro-Canada Oil &amp; Gas
+37166:EnTouch Newsletter
+48934:(01-194) Amendments to NYMEX Division Position Limit and Reporting Rules...
+73847:Energy Central Conference Watch - 09-01-00
+36201:(01-156) NYMEX Post-Close Trading Session Rules
+27627:FW: HOW TO SETTLE THE ELECTION
+11821:NEWS: State by State predictions for summer
+16553:Re: Meeting with CERA next week
+49178:McMurry Oil Company
+90923:Forest Oil / Energen Resources
+29058:Re: Meter 9707
+708:Meeting Minutes: Continental and Enron, December 12th
+64701:Burton Presentation and Press Conference
+664:Re: NG YEAR ENd Quiz
+14061:Enron Mentions
+17839:Enron Mentions - 07/28/01
+63493:Fwd:Ford chairman calls climate change world&apos;s #1 issue
+14417:IEP News 5/31
+40877:Dabhol -- Oman LNG meeting
+52485:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+8423:May PCB Meeting Notes ET&amp;S and PG&amp;E
+18743:Re: Saturday
+66055:FYI: Turkey OPET info for delegate pack and Q&amp;A
+26195:Re: Maynard Oil - Revised Nom
+72141:Your News Alert for YHOO
+86523:FW: Training courses available...
+49307:Husky Oil
+66711:Re: Bloomberg story
+41027:Returned mail: Host unknown (Name server: bracepat.com: host not found)
+44155:Update for GPG Exec Staff Mtg. Tuesday 5/30/00
+66533:Today&apos;s Van Vactor column
+96604:Windfall Profits Tax
+16850:Enron Mentions
+26990:Wellhead
+81663:FW: Beck Comments
+61936:WTI products
+57526:Remaining work
+60788:Monthly Briefing: The Pressure Remains - CERA Alert
+13055:California LNG Project
+25658:OTC
+57572:Invitation to CERA Multiclient Study Workshop
+8991:Re: CA Division of Oil &amp; Gas Filings
+19361:CNBC Transcript - Street Signs
+29736:Re: Fw: Gear Box no. 19103, Trent Mesa WTG #79
+52623:(00-331) Proposed Rule to Allow Strip Trading in Propane
+63243:
+13167:FW: Kinder Morgan And Calpine Announce Plans to Develop New Natural Gas Pipeline to California
+92251:Re: Cabot Oil &amp; Gas Marketing Corporation
+6325:ENRON HOSTS ANNUAL ANALYST CONFERENCE PROVIDES BUSINESS OVERVIEW AND GOALS FOR 2000
+49706:Re: EOL / Credit / GCP Responses 5/26/00
+13118:Energy Issues
+53885:Carrizo Oil &amp; Gas, Inc.
+28411:Re: Coastal O&amp;G, Mtr. 4179, Goliad Co.
+55658:CERA Multimedia Presentation: Wednesday, March 15, 2000
+61345:PowerMarketers.com Daily Power Report for 14 December 2000
+49931:Re: EOL / Credit / GCP Responses 6/13/00
+54111:Re: US PurEth OPIS vs LLDPE CMAI
+45406:RE: Bonepile: EOW/BancFirst Mtge Subordination
+93986:Breakfast With The Fool: Bassett Hounds
+90907:Murphy Oil
+10187:Re: Opportunities at ENA
+65190:Energy Issues
+59613:Re: Seismic Data on Oil &amp; Gas field Development via Satellite
+17060:Third Annual UC Berkeley Business Plan Competition Launches November 8
+44545:Good morning
+14303:Midday Market View for May 29, 2001
+91745:Re: Cutter Oil Company
+45049:draft letter
+27094:FIRST DELIVERIES - CICO OIL &amp; GAS CO., AND UNION GAS CORP.
+52121:EOL Credit Responses 09/26/00
+58908:Re: Forward oil prices
+88632:FW: Fw: Oil changes: Men vs. Women
+14423:Energy Issues
+62381:Book and EPRM articles
+75268:Credit Report for 3/13/2001
+40710:Re: Opportunities at ENA
+55615:(01-85) Options Expiration Operational Procedures for Gasoline-Crack (CGJ1) and Heating Oil-Crack (CHJ1)
+11738:Enron Mentions - 04/09/01
+810:re:mkts
+98650:Burton Presentation and Press Conference
+60605:Re: Fwd: Upcoming Events
+65617:GAO Investigation
+47643:Re: FW: Product Type approval for 3 product types (Heating Oil Fin Options)
+11558:Enron Mentions
+9183:Additional Soil Investigations, North Coles Levee
+45810:Re: Vineyard Oil &amp; Gas: Q56432
+88502:Shippers List - Kern Open Season
+23912:coal-fired generation
+1507:Enron Mentions
+19173:FW: Daily Electric Power News - 11-28-00
+23512:Yahoo! Finance Story - Yahoo - AEP, LCRA plan $500 mln Texas power grid expansion
+31696:Re: EPE Dispatch
+9067:Re: Rogas Line -- USFW Approval
+58531:CAPA 2000 conference
+43647:Fw: YOU KNOW YOU&apos;RE A LATINO IF...
+25988:New Production-Sitara Deals Needed
+86059:Contracts for Project Triple Lutz
+16302:Energy Issues
+31113:Dynegy and NRG Energy to Purchase Sierra Pacific Assets
+45674:Huntlaw Corporate Services Limited - COMPLIANCE PROCEDURES FOR CAYMAN ISLANDS COMPANIES
+46802:(01-104) MARGIN RATE CHANGE FOR MIDDLE EAST SOUR CRUDE OIL FUTURES CONTRACTS
+53994:Re: NDA-PVM Oil Associates Limited
+59951:Update on UT - Enron Activities: My Conversation with Rick Causey
+79853:
+86060:Re: Contracts for Project Triple Lutz
+47556:Product Type approval for 3 product types (Heating Oil Fin Options)
+75554:Coal
+11374:Enron in Sac Bee
+76685:Opportunities at ENA
+64653:Re: Humberto (Beto) Kuhn, resume
+86663:Site Lease and PSA form
+90010:Re: Gas Daily Prices for Bazor Ridge
+10287:Re: Opportunities at ENA
+64120:Re:
+69924:
+68906:REMOVE FROM E-MAIL LIST! Re: MENA E-News 22/03/01
+11636:Enron Mentions
+13516:Enron Mentions - 05/14/01
+28027:Spot Deals - April, 2001
+13912:Enron Mentions - 05/20/01
+42490:Recent speech by Alaska Governor
+78588:Individual.com - News From a Friend!
+1384:RE: ng views + wager
+41967:Commission Actions to Remove Obstacles in Western US- Key Points for EPSA Comments, Due MARCH 30TH
+44231:Purchase &amp; Sale Agreement - Outline of relationships section
+54134:Re: EOL Credit Responses 12/12/00
+49932:Re: EOL / Credit / GCP Responses 6/13/00
+64349:Re: Department of Energy Pre-departure Briefing w/ Asst. Secy. Goldwyn
+74320:Operational Notes
+74370:California energy prices
+10298:Re: Opportunities at ENA
+8825:Corrected Organization Announcement
+51618:(00-312) REMINDER! Change of Trading Hours for Energy Contracts
+4199:Re: QUIZ
+1961:ENRON HOSTS ANNUAL ANALYST CONFERENCE PROVIDES BUSINESS OVERVIEW AND GOALS FOR 2000
+47620:FW: Product Type approval for 3 product types (Heating Oil Fin Options)
+86055:Re: Enron Plats---BLM portion
+36891:EnTouch Newsletter
+90030:Re: Wellhead
+25559:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily html-Gas Down
+94083:Re:
+74252:Organizational Announcement
+33478:Gas Futures Up
+64961:Enron Mentions - 05/03/01
+45411:RE: Bonepile: Enron WHGGS Mortg age Agreement
+1280:RE: try this one...
+22354:CA PUC - Fiber in Gas Pipelines
+68284:cover letter and resume for positions in natural gas trading
+97673:Status Report
+25565:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily Gas and Power Prices &amp; Info
+1134:Re: El Paso Energy Corporation Reports Record Second Quarter Earnings Per Share
+11348:Enron Mentions - 03/26/01
+67443:EGM Organization Update &amp; Announcement
+74442:New AZ. Power Plant
+17117:Dow Jones Story w/ Overcharge Amounts
+25701:Iraq Trade Association
+36477:SONGS
+73500:India Relief Effort
+52764:Re: Idemitsu Kosan Co Ltd
+35443:[Fwd: Counting Sheep]
+33263:Stingray Agency
+72041:Wednesday S&amp;P -11.08 CRB -2.59 USD +0.44 NAS -108.97 DOW +26.17
+74433:CERA Insight: The Gales of November Recap and December Forecast
+25623:Organization Announcement
+69449:USIBC Daily News Update for October 11, 2000
+61766:Re: Risk Management Policy
+14564:Energy Issues
+17628:Energy Politics in CA today - Articles - FYI
+17235:Enron Mentions
+56000:News article on Enron
+67498:(01-156) NYMEX Post-Close Trading Session Rules
+69394:AEI IN AN INSTANT
+1083:Reuters Story on E-Exchange
+11979:Enron Mentions
+49896:United Oil &amp; Minerals, Inc.
+50282:United Oil &amp; Minerals
+66210:Re: Transredes Oil Remediation Efforts
+41970:California Blackouts: A Prelude to a Long, Dark Summer?
+14594:Morning Market View for June 6, 2001
+73887:Article on Impact of Gas Prices on the Fertilizer Industry and Predictions of Fuel Switching
+55320:Re: EOL Credit Responses 3/8
+61010:RE: Next visit to Houston
+52277:(00-344) Implied Bid or Offer Functionality Returns to NYMEX ACCESS
+68904:REMOVE FROM E-MAIL LIST!!! Re: BusinessWeek&apos;s International Alert: 2 April, 2001
+17866:IEP News 7/30
+45981:Officer&apos;s Certificate for EPOS
+69505:USIBC Daily News for October 16, 2000
+83296:FW: Lewandowski &quot;Industry&quot;
+93794:UAE - Lowell, MA 5xLM6000 PC Project
+12005:Enron Mentions
+69382:World Economic Forum - USA Meeting 2001, Washington DC, 4-5 April
+54395:Husky Oil Limited/ECT Canada
+54589:BP Exploration &amp; Oil Inc.
+72094:Andrew, Wednesday S&amp;P +46.63 USD -0.31 CRB +0.05 DOW +399.10 NAS +156.22
+39032:Corrected Organization Announcement
+57449:Organizational Announcement
+55462:(01-83) Delayed Opening
+7235:Your Help Needed Please - Cross-Commodity Reporting
+55195:New Product Type (US ResiOil Swap)
+74100:November Pricing
+72203:Big Chart Shows Signs of a Change in Leadership
+46369:Re: bp Oil Supply registration status
+45389:FW: Mortgage Agreement
+52813:Re: Idemitsu Kosan Co Ltd
+888:Re: mkts
+21794:Enron Mentions - 02/13/2001
+46111:New Master Physical with Cross Timbers Oil Company
+21557:Enron Mentions - 02/06/01
+14245:Midday Market View for May 25, 2001
+1294:Continental Briefing for Enron/Continental meeting December 12th from 1:30-2:30/trading floor tour 2:30-3:00
+41644:Re: GRS - FERC AGENDA for 3/28/01
+87797:Organizational Announcement
+50420:Re: Petro-Canada Amendments to Master Firm and Master Swap
+28691:HPL Meter #981431 TEXAS CITY MARATHON OIL HPL
+48106:(01-162) Reminder and Clarification on NYMEX Division Post-Close Trading Sessions
+9148:Area Source MACT Regulations
+85378:Re: Cabot Oil &amp; Gas Marketing Corporation
+61377:Conference Call and Web Presentation: Volatility in Northeast Energy Markets... - CERA Conference Call
+16709:Enron Mentions
+49927:United Oil &amp; Minerals, Inc.
+8622:Electricity &amp; Fuels Briefing
+25191:Perfect day for a woman and a man
+40219:Conflict question
+43431:A Man&apos;s Perspective
+40280:Service of Process
+46016:Re: Confidentiality agreement
+55464:(01-83) Delayed Opening
+67512:Organization Announcement
+83048:gmp update and mtm exposure
+28354:Re: January Spot Purchases-Deals Needed
+43280:EMAZING Bible Verse of the Day - 1 Kings 17.14
+13171:Enron Mentions - 05/05/01 - 05/07/01
+79416:FW: Information Transfer
+44404:Re: Business Development
+12933:Enron Mentions - 4/30/01
+69181:Stockguide
+83750:EnTouch Newsletter
+38846:Commission Actions to Remove Obstacles in Western US- Key Points for EPSA Comments, Due MARCH 30TH
+9422:Re: Oil Skim + &quot;Bugs&quot;
+84242:John Arnold Crude Oil Deals
+46007:Confidentiality agreement
+73973:Enterprise Acquires Acadian Gas
+14829:Power Online Newsletter
+39595:Re: Opportunities at ENA
+59164:Re: Forward oil prices
+12205:RE: Friday
+52359:Re: US Heating Oil and Unleaded Gas Fin Spreads - Approval
+17490:IEP News 7/18
+73550:Enron In Action 02.05.01
+11484:Enron Mentions
+64054:Appeal for your support to continue to serve Enron
+61453:
+18793:WPTF Sunday Wee the People Burrito
+36236:(01-157) Exchange Early Contract Closing Schedule for May 25, 2001
+81076:RE: Open items for MDEA
+85584:Bloomberg Power Lines Report
+83927:Organization Announcement
+25603:NWP System Notice - 01-241 June 2001 Monthly Maintenance
+72143:Your News Alert for YHOO
+12834:CBS poll: Americans prioritize environment over energy 2:1
+26316:Reliant&apos;s attempt at humor
+50852:Online Market Descriptions
+46368:bp Oil Supply registration status
+52463:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+13818:The world this week: Politics 12th - 18th May 2001
+15478:PennFuture&apos;s E-cubed
+98971:M/V &quot;PACIFIC VIRGO&quot;
+81068:Re: FW: Open items for MDEA
+99613:Chan&apos;s resume
+23635:Conference Call and Web Presentation: Volatility in Northeast Energy Markets... - CERA Conference Call
+46372:Re: bp Oil Supply registration status
+40205:GRS&apos; FERCwatch - 4/26/01
+12355:
+9255:Re: EOTT Crude Oil Tanks
+14243:Energy Issues - Fri
+31395:Questions re: Siemens Negotiations
+40679:DJ Enron, Powerex Investigated For Alberta Price Fixing
+677:Re: APIs
+46683:(01-98) NYMEX Holdings, Inc. Chairman of the Board &amp; Board of Directors Results
+46764:Re: rush approvals - EOL
+54086:Re: NDA
+61752:Is the Supply Rebound Beginning? An Update on CERA&apos;s Outlook for US Gas Productive Capacity - CERA Conference Call Notification
+74174:Temporary Slack - CERA Alert
+81519:RE: Midway Toll term sheet &amp; LOI - comments
+53932:PVM NDA
+24800:Re: B &amp; J Gas &amp; Oil
+74395:Article on Skilling&apos;s Speech at the AA Energy Conference
+48129:(01-155) REVISED: Crude Oil Options Expiration Operational Procedures
+16731:Article
+63920:Juiced - ComputerWorld
+69335:Atlantic Copper/Freeport McMoran
+81117:FW: FW: Open items for MDEA
+73938:El Paso Outage
+99653:FW: A Trip Down Memory Lane
+13524:Energy Issues
+44035:An exciting new tool to improve our profitability
+82277:FW: fwd
+12343:FYI. You can replace the white with the black. will want to slice up the whole ones you bought in italy. more to follow.
+87394:Re: Wind and Powder River Purchase Contracts
+56159:Re: AIESEC
+86144:Coleman Oil &amp; Gas Term Sheet and LOU
+19301:RE: casbah
+82409:PIRA Special Report: 2001 North Sea Oil Production
+31351:Siemens negotiations
+59458:Seismic Data via satellite
+50956:Re: IBJ ISDA Documentation
+92267:Corrected Organization Announcement
+97063:FW: Examples of Long Descriptions
+50369:New ISDA - The Wiser Oil Company
+24892:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily
+13798:Power Online Newsletter
+20233:VentureWire, Monday, August 21, 2000
+57136:EnTouch Newsletter
+30896:Electric Developments
+52684:(00-359) Margin Rate Change for Crude Oil, Unleaded Gasoline, and Heating Oil
+56655:Energy Institute
+83010:reqeust
+63675:Enron Mentions
+44547:Re: Good morning
+39441:SmartEnergy Rounds Up $15 million in Financing; Is an IPO in the Works?
+66451:Contracts to ease blow of rise in fuel prices helping airlines - Houston Chronicle
+63248:Energy Situation and Policy
+69390:Re: WEF- Outline of Opinion for Environmental Agenda
+14587:Re: FW: Enron Demo Recap
+13966:Enron Mentions
+54749:Re: Public Service Company of New Mexico
+40281:Williams in Agreement to Acquire Barrett Resources
+18655:QUERY ON CALIF GAS. &amp; Early Warning - CERA Alert
+47379:(01-134) Cost Incentive Program for Brent Trading
+54741:BP Oil Supply Company
+3276:fwd: FW: WHAZZUP..........????
+39308:KNOC Finance Language
+79782:Yahoo! Finance Story - Yahoo - Enron CEO uses vulgarity in attack on fund manager
+16758:Enron Mentions
+50310:Status of Online Amendments
+19634:The world this week 2nd December - 8th December 2000
+46657:New Product Type: US Crude Fin Opt Call and Put
+67444:Corrected Organization Announcement
+45807:Re: Marathon, Formosa &amp; Valero Sales Contracts
+36181:Dominion Volumes
+82322:PIRA&apos;s Current News &amp; Analysis
+38894:Re: Avista and Kangqi
+64874:Energy Issues
+21821:Enron Mentions - 02/14/2001
+69185:RE: Message for Ken Lay ENRON re Sept. 20
+16958:Senate Majority Leader Eager to Push Energy, Environmental Issues
+74382:Kern River to Do Another Open Season
+26796:
+65726:Energy Issues
+40304:Bush Energy Plan Expected Next Week; Nuclear Power, Eminent Domain Emerge as Key Elements
+17829:Enron Mentions
+52774:Re: Idemitsu Kosan Co Ltd
+69082:RE: Governors Conference
+83070:Re: Jose LNG - Crude Pricing
+60086:Petrochem Desk
+24938:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily
+18934:Enron, Powerex Investigated For Alberta Price Fixing
+18153:FYI
+13245:Energy Issues
+72142:Your News Alert for TXN
+50365:Re: United Oil &amp; Minerals
+45060:Gathering agreement
+69548:Economics Study on Proposed Houston SIP--Preliminary Results
+9259:Midland Team EOTT Oil Tanks
+20824:Power Online Newsletter
+10686:Re: Opportunities at ENA
+22463:Dynegy and NRG Energy Announce Long-term Agreement With California
+10674:Re: Opportunities at ENA
+24895:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Fw: Click and go to http://www.enerfax.com if can not view properly.htm
+64570:Energy Issues
+64459:Articles on Yesterday&apos;s hearings from Seattle Papers
+45370:Purchase Agreement
+94776:Breakfast With The Fool: Chevron Guzzles Texaco
+40690:Cypress Exploration Program - Operator/Cash Call Issue
+36279:Re: Cabot Oil &amp; Gas Marketing Corporation
+12894:Enron Mentions - 4/30/01
+11226:Exclusive Special from Leeuwin Estate
+21726:op ed
+25985:Re: New Production-Sitara Deals Needed
+28876:REVISION - Forest Oil&apos;s NOVEMBER 2000 Gas Volumes
+9016:Re: Gas Injection Project
+55726:Initial simulation results
+85358:Re: Cabot Oil &amp; Gas Marketing Corporation
+62676:Presentation at UT
+14980:The Buzz, 9-20-00
+59925:PIRA Global Oil and Natural Outlooks- Save these dates.
+24935:AmeriFlash
+62527:Free two week FT-online Trial
+65626:Dynegy and NRG Energy Announce Long-term Agreement With California
+91743:GasEDI Standard Contract
+39490:Torrid Time Forecast For Energy
+46259:Re: Two producers, one meter
+91957:Re: Tug Fork Development
+31468:Re: Telecom with S&amp;W
+10343:Re: Opportunities at ENA
+31694:Re: EPE Dispatch
+5996:Bandwidth Trading Forum
+62656:Special Luncheon in Houston
+73865:July Forecast/Analysis from CERA
+17489:Energy Issues
+9160:Grandfathered Facilities - Endangered Species With No Prospects of Protection
+59083:Re: digitals
+34705:FW: Enron Press Release
+73943:Article on Conference &quot;Governors&apos; Natural Gas Summit: Responding to the Growing Energy Crisis&quot;
+59377:Re: Seismic Data via satellite
+72052:Wednesday S&amp;P -11.08 CRB -2.59 USD +0.44 NAS -108.97 DOW +26.17
+85383:Re: Cabot Oil &amp; Gas Marketing Corporation
+85453:Monthly Briefing: Turning on the Heat - CERA Alert
+93663:Del Marva Curve
+88972:ENAP Agreements
+22547:Emergency Diesel Generators in California
+56078:Re: Speakers for a CEO Meeting with NEBRASKA Governor Johanns
+4836:Restricted List
+9372:Weekly Envoironmental Activity Report
+35775:St. Mary&apos;s Production LLC VPP
+73182:
+64674:Enron Mentions
+48095:(01-162) Reminder and Clarification on NYMEX Division Post-Close Trading Sessions
+87389:Re: Wind and Powder River Purchase Contracts
+9678:PCB Decontamination of Turbine
+36164:(01-150) Amendments to NYMEX End of Week Post-Close Trading Session Rule
+55196:Re: New Product Type (US ResiOil Swap)
+30206:Re: ETS Chili Society
+52773:Re: Idemitsu Kosan Co Ltd
+25594:The Oxford Princeton Programme
+61331:To_do
+81139:RE: Open items for MDEA
+14342:Bush/Davis Meeting in the news
+60819:Re: 7/14--Crude Oil and Nat Gas
+88931:Citation
+68105:Re: PIRA Oil Briefing
+81135:RE: Open items for MDEA
+49850:EnronOnline - Financial Power Trading
+11475:Filings in Support of Kern River and El Paso Emergency Expansion Proposals
+41863:Energy Issues
+51949:(00-329)
+56292:AIESEC
+63398:Oil and Natural-Gas Shortages: Will They Create a Winter of Discontent?
+17519:Enron Mentions
+28435:Organizational Announcement
+51360:Re: EOL Credit Responses 08/23/00
+16939:Enron Mentions - 07/06/01
+61361:GPCM News: 12/13/00: Time Slots Available: Canadian Arctic Natural Gas: Gas Storage Levels: Tetco Expansion
+69708:RE: Oslo Meeting, Thursday, November 30
+64898:Enron Mentions
+75374:(00-412) Early Exchange Closing for 12/22 and 12/29/2000
+49476:Sanchez Oil &amp; Gas
+49529:Counterparty Approval Lists for 05/05/00. 05/08/00 and 05/09/00
+81062:Re: Open items for MDEA
+69774:H: E-business for Energy briefing
+26140:Re: Coastal Oil &amp; Gas Corporation
+61200:Energy: Oil Drilling: SURVEY FINDS PRODUCERS PLAN TO SPEND MORE THAN ORIGINALLY PLANNED IN ...
+44108:World Oil Market Forecast 04/28/00
+55512:Profile Manager Work Queue
+82969:GM - private and confidential - attorney/client privilege
+31346:Siemens negotiations
+9239:field visit of EOTT tanks
+52765:Re: Idemitsu Kosan Co Ltd
+17819:Energy Issues
+21444:Enron Mentions - 02/01/2001
+29118:Re: October, 2000 Deals Missing
+98962:In re M/V PACIFIC VIRGO
+31446:BRS Accomplishments - 2000
+83592:NYC Gate Basis
+17030:Energy Issues
+36593:SOCAL
+48742:EnronOnline Real-Time Quotes Service on Reuters
+40306:GRS - FERC AGENDA for 5/16/01
+14274:VentureWire, Tuesday, May 29, 2001
+12901:Enron Mentions - 04/28/01 - 04/29/01
+9254:EOTT crude oil tanks
+21119:What I told Teece
+29096:Expected Volumes for October
+50363:Re: Enron North America Corp. NYMEX Hedge Exemption Applications
+69861:Article about ken lay
+78982:VEPCO &quot;to do&quot; list
+17807:Power-Market Bear Mauls Plans For New Generators In West
+4240:FW:
+30524:Pueblo
+65656:Re: Draft NPC Report
+74436:Market/Supply List
+40847:Re: Enron Liquid Fuels, Inc. v. Gulf Oil Limited Partnership
+42279:California Legislation on QF pricing
+65340:News clip
+12238:Enron Mentions
+69485:Re: EGEP Sale Announcement
+85601:Re:
+54112:Re: US MTBE Fin Swap
+66194:Western Energy Markets Stuggle Along - CERA Monthly Briefing
+51564:ETA Amendment - Imperial Oil Resources
+69047:Governors Conference
+13615:VentureWire, Friday, September 8, 2000
+63853:Re: Security and Human Rights Policy Question
+62053:Re: Ming Sit
+67078:Energy Issues
+69521:S m o k e a n d S m e a r s
+55303:(01-70) Margin Credit for Spread Positions with the Goldman Sachs Commodity Index
+21278:Transcrip of Davis&apos; speech last night
+21876:Enron Mentions - 02/15/2001
+65375:Good Enron/Calpers Story in Sac Bee
+90342:Re: Cross Timbers Oil Company - Contact Information
+99948:Re: R &amp; C Trucks, Inc. v. ENA (Van Scoyk auto incident of 2/9/00)
+45088:FW: Ok, here is my diet &amp; nutrition philosophy :)
+26193:Re: Maynard Oil - Revised Nom
+1562:Re: FW: 2001 Natural Gas Production and Price Outlook Conference Call
+17884:Midday Market View for July 30, 2001
+29830:SCADA Inconsistencies @ Mill Run
+41652:Re: Energy Issues
+74095:Chevron and Texaco to Merge
+9145:Weekly Report, Roswell Area
+91751:Re: Cutter Oil Company
+18660:CPUC OII into SDG&amp;E gas facilities
+24798:Re: B &amp; J Gas &amp; Oil
+59050:Re: digitals
+24487:Re: Conference Call and Web Presentation: Volatility in Northeast Energy Markets... - CERA Conference Call
+3599:fwd: FW: Fwd: Picture worth a thousand words
+11567:Enron Mentions
+37492:DJ Enron, Powerex Investigated For Alberta Price Fixing
+52511:Home-Stake Oil &amp; Gas Company
+44701:EOTT Earnings Release
+40223:ISDA PRESS REPORT - APRIL 30, 2001
+91634:Re: Irving Oil CA
+81035:Open items for MDEA
+8292:Diamond Newsletter
+20571:Today&apos;s Van Vactor column
+88055:PSA for Harley Dome O&amp;G Acquisition
+57146:PIRA Global Oil and Natural Outlooks- Save these dates.
+62565:WTI CRUDE PRICE and NY Harbor Resid prices VS HENRY HUB and New York city gate gas BY MONTH
+29904:CBI&apos;s Business to Business Energy Conference Series
+55175:New Product Type (US ResiOil Swap)
+11881:Enron Mentions
+40619:Re: Cypress Exploration Program - Operator/Cash Call Issue
+61717:FW: fyi - more on truck s/d
+9087:weekly environmental activity report-Roswell Area
+45982:Officer&apos;s Certificate for EPOS
+53300:(00-386) Exchange to Allow Strip Trading in Propane
+56079:Speakers for a CEO Meeting with NEBRASKA Governor Johanns
+9187:RE: Additional Soil Investigations, North Coles Levee
+67607:Sivy on Stocks: Construction project
+62099:Book review
+9206:Weekly Report, Roswell Area
+34997:Credit Report for 3/13/2001
+13937:VentureWire People, Monday, May 21, 2001
+42919:Fwd: [The]
+34653:RE: Enron Press Release
+59728:Hi:
+13032:Enron Mentions - 05/02/01
+65587:EHS Weekly Report Ending 03/08/01
+44020:Maine Lawsuit
+50366:Re: Enron North America Corp. NYMEX Hedge Exemption Applications
+66934:Enron Mentions
+83396:ALSTOM captured an opportunity
+67485:(01-162) Reminder and Clarification on NYMEX Division Post-Close Trading Sessions
+57855:EnTouch Newsletter
+90922:Murphy Oil
+15669:VentureWire, Tuesday, October 10, 2000
+44309:Re: LAWRENCE CLAYTON, JR.
+8042:Cypress Exploration Program--Operator/Cash Call Issue
+99139:Re: Colonial Oil
+94530:Breakfast With The Fool: Shell Inks $4.05 Billion China Deal
+26158:Re: Coastal Oil &amp; Gas Corporation
+25567:AmeriFlash
+46063:Master Natural Gas Purchase and Sale Agreement
+58328:Refined Products Line--North American Markets - CERA Alert: Decem ber 15, 2000
+63742:EHS Weekly Report
+25821:Re: June 00 Production - O&apos;Connor &amp; Hewitt Ltd.
+96147:Re: Black Hills Pepperell tolling transaction
+64343:Department of Energy Pre-departure Briefing w/ Asst. Secy. Goldwyn
+81065:RE: Open items for MDEA
+25714:PIRA
+72095:Andrew, Wednesday S&amp;P +46.63 USD -0.31 CRB +0.05 DOW +399.10 NAS +156.22
+14484:Enron Mentions
+10081:EGM Organization Update &amp; Announcement
+27843:McMullen Line Maintenance
+15501:Utilities, Electric: Deregulation: The New War Over Oil: Outrage at the gas pump is ...
+46408:(01-85) Gasoline-Crack and Heating Oil-Crack Options Expiration Operational Procedures
+12951:Janet Yellen Named to the Academy of Arts and Sciences
+62524:Free two week FT-online Trial
+51389:BP Oil International Limited
+40729:Potential market maker
+25898:August 2000 Activity
+65181:State-by-state forecast for summer
+82295:Organization Announcement
+9493:Re: NNG Eunice Station
+11709:Enron Mentions - 06/06/2001
+11711:letter
+736:re:spreads
+69546:FW: Invitation to deliver 2001 IAEE conference keynote
+31678:Re: EPE Dispatch
+9165:FW: Grandfathered Facilities - Endangered Species With No Prospects of Protection
+65339:Energy Issues
+749:re:f/g
+37558:Harbor Cogen
+12579:Re: Energy Issues
+30146:Re: MMS meeting sheduled for Friday afternoon Feb 9th.
+88718:Purchase Supplement Letter
+81514:RE: Midway Toll term sheet &amp; LOI - comments
+45650:Re: FSA Guarantees with Glencore AG
+46652:New Product Type: US WTI Phy Exch Platts
+13934:Energy Issues-Mon
+64578:Energy Issues
+55953:News article on Enron
+1006:Bristol Babcock/Pagosa Energy - Well Master/Enron meeting notes
+47264:(01-129) END OF MIDDLE EAST SOUR CRUDE OIL FUTURES CONTRACT
+46660:Re: New Product Type: US Crude Fin Opt Call and Put
+11714:Re: letter
+3801:[cheatsheets] #123 Saturday Thoughts - TFL Report News (11-4-00)
+64256:Enron Mentions
+1386:RE: ng views + wager
+14163:Re: Talking points on gas in CA
+79055:RE: Change Order #3 to Add Dual Fuel to Unit #2 in BlueDog Contra ct with GE
+73725:TW Bullets 8/11
+52495:(00-354) Margin Rate Change for CL, HU, and HO
+32946:Re: Agencies - PLEASE READ
+27086:fwd: FW: Fwd: Picture worth a thousand words
+47377:(01-134) Cost Incentive Program for Brent Trading
+53206:(00-381) Exchange Early Closing Schedule for November 22, 2000
+27327:Re: Potential Volume list for March, 2000
+81140:RE: Open items for MDEA
+31808:EQUTRIANS for JULY
+27956:Re: Pathing question
+11159:More Likely that QFs will Get Paid Going Forward If Sign Deals with State
+32053:FW: INO.com Extreme Markets Daily Digest for May 11, 2000
+6276:Re: Metals
+73747:Monthly Briefing: In a High Range - CERA Alert
+52459:Re: Utilicorp United (ADM03769) requesting ability to transact UK crude and oil products
+12969:IEP News 5/1
+62059:Re: Book review
+17001:POWER POINTS:Nevada Suffers FERC Unintended Consequences
+57505:Erac Koch P+ spread options
+17427:Energy Issues
+53953:Delivered: NDA-PVM Oil Associates Limited
+68951:Governor&apos;s Business Council Energy Panel
+14192:Enron Mentions
+75508:Credit Report - 1/30/01
+89894:Clear Creek Storage FERC Proceeding
+13991:Electricity generators note Bush plan
+24676:Re: contract
+16730:FW: Article
+91752:Re: Cutter Oil Company
+41379:Organization Announcement
+11266:Enron Mentions
+65402:Re: Supreme Decree
+86432:Illinois case law on ability to assign a contract w/o consent when the contract is silent on assignability
+73363:EIA Revises Short Term Outlook
+58669:Re: MarketPoint License Agreement
+69818:Enron, Powerex Investigated for Alberta Price Fixing
+30492:The El Paso Controversy Continues
+28915:Something new for Entex-Yeah!!!
+25773:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Go to www.enerfax.com if can not view properly.htm
+99150:MT Pacific Valour
+1770:Enron Air Consultants
+55806:Energy Derivative Courses
+12022:Re: strategy for natural gas issues
+39521:ISDA PRESS REPORT FOR WEDNESDAY NOVEMBER 29, 2000
+55624:URGENT REQUEST: PLEASE REVIEW AND APPROVE NEW PRODUCT TYPE (ENRONONLINE)
+1531:Re: friday
+73912:Equiva Trading Company Cocktail Reception
+60397:Restricted List
+16417:Energy Issues
+9441:Fwd: NMOCD Training Seminar in Midland
+47645:Re: FW: Product Type approval for 2 product types (US Residual Fuel Oil 1% and 3% Crack Spreads)
+71702:Re: Everybody&apos;s All American
+93720:Breakfast With The Fool: Pepsi Courting Quaker, Again
+31396:Re: Questions re: Siemens Negotiations
+91046:Forest Oil Corporation
+32686:Re: Herald Oil &amp; Gas Jan Actuals
+74171:Electric Developments
+14559:Enron Mentions
+46799:(01-104) MARGIN RATE CHANGE FOR MIDDLE EAST SOUR CRUDE OIL FUTURES CONTRACTS
+17025:Enron Mentions - 07/07/01 - 07/09/01
+23503:Re:
+26205:Maynard Oil - Revised Nom
+16664:Enron Mentions - 06/25/01
+67003:MOU With India Oil Corp.
+12471:Enron Mentions
+11339:SIGNIFICANT DEVELOPMENTS; Davis Staff Admit that DWR Costs for Purchases Is Staggering and Rates Must Increase Dramatically; PG&amp;E says it will sue over QF payment plan; Mike Kahn Takes Pot Shots in Editorial Defending Davis/Lynch
+1995:Defining Big in Megawatt Ownership/B2B Exchanges Seek to Avert An titrust Tag
+31414:Re: Questions re: Siemens Negotiations
+33243:Transco Agency agreements
+45652:Re: Fuel Supply Agreement Consent
+24507:Enron project: Maharashtra State Electricity Board paying Rs. 95 cr. for unbought power
+55992:News article on Enron
+16674:IEP Clips 6/25
+74351:Delayed Sticker Shock: Managing the Surge in Residential Natural Gas Costs This Winter - CERA Decision Brief
+17551:Energy Issues
+55551:Financial Trading Agreement Database Link
+21092:(BN ) Enron Broadband&apos;s Indian CEO Sanjay Bhatnagar Resigns
+87324:Re: Sorry
+61900:US Gas Markets Reach New Heights: Where Will It Stop? - CERA Alert
+45690:Ameriflash Newsletter
+21596:Skiling/ ENRON in Businesssweek 2/12/01 issue
+29714:Re: Fw: Gear Box no. 19103, Trent Mesa WTG #79
+29055:Re: Meter 9707
+66692:Transcript of CNBC interview/Metgas
+59166:Re: Forward oil prices
+86697:Harvest Party
+16997:POWER POINTS:Nevada Suffers FERC Unintended Consequences
+49576:Imperial Oil Resources
+50409:Re: Enron North America Corp. NYMEX Hedge Exemption Applications
+8666:Diamonds Newsletter
+27833:FW: HOW TO SETTLE THE ELECTION
+12212:Enron Mentions
+72146:Your News Alert for YHOO
+56046:Elements of Power (4)
+48097:(01-155) Crude Oil Options Expiration Operational Procedures
+30423:Trade Press on PG&amp;E Issue
+50317:EnronOnline Market Descriptions
+10850:[Fwd: gassy cos.]
+88937:Spot Agreement
+81079:Re: FW: Open items for MDEA
+66889:Energy Issues
+73202:CERA Monthly Summary for June 2000 - CERA Monthly Summary
+50827:Synergy Oil &amp; Gas, Inc.
+11478:Enron Mentions - 03/31/01 - 04/01/01
+89994:Re: Merrick
+39782:GRS ElectricGasOil Alert (7-12-99)
+47938:(01-150) Amendments to NYMEX End of Week Post-Close Trading Session Rule
+97717:Re: Russia-Experienced Energy Attorney
+85908:Documents Request Project 20/20
+89766:Outline for proposed agreement
+29407:Spot or Firm Tickets
+66242:More Information
+65546:Summary of FERC Recommendation on California Market Monitoring &amp; EPSA Comment Outline
+6978:NCL
+53243:Re: New EOL Product - Crude Oil Financial
+32949:Eastern States Transport
+9377:Federal Oil &amp; Gas Maximum Achievable Control Technology
+49408:Re: Recipe &amp; Directions
+40846:Re: Enron Liquid Fuels, Inc. v. Gulf Oil Limited Partnership
+30901:Electric Developments
+91074:Master Gas Agreement
+53389:(00-389) New York Mercantile Exchange to Base Certain enymex Contracts on Platts Benchmarks
+98360:Re: Joe Richards
+14201:IEP News 5/23
+9269:Re: EOTT Crude Oil Tanks-Rev 1
+1276:Re: Extra credit
+16714:Energy Issues
+68543:DJ Ontario Power CEO: Up To 7,000 MW &apos;In Play&apos; By End 1Q
+3348:
+49343:RE: EnronOnline in Japan
+9288:Weekly Activity Report, Roswell Area
+59727:Re: Hi:
+6243:Re: Metals
+47701:Spectron LOI
+49135:Applicant from CareerPath.com :(0000103079)
+54078:Re: EOL Credit Responses 12/05/00
+24903:Enerfax Daily&apos;s free web version of gas &amp; power prices and info Enerfax Daily-Power and Gas Prices &amp; Info
+65127:Energy Issues
+67529:(01-150) Amendments to NYMEX End of Week Post-Close Trading Session Rule
+67524:Sivy on Stocks: Staggering toward profits
+83690:(01-156) NYMEX Post-Close Trading Session Rules
+67460:(01-157) Exchange Early Contract Closing Schedule for May 25, 2001
+90957:Spot Agreement
+16536:Energy Issues
+9711:Re: Environmental Costs for PG&amp;E and KN
+82474:Re: Invitation for e-ProCom Conference
+24652:Jones Day Houston Office
+40567:Re: Code of Ethics - Notice of Potential Conflict of Interest
+18940:Edison Mission Energy
+28850:Re: Meter 0980438 - Acock Production ??????
+9263:oil &amp; gas, transmission &amp; storage MACT regulations
+56227:various items
+59373:Ameriflash Newsletter
+82674:EGM Organization Update &amp; Announcement
+54745:Public Service Company of New Mexico
+35772:Splitting the vol. 97% to Brazos and 3% to BofA
+59095:Re: Research allocation
+73926:CERA Monthly Briefing: Supply Anxiety - CERA Alert
+9293:Re: Common Parts request
+72016:MEDIA GROK: Amazon Gets a Stocking Stuffer
+18386:VentureWire, Thursday, November 9, 2000
+29627:Re: FW: GEWE reporting and follow-up
+36735:Trader, Wednesday CRB -0.04 USD -0.02 DOW -17.96 S&amp;P -5.72 NAS -42.51
+12396:Enron Mentions - 04/21/01 - 04/22/01
+14547:IEP News: 6/3-6/4
+27333:Potential Volume list for March, 2000
+35859:St. Mary&apos;s Production LLC VPP
+36520:Interesting Article
+89552:EnronOnline Real-Time Quotes Service on Reuters
+17984:Midday Market View for July 31, 2001
+74723:Catching up and asking a favor
+64365:Re: Department of Energy Pre-departure Briefing w/ Asst. Secy. Goldwyn
+20290:Power Online Newsletter
+45756:Re: FW: Enron OnLine DRAFT compliance Document
+29093:Re: Expected Volumes for October
+10837:Conference Call and Web Presentation: Volatility in Northeast Energy Markets... - CERA Conference Call
+28859:Re: FIRST DELIVERY - CUMMINGS &amp; WALKER AND EXXON
+38953:Draft Organizational Announcement about Japan
+40001:Bush Energy Plan Emerges, Cuts in Renewable Energy Spending Expected
+44205:The EOTT articles in the Press
+49372:Re: EOL / Credit / GCP Responses 5/8/00
+61972:Fwd: Book and EPRM articles
+45792:Re: Nom Question
+36257:Re: Cabot Oil &amp; Gas Marketing Corporation
+91570:Matrix Oil &amp; Gas
+12227:Enron Mentions
+63698:GlobalCashExchange can establish Enron with corporate CFOs and treasurers worldwide
+10390:2000 EEO-1 Surveys Deadline Extended September 25, 2000 (From: Kelly Killian Satel)
+21631:Enron Mentions - 02/07/2001
+88974:Spot Agreement
+80240:Issues
+64586:OCS Final Rule, Order 639
+74439:NGI&apos;s Transwestern Article
+99132:Re: Killam Oil Dehydration in the Juanita Lobo Field, Webb County, Texas
+82730:Tokyo opportunities
+42997:FW: Dangers of &quot;big oil&quot;
+85668:transportation markets
+46028:Master Oil Contract for Brazos VPP Limited Partnership
+66204:Enron Mentions - 01/26/2001
+86724:Ameriflash Newsletter
+45346:Draft
+14785:Fwd: [Tech] Enron {01}
+46432:Re: PLEASE RESPOND: US Residual Fuel Oil 1% Fin Spd / US Residual Fuel Oil 3% Fin Spd
+13609:Energy Issues
+69136:e-business for energy briefing
+44087:Pipeline Reform Coalition Notes
+11820:Enron Mentions
+64458:As Predicted, the USA Today Article on Pipelines
+44244:Taft-Pontap Station Leak Update
+13517:Enron Mentions - 05/12/01 - 05/13/01
+62436:Re: PRESENTATION ON CURRENT OIL AND GAS MARKETS
+62127:Re:
+13600:Enron Mentions
+17428:IEP News 7/17
+64631:Enron Mentions - 05/26/01 - 05/27/01
+87775:India Relief Effort
+55942:Risk Magazine -Enron sponsored issue on Energy Derivatives
+15950:VentureWire, Thursday, October 19, 2000
+41544:FW: Proposed Windfall Profit Tax
+11716:Re: letter
+16249:Business this week October 21st - October 27th 2000
+51354:Re: EOL Credit Responses 08/23/00
+14579:VentureWire, Wednesday, June 6, 2001
+34706:FW: Enron Press Release
+8137:Re: Eunice Gas Plant
+8955:TRC Spill Cleanup Guidelines
+91999:Livelink Availability
+35779:St. Mary&apos;s Production LLC VPP
+64986:Energy Issues
+58237:Alliance Info Alert
+56428:model for insurance against cruel oil down side risk
+13441:Energy Issues
+26200:Revised Nom - Texlan Oil
+31588:Re: Draft letter to lenders - Approval By-pass Stack Damper Position
+15342:Utilities, Electric: Deregulation: California Utility Woes Attract National Attention
+85359:Re: Cabot Oil &amp; Gas Marketing Corporation
+49110:Belco Oil &amp; Gas Corp.
+1290:Re: try this one...
+66288:Enron Mentions
+7664:EGM Organization Update &amp; Announcement
+13914:Enron Mentions - 05/19/01
+31906:CBE, Inc. Equitrans production
+64632:Enron Mentions - 05/28/01 - 05/29/01
+81072:RE: Open items for MDEA
+82378:OPEC LOG
+88061:EnTouch Newsletter
+36710:Williams Energy News Live -- today&apos;s video newscast
+47266:(01-128) INTRODUCTION OF BRENT CRUDE OIL FUTURES CONTRACT
+27396:The eXPATRIATE ZONE - Issue #1 2/14/00
+64587:Enron Mentions - 06/04/01
+24624:FW: Rumors of Eni / Enron Merger Abound, Despite Denials from Eni
+31677:Re: EPE Dispatch
+72197:December 12, 2000 - Griffin Securities adds Sun (SUNW) to its &quot;buy&quot; list
+72133:Your News Alert for YHOO
+13844:Energy Issues
+55003:EnTouch Newsletter
+14602:RE: FW: Enron Demo Recap
+10896:Re: NEWS: California&apos;s problems can be contained
+1975:Montana Power Divests Oil &amp; Gas/Making a Case for CAES
+44167:EOTT Crude Oil Leak into Waterway
+12125:Enron Mentions - 04/14/01
+46679:(01-90) Unleaded Gasoline, Heating Oil, and Natural Gas Options Expiration Operational Procedures
+3797:Xmas List &amp; Something Tonight
+65256:Energy Issues
+64585:Enron Mentions - 06/02/01 - 06/03/01
+51763:(00-314) Options Expiration Operational Procedures for CGU0 and CHU0
+17270:Energy Issues
+40389:ISDA PRESS REPORT - MAY 29, 2001
+24183:Please forward to V.P. of New Generation or person in charge of New Generation Projects
+85216:bear markets
+73580:Enron In Action 02.12.01
+45749:Mobil Oil Corporation Master Enfolio Agreement
+53385:(00-389) New York Mercantile Exchange to Base Certain enymex Contracts on Platts Benchmarks
+53909:Hot Off the Presses
+96128:Re: Black Hills Pepperell tolling transaction
+29895:Natural-gas Prices Hit Astonishing Highs; Will Coal and Nuclear Benefit?
+52685:(00-331) Proposed Rule to Allow Strip Trading in Propane
+21796:follow-up -- San Diego electricity use only dipped temporarily -- see article below
+54560:Re: EOL Credit Responses 12/29/00
+63230:Enron Mentions
+62330:
+87825:EnTouch Newsletter
+90464:Re: Revised Cutter Oil contract
+73685:Trading Time to Move Up
+87318:Sorry
+31072:Midmonth Report: Early Warning - CERA Alert
+97776:Re: Gulf Oil Co.
+35894:KCS VPP
+44340:Re: Carol Browner Comments on Koch Fine
+72168:Tuesday NAS -83.23 DOW +42.47 USD +0.02 S&amp;P -9.02 CRB -2.45
+2747:Re: Cabot Oil &amp; Gas Marketing Corp. - 9/99 production - price
+24407:Re: coal plants
+33921:Hopewell
+45181:Re: Upstream Energy Services Cio, L.L.C.
+12697:Important - Save Money/Energy
+44109:GISB EC Producer Segment Election
+8436:
+57955:Weather Person for London EGM
+673:Re: Plants Shut Down and Sell the Energy
+99859:Grynberg - Recent Postings
+85677:API Crude, Distillate and Unleaded Stocks Graphs
+89022:Enfolio Contract comments
+74670:Financial Liquidation Issues
+52113:Re: United Oil &amp; Minerals -Amended Credit W/S
+25537:Ameriflash Newsletter
+68895:Telephone call to Steve Hellman, Oil Space
+48016:(01-156) NYMEX Post-Close Trading Session Rules
+21712:Re: eCompany Now Brief
+93664:Homestead, FL 6 x 1 LM6000 PC O&amp;M Estimate
+17351:Enron Mentions
+64592:Enron Mentions
+52356:US Heating Oil and Unleaded Gas Fin Spreads - Approval
+64431:GRS ElectricGasOil Alert [02/29/2000]
+30363:Re: AGC Job Posting
+36620:Williams Energy News Live -- today&apos;s video newscast
+52953:(00-367) Revised - Crude Oil Futures Expiration Date
+27957:FIRST DELIVERIES - COMSTOCK OIL &amp; GAS AND HESCO GATHERING COMPANY
+54090:(00-416) Options Expiration Operational Procedures for Gasoline-Crack and Heating Oil Crack
+90551:Cutter Oil Company
+13908:VentureWire, Monday, May 21, 2001
+13109:Enron Mentions - 05/04/01
+24720:Re: B &amp; J Gas and Oil
+75665:Yahoo - FuelCell Energy Signs First North American Distribution Agreement With PPL EnergyPlus
+66046:Re: Iraqui - Oil for food
+88412:Counterparties
+9070:Re: Rogas Line -- USFW Approval
+31099:Duke, Williams to Buy Gulfstream from Coastal Corporation
+29903:CBI&apos;s Business to Business Energy Conference Series
+12629:Enron Mentions
+11337:SIGNIFICANT DEVELOPMENTS; Davis Staff Admit that DWR Costs for Purchases Is Staggering and Rates Must Increase Dramatically; PG&amp;E says it will sue over QF payment plan; Mike Kahn Takes Pot Shots in Editorial Defending Davis/Lynch
+69196:U.S.-India Buisness Council; Daily Investment Update; September 1 2, 2000
+27525:FW: HOW TO SETTLE THE ELECTION
+44070:EOTT Energy Q&amp;A
+49496:Mega Natural Gas Company, L.L.C. / Cross Timbers Oil Company
+13999:Energy Issues-Tues
+10519:Nov. 27 -- BNA, Inc. Daily Labor Report
+16922:Enron Mentions - 07/05/01
+1247:Enron Mentions - 05/14/01
+36986:EnTouch Newsletter
+44277:Contract Approval, AFE&apos;s and Consulting Arrangements
+8763:Due Diligence, Equilon Pipeline Company
+60802:HEA Sporting Clays Tourney - August 15, 2000
+64169:Enron Mentions
+43241:Fwd: [Fwd: [Fw: Grandma Wisdom]]
+14198:Morning Market View for May 24, 2001
+87328:Re: Sorry
+34895:Credit Report -4/18/01
+43041:EMAZING Internet Tip of the Day - The Internet&apos;s Integrated Future
+8157:Analyst Rotation Opportunity at EOTT Energy Corp.
+39580:Rumors of Eni / Enron Merger Abound, Despite Denials from Eni
+32589:CNR Producers not in Global.
+25990:Re: Coastal Oil &amp; Gas Corporation
+17805:Power-Market Bear Mauls Plans For New Generators In West
+14630:Enron Mentions
+18657:Saturday
+12191:IEP News 4/17
+59955:Petrochem Desk
+61292:RE: Follow up
+9224:Eunice Gas Plant, Lea County, N.M.
+9184:Re: Additional Soil Investigations, North Coles Levee
+46124:Cross Timbers Oil Company and Louis Dreyfus Natural Gas
+51350:Re: EOL Credit Responses 08/23/00
+31205:EIA Releases Energy Outlook 2001
+76491:Opportunities at ENA
+10608:Re: Opportunities at ENA
+13567:Enron Mentions
+46019:Brazos VPP - Open issues
+54096:Re: NDA
+64463:Pipeline Safety Legislation
+36714:Trader, Thursday DOW +43.66 USD +0.38 S&amp;P -0.36 CRB +0.32 NAS -27.76
+16723:FW: Article
+12829:Enron Mentions - 4/27/01
+46503:Approval needed for US Crude Fin Opt Call and Put
+18239:RE: FW:
+73816:PanCanadian Buys Montana Power
+14413:Enron Mentions
+52111:Re: United Oil &amp; Minerals -Amended Credit W/S
+31125:Update on Alliance and Vector In Service
+42790:Corrected Organization Announcement
+46761:rush approvals - EOL
+1424:Re: Incremental Fuel Switching For Distillate-- Summer Estimate
+69172:Update on Contributions
+87400:Re: Wind and Powder River Purchase Contracts
+62820:weekly report
+17095:Enron Mentions
+90335:Group Goals
+91623:Irving Oil CA
+28874:Re: FIRST DELIVERY - WAGNER OIL
+25657:PIRA Discussion
+13822:Enron Mentions
+65329:Enron is both old and new economy --- an article
+11476:Enron Mentions - 04/02/01
+9157:EOTT tank database request
+48464:Belco Oil &amp; Gas
+41686:GRS - FERC AGENDA for 3/28/01
+> th% date>2001/08/01
+9354:Re: Example of Word perfect Document
+29530:Clear Sky ATP
+29881:Re: Monthly Reports
+29778:Re: Gear Box Temp Graphs
+29521:Re: StatServer Administration
+29675:Re: Visupro Status As of 6/12/02 10:00 hrs
+29885:Re: OH Reference on February Monthly Report
+29872:Re: Clear Sky SCADA testing
+29839:WR574 Wind and Turbine Data Clear Sky
+29649:Curtailment PC FAR
+9414:Emission Fees
+29750:Bus list at Desert Sky
+29467:Re: 1.5 Fleet Availability
+29661:Conversation with Gary
+29596:Desert Sky Curtailment April 2002
+29543:Trent Mesa WTG 8 Work Request
+9298:
+29763:Do Not Download or Install Software to your Machines
+29657:Re: Cost Center?
+29745:WR613 Pitch System Performance
+29536:MINANA FILES OF JAN&amp;FEB 2002 FOR FENNER
+29566:Lessons Learned Matrix for 2001 Projects
+29719:Auto download tool
+9427:re:
+9390:Status, Redrock Air Permits
+29713:Work Request
+29558:Re: February Mon Files
+29860:SCADA Daylight Savings Time information
+9351:Rec Rock/DEQ: N. Wrona, September 28, 2001
+29870:FAR MR/SS - Urgent
+9383:Sample Run Report Update.
+9272:Eott Crude oil tanks in hamlin&amp;haskell
+29717:GE Sponsorship with AT&amp;T Cellular Phones for Personal Use
+9286:TW Roswell Station Remediation
+29631:New Work Request
+9292:Common Parts request
+29825:Visualpro channel list
+9365:Kingman Review
+9313:PG&amp;E Weekly Report
+9417:Weekly Environemtnal Activity Report
+9319:the last photos
+29463:Clear Sky Park PC
+29647:Re: Your results
+29611:Re: Trent ATP test
+29801:Re: Curtail200206.db Question
+29480:WR #329 GP March/2002
+9423:Re: Fwd: Fw: Fwd: Fw: husband
+29725:Re: VisuPro Downloads needed
+29615:Re: Trent ATP test
+9303:Southwest Gas -- Filters
+9344:RE: Additional Note
+29628:Re: STARlite Update
+29736:Re: Fw: Gear Box no. 19103, Trent Mesa WTG #79
+29646:ILDC Conference
+29767:Re: New Download tool
+29461:Re: 1.5 Fleet Availability
+29741:Auto-download tool
+9301:Preliminary Environmental Timeline for Sun Devil Project
+29595:Work Request
+29813:Lisa Pitt&apos;s Baby Shower
+29688:6 Sigma CDs
+29591:List of Validation Categories
+29465:Re: Visupro Upload Status Spreadsheet
+29509:Re: CLear Sky/Trent Comparison
+9395:
+29792:Re: Somerset Minana
+29716:Re: Autodownload tool
+29800:Shares have moved..................
+29681:Re: February Mon Files
+29664:Space Shuttle
+9309:RE: Albuquerque Environmental Roundtable, Oct. 16-17
+9331:T&amp;E species update - Red Rock Mainline Expansion
+9386:FW: ENRON-TRANSWESTERN/PARTICULATES
+29639:How to Change your Voicemail Greeting
+29652:Lotus Notes
+29653:Cost Center?
+29762:Vacation &amp; Sick Leave Balances - Year 2002
+29805:Mill Run report through May with Virtual Mode corrections.
+29642:Re: Desert Sky May Log
+29685:Millrun/Sommerset Meeting
+29501:Clear Sky/Indian Mesa Production and availability for Mar 2002. Work Request complete.
+29831:Trent ATP
+29701:Old VG SPC Results - Question
+9340:RE: TNRCC Emission Fees
+29749:Printers
+9425:PG&amp;E Report
+29544:Trent Pareto Fault Analysis - March
+29809:Re: Re-calculation of Monthly Availability (Mill Run/Somerset)
+29556:Montfort Zmet FYI
+9373:FW: G3512 Emissions Data
+29759:Desert Sky Warranty Aggreements
+29520:Received: VisuPro data
+29622:Re: Curtail File Download
+29758:Gearbox data for WTGs 30 and 79 at Trent Mesa
+9409:Concur Expense Document - lc110101
+29776:Dennis Smith out of the office
+29863:Re: WR574 Wind and Production data
+29798:Kevin&apos;s Lunch
+29645:Favor
+29553:Antwort: Re: Antwort: SQL Database
+29787:Curtailment
+9355:Re: Red Rock: Pre-Permit Construction
+29663:Cell number
+29492:Data Acquisition/Flender Gearbox
+29684:Status of Timeslices from discussion with Zilka.
+29650:Desert Sky Wind Rose
+29782:Subset of data with extreme temp
+29673:Lotus Notes ID File and Archived Mail Files
+29599:Re: Trent Mesa Gen/Temp data
+29559:Re: Desert Sky ZMET graphs
+29883:Wind related faults
+29857:Re: Substation Data
+29552:Work Request - Amended
+29513:SCADA download 4-19-02
+29728:Re:
+29518:Linear regression needed
+29497:Re: Clear Sky March 2002 curtailment
+29590:Summarized Counter Values
+9360:Station 3 and 4 Review
+29493:Re: Proposed Clipper Availability
+29547:Re: Antwort: Availability Definitions
+29814:Re: Odd FreeAna behavior
+29723:Re: Autodownload tool
+29680:[S] confidence intervals for Weibull shape parameter
+9405:RE: FW: Red Rock Expansion Station 4
+29785:SCADA Green Power
+29772:Visupro
+29803:VisuPro Illegal operation
+29523:SCADA Network Training session April 30
+9352:FW: Martin Co.
+9282:Weekly Environmental Activity Report Roswell Area
+9429:Turbines
+9284:Remediation Projects - Current Estimate
+29570:Teh Area WTG Count / Pools
+29613:Re: FW: GEWE reporting and follow-up
+29574:Re: Fleet Availability Request
+29565:Mon0204 and 0205
+29755:Re: May curtailment spread
+9289:TNRCC Grandfather Meetings
+9310:RE: Endangered Species Surveys, Red Rock Expansion
+29504:Trent Mesa work request
+9332:Draft Permit Conditions for Transition Period
+29742:Notice of Network Wiring Upgrade (Tehachapi only)
+9403:Line 300 Liquid Sample SummaryTWNov2001.xls
+9420:Your password has been reset
+9337:Re: Draft Permit Conditions for Transition Period
+29827:Re: Availability Calculation Indian Mesa
+29665:Quality System Documentation
+29612:Re: FW: GEWE reporting and follow-up
+29769:Re: SCADA Requirements
+29732:Re: Desert Sky curtailment lists
+29802:Growing Pains - E-mail Conversion
+9359:RE: MOU
+29583:WHITEWATER - LOCATION &amp; FACILITIES FOR SERVICE CREW
+9322:RE: Red Rock Air Permits Heads up!
+9428:RE: Keystone Title V
+29581:Trent data
+29705:Re: Index Number
+29692:SCADA Requirements
+29771:ROI
+29707:Six Sigma
+29462:Re: 1.5 Fleet Availability
+9431:Enron/Dynegy Merger; Antitrust Issues
+29727:Operating State 29
+29629:Preliminary results from analysis of Visupro data for 5/17/02 time period that Gary Verkleeren asked about
+29844:Re: WR574 Wind and Turbine Data Clear Sky
+29799:Re: Curtail200206.db Question
+9375:Excel spreadsheets
+29829:Trent Mesa WTG #79 data
+29471:Re: 1.5 Fleet Availability
+29589:Re: April Availability
+29677:Meeting with Gary
+29643:Conversation with Gary
+9281:Re: FW: question on Transwestern
+29704:Re: Feb Curtailment, cont&apos;d
+9430:Red Rock: ADEQ permits
+29486:Re: Trent ATP
+29637:FAULTS CLOCK field
+9387:RE: Draft, Flagstaff Spring meeting
+29641:Re: Desert Sky May Log
+29835:Re: Work Request 574
+9297:Sun Devil - Helicopter Fly-Over of Routes
+29584:Vestas Availability 2002
+29770:Re: Do Not Download or Install Software to your Machines
+9306:Air Permit Delay, Red Rock Expansion
+29777:Re: Monthly Reporting
+29636:Your results
+29610:DB Table Additions
+29783:VisuPro site numbers
+29660:Re: Preliminary results from analysis of Visupro data for 5/17/02 time period that Gary Verkleeren asked about
+9398:Condensate Throughput Request
+29538:INITIAL SCADA ACCEPTANCE TEST RESULTS
+9296:Long Range Plans - Spring 2002 EH&amp;S/ SW Operations Meeting - Flagstaff, AZ
+29743:Meyers out of office
+29886:Monfort 1.5
+29542:Trent ErrDev # 64 &amp; 65
+29587:March Clear Sky Curtailment
+29838:Re: Work Request 574
+9273:PG&amp;E Report
+29571:Re: Consumption for for GE1.5
+29691:STAR Lite
+29780:Trent #79 FreeAna1.db
+29737:Re: Autodownload tool
+9397:Discharge Plans
+29633:SCADA Version IV proposals
+29598:&quot;Vestas Availability&quot;
+9275:Southwest Region Environmental Roundtable Oct. 16-18
+9384:Draft, Flagstaff Spring meeting
+29533:Re: StatServer Administration
+29644:Conversation with Gary
+9366:Staions 3 and 4 air permit comments to EPA
+29853:Monfort March SCADA
+29609:Re: Turbine #12
+29765:750 data
+9295:Turbine Changeout Presentations
+9404:Program Changes
+9290:EOTT P/L crude stations: emission fees, McElroy GF status, compliance
+9362:RE: Transwestern permits
+29459:Re: Montfort Production and availability
+29478:Monthly Availability Reporting
+29546:Double Check
+29824:Re: FW: RE: Revised Availability Numbers
+29686:Re: Questions/Observations about VisuPro
+9348:Public Comment Period Begins on Oct. 4
+29848:Clear Sky ATP Data
+29541:Work Request
+9370:Transwestern&apos;s comments to rough drafts of permit for Klagetoh and Leupp
+9299:Re: Sun Devil - Helicopter Fly-Over of Routes
+29773:Gear Box Temp Graphs
+29540:Revised comment, that you found unclear, for greater clarity. No other changes.
+29623:Mill Run April Monthly availability report
+9363:Watermark
+29698:Cabazon SPC Results
+9316:
+9283:Weekly Report
+29508:
+29840:Info needed
+29560:Good News: Email Addresses are on the Intranet!
+29619:Visupro&apos;s curtailment log
+29708:Definition of Availability
+29859:Re: WR574 Wind and Production data
+29756:Minana files
+29815:Desert Sky Curtailment
+29851:Clear Sky received
+9372:Weekly Envoironmental Activity Report
+9416:FYI, PCB mtg with SoCal
+9341:2001 Special Stock Option Grant Awards
+29460:1.5 Fleet Availability
+29519:Repair/Maintenance counter behavior
+29510:CLear Sky/Trent Comparison
+29592:Re: Data Acquisition/Flender Gearbox
+29563:STARlite Update
+29658:Mill Run/ Somerset
+29580:Re: Consumption for for GE1.5
+9329:Re: Telephone Conversation with EPA
+29679:Green belt six sigma debrief
+29539:Trent Mesa Report Elements from Oct 2001 to Dec 2001
+29517:Re: WR594 Gearbox data
+29733:Re: Desert Sky curtailment lists
+29740:Re: Tehachapi Only - Desktop and Dell laptop Users
+9330:Contacts List - final version
+9311:Redrock Permit Issue, Requested Information
+29525:Re: Data Acquisition/Flender Gearbox
+29834:Trent VisuPro data
+29550:Re: 1.5 MW WTG SPC reports
+29784:Question on cabling between Mark Walker&apos;s and Mark Fisher&apos;s workstations and the main servers
+29511:Clear Sky Final ATP
+9287:Preliminary Environmental Timeline - Sun Devil
+29586:Sampling Model
+29689:Re: Questions/Observations about VisuPro
+29474:Re: Domestic Fleet Availability
+29710:May Monthly Reports
+29651:Antwort: Undocumented fault messages
+29617:Availability reporting
+29866:Re: WR238 &amp; WR257 SL Ride through
+29468:Trent Mesa ATP
+29526:Data analysis needed
+9277:Topock PCB Analysis
+29498:Clipper Availability Edits
+29729:Total Down Time
+29494:International Lightning Detection Conf
+29548:April Availability numbers
+9285:Re: TNRCC Account Numbers
+29551:Work Request
+29703:SCADA Requirements
+29744:QFD Meeting at 1300 today in the South Bldg main conf room
+29632:Re: Availability formulas used
+29836:VisuPro counters
+29618:Curtailment software document-FYI
+29804:Kevin&apos;s lunch
+9421:Your password has been reset
+9357:MOU
+29766:New Download tool
+29847:Re: WR574 Wind and Turbine Data Clear Sky
+29806:Re: Mill Run report through May with Virtual Mode corrections.
+29830:SCADA Inconsistencies @ Mill Run
+29483:Re: Trent Mesa ATP
+29843:Re: [S] confidence intervals for Weibull shape parameter
+9368:Flagstaff Review
+9380:Re: Sulfur Content Test Method
+29576:Calculating &quot;Vestas Availability&quot;
+29477:Re: Trent Mesa ATP
+29490:Re: Proposed Clipper Availability
+9274:P-1 NOV Issue
+29873:March Curtailment
+9406:Re: ADEQ permits: public hearing
+29605:Summarized Counter Values
+29694:750 SPC Analytic
+9346:RE: Review Draft - Sundevil Fatal Flaw Analysis/Briefing Report
+29700:Software Requirements
+29696:Old VG SPC Results
+9424:PG&amp;E Report
+29816:REMINDER - Domino Account Created
+9342:RE: Review Draft - Sundevil Fatal Flaw Analysis/Briefing Report
+29706:Clarification of Six Sigma Requirement
+29488:Vaisala-GAI Order #104835 - Fault Finder
+29473:Request
+29738:New 6.1 Version of SPLUS will be shipped soon.
+29674:CPS curtailment meeting
+29678:Re: CPS curtailment meeting
+29671:Re: Zilkha Availability
+29861:WR574 Clear Sky Wind data
+29476:Availability and kWh Data From March 2002 that will go into Owner Report
+29499:Re: Clipper Availability Edits
+29503:Availability Calculation.ENG.DOC
+29781:1.5 MW series turbines: lightning damage
+9333:TW Roswell Station - Waste Characterization of Pit Areas
+9328:Re: Concur Expense Document - Larry Campbell
+29464:Visupro Upload Status Spreadsheet
+9339:Red Rock/DEQ: pre-permit construct
+29876:Re: Indian Mesa Testing
+29734:Re: Desert Sky curtailment lists
+29720:Re: Auto download tool
+29522:Re: Nacelle Position Configuration FYI
+29832:[S] Weibull confidence intervals (solution)
+29564:Trent Scada
+29730:Re: Total Down Time
+29655:VisuPro - files received update
+29662:Release of fault related documents to Zilka Energy
+29875:FAR MR/SS, FARE #01502.
+29667:Zilkha Availability
+9408:PG&amp;E/Transwestern Gas Quality Meeting
+9304:Riedel&apos;s Weekly Information September 7, 2001
+29577:Re: Consumption for for GE1.5
+29479:Weekly Report vs. O&amp;M Report
+29608:Faults Table
+9376:Re: Transwestern Alternative Operating Scenario
+9353:RE: FWD: Pumpkin
+29850:Sub Station Meter Readings
+29868:Re: WR527 Pitch System Faults
+9314:RE: Red Rock Air Permits Heads up!
+9415:EPA changes- PM lb/hr limits and annual test
+9324:See what you think
+29837:Re: Curtailment at Clear Sky
+29842:Somerset ErrDev
+9379:Sulfur Content Test Method
+29537:Re: Moving data files from Desert Sky (Clear Sky/Indian Mesa)
+29666:Fax Number 661.823.6752
+29722:VisuPro data for June 2002
+9336:
+29791:Re: [S] confidence intervals for Weibull shape parameter
+29670:Re: Zilkha Availability
+29579:Re: Calculating &quot;Vestas Availability&quot;
+29789:Curtail200206.db Question
+29514:MINANA FILES OF DEC 2001 FOR FENNER
+9419:Action Requested: Invoice Requires Coding/Issue Resolution/Approval for User: LAWRENCE CAMPBELL
+9294:New Mexico Turbine Changeout Memo
+29796:
+29852:Output from the Global SCADA meeting in Spain, March 25 through March 29, 2002.
+9276:Due Diligence Northwest Natural Gas Company-Summary
+29764:750 data
+29506:Clear Sky/Trent Comparison
+9343:Re: Additional Note
+29491:Re: Availability
+29487:Vaisala-GAI Order #104835 - Fault Finder
+29761:Uploads
+29602:Re: Spannungswerte USA
+29715:Update Curtailment
+9381:Re: Larry Campbell Fleet Tank Survey
+9358:Draft Permits and SOBs
+29512:Re: CLear Sky/Trent Comparison
+29714:Re: Fw: Gear Box no. 19103, Trent Mesa WTG #79
+29531:Re: Antwort: SQL Database
+9305:
+9410:Important FastWeb Scholarship Alert!
+29597:Desert Sky Curtailment April 2002
+9378:Re: Transwestern Alternative Operating Scenario
+29607:Re: Antwort: Reqested Texas Data
+9307:Albuquerque Environmental Roundtable, Oct. 16-17
+9335:
+29849:Mill Run ErrDev
+29760:GEPS Safety Month
+29567:Modification to down load VisuPro Z-Met data
+29606:Antwort: Reqested Texas Data
+29833:Clear Sky - IM 2
+29573:Re: Consumption for for GE1.5
+29687:Meter Readings
+29877:Re: FAR MR/SS, FARE #01502.
+29828:EW 1.5 Status counters
+29841:Request for SCADA power curves
+29871:Manual Log Data Recieved For March 2002
+29731:Operating State 29
+29882:Re: Wr586 Mill Run Somerset 2002 Data
+29811:Fluvanna and Trew Ranch reports
+9338:Discussion with Roger Kohn of Region IX EPA
+29702:SIX SIGMA
+29470:Feb Scada
+29634:Re: Turbine 9
+29466:Meter Test
+9288:Weekly Activity Report, Roswell Area
+29793:URGENT! Disability Ballot
+29496:Re: International Lightning Detection Conf
+29489:Proposed Clipper Availability
+29534:Re: Visupro Data Magnitude and Precision
+29845:Wr 574 - data
+29495:Re: Trent ATP test
+9349:ADEQ permit revisions
+29630:Re: Preliminary results from analysis of Visupro data for 5/17/02 time period that Gary Verkleeren asked about
+9426:RE: Keystone Title V
+9293:Re: Common Parts request
+29603:Re: Teh Area WTG Count / Pools
+29627:Re: FW: GEWE reporting and follow-up
+29527:Re: Antwort: SQL Database
+29753:WR613 Pitch System Fault Pareto
+9385:RE: Draft, Flagstaff Spring meeting
+29718:Re: Autodownload tool
+29697:LB1 SPC Analytic
+29600:Re: Trent Mesa Gen/Temp data
+9347:RE: Red Rock/ADEQ: Nancy Wrona meeting
+29585:Re: Vestas Availability 2002
+29711:Antwort: Re: Index Number
+29869:Cabazon Data
+29779:Gearbox Temp graphs
+29822:Essential IT information for Monday 7/15 Network Cutover
+9399:RO Signature Requirements
+9325:Telephone Conversation with EPA
+29786:Curtailment
+9300:Original Dates
+29549:1.5 MW WTG SPC reports
+9374:Expidited Request to EPA for Review
+29690:Re: WR569 SPC report (750)
+29884:Re: OH Reference on February Monthly Report
+29561:FYI-Montfort met tower
+29846:Re: WR574 Wind and Turbine Data Clear Sky
+29469:Domestic Fleet Availability
+29572:Re: Modification to down load VisuPro Z-Met data
+29640:Reply to Jeff Maurer&apos;s Request For Availability Info To Give To Potentail Customers at AWEA
+29485:Re: downtime allocation document and parameter list
+9361:RE: Draft Permits for Stations 3 and 4
+29862:Power consumption counter
+10053:Enron Wholesale Services 2001 Legal Conference
+29648:Re: WR613 Pitch System Performance
+9412:Award Deadline Notification
+29797:Software That is Not Part of the Coreload
+29752:May curtailment spread
+29878:Monthly Reports
+29535:Re: Moving data files from Desert Sky (Clear Sky/Indian Mesa)
+9401:ETS Year-end Performance Evaluation Process
+29578:GE Wind Energy Purchase Orders
+29626:Work Request Reminder
+29669:FYI - Lightining Storm 08 - 09 Mar 02
+29695:Six Sigma work must be completed by July 15, 2002
+29721:Work request
+29865:S-Plus
+29751:Curtailment
+29482:Re: Weekly Report vs. O&amp;M Report
+29874:WR585 Mill Run Production Data
+29481:Feb Scada
+29620:Re: Desert Sky
+29562:Consumption for for GE1.5
+29821:FW: RE: Revised Availability Numbers
+29593:Re: Vestas non-leaning
+29656:Mill Run Mon files
+29676:GEWE PIA&apos;s
+29747:Pad # 79 &amp; # 30 Trent Mesa site
+29726:Re: Availability forecasting and related $ liability
+29856:Detailed Guidance On 1.5 Availability Computation. Do not send Procedure to owners until Field Ops approves it for release to the Owners
+29555:Clear Sky Raw Data
+9320:Response to Redrock Air Permit Delay
+29724:Desert Sky data
+29616:FYI-Availability reporting
+29864:Re: WR574 Wind and Production data
+29879:Monthly Reports
+9382:FW: ENRON-TRANSWESTERN/PARTICULATES
+29635:Automatically generated account information
+29817:Cutover to GE Network Time Has Arrived
+29858:Re: WR583 1.5 Parasitic Loads
+9327:Re: Telephone Conversation with EPA
+29500:Re: Clipper Availability Edits
+29672:Re: Zilkha Availability
+29683:Downtime Logs
+9369:RE: TW Comments to air permits for Stat3 and 4
+9326:FW: Preliminary Environmental Cost Estimate
+29654:SCADA &amp; Misc.
+29775:GE Wind Energy Integration Newsletter, volume 2!
+29818:ABRA HRIS System
+29812:Re: Fluvanna and Trew Ranch reports
+9396:Topock Sample Run
+29746:WR613 Pitch System Performance
+29754:Re: Request
+29668:Zilkha Availability
+29575:Re: Consumption for for GE1.5
+29820:WR613 Pitch System performance
+29774:A message from John Rice
+29621:Re: downtime allocation document and parameter list
+29601:Visupro LKM files
+29712:Update to Desert Sky May 02 Curtailment Summary
+9391:API 653
+29867:Re: WR238 &amp; WR257 SL Ride through
+29568:Modification to down load VisuPro Z-Met data
+29807:Re-calculation of Monthly Availibility (Mill Run/Somerset)
+29819:WR627 Fault Paretos (May 2002)
+29795:Medical ID Cards
+29472:Re: Domestic Fleet Availability
+29790:WR613 Pitch System Performance
+29823:URGENT!!! CUTOVER WEEKEND
+29624:RE: 3200 - Desert Sky: final SCADA Report
+29588:Trent ATP data
+29516:Antwort: Another example of Bad time Stamping in StatDat file
+29532:Capabilities Memo
+29554:ZMET data
+29748:Re: Primary Index for all messages
+29757:Request
+29709:GE Sponsorship with AT&amp;T Cellular Phones for Personal Use
+9407:Re: ADEQ permits: public hearing
+9308:Re: Arizona Permitting
+29638:Re: Monthly Operational Report - cost
+9418:RE: Status of Martin co. NO. 1
+9402:Permit Mods Signed
+9392:Tank Inspections
+29507:
+29475:Storm Lake 1 &amp; 2 SCADA password changed
+9371:RE: Staions 3 and 4 air permit comments to EPA
+29826:VisuPro Information Needed
+29699:DMP SPC Results
+29854:Re: [S] confidence intervals for Weibull shape parameter
+29735:1.5 SPC Analytic Desert Sky
+29794:GE&apos;s Mail Retention Policy
+29528:Re: Antwort: SQL Database
+29614:LB 1 STAR upload
+29604:Re: Spannungswerte USA
+29594:Re: &quot;Vestas Availability&quot;
+29529:Re: Output.data
+29515:Availability Impact of Faults / Errors in 1.5 MW Turbine Projects
+29524:Antwort: SQL Database
+29682:Six Sigma Pitch
+9364:Generator issues.
+29855:Draft Watermark
+9393:2001 Cost Update for TW &amp; NNG Remediation Projects
+29880:Mill Run WTG 8 and 9 Counter Discrepancies
+29582:Turbine Availability
+29768:WR613 Pitch System Performance (Energy)
+29484:Re: Trent Mesa ATP
+9350:Re: Public Comment Period Begins on Oct. 4
+29739:Re: New 6.1 Version of SPLUS will be shipped soon.
+> ^C
+
+See you next time!
+haiyang3@ui11:~/prj2>
