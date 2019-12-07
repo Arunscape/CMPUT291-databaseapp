@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 black = "*"
 bsddb3 = "*"
+pyflakes = "*"
 
 [requires]
 python_version = "3.8"
